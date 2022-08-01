@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Form from "./components/Form";
 import Movies from "./components/Movies";
 import Header from "./components/Header";
+import MovieDetail from "./components/MovieDetail";
 import { MoviesContextProvider } from "./MoviesContext";
 
 function App() {

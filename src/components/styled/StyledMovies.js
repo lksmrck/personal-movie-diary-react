@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import React from "react";
-
 export const StyledMovies = styled.div`
   width: 955px;
   display: flex;

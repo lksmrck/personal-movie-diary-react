@@ -6,22 +6,37 @@ import { GoTrashcan } from "react-icons/go";
 import MoviesContext from "../MoviesContext";
 
 export default function MovieCard(props) {
-  const [value, setValue] = useState(null);
+  const [valueL, setValueL] = useState(null);
+  const [valueV, setValueV] = useState(null);
 
   const { deleteMovie } = useContext(MoviesContext);
 
-  const onChangeRating = (event, newValue) => {
-    setValue(newValue);
+  const onChangeRatingL = (event, newValue) => {
+    setValueL(newValue);
+  };
+
+  const onChangeRatingV = (event, newValue) => {
+    setValueV(newValue);
   };
 
   const onClickButton = () => {
     deleteMovie(props.id);
   };
 
+  const onClickImg = () => {
+    props.detailClick(props.id);
+  };
+
   return (
     <StyledMovieCard>
       <div className="img-trash-container">
-        <img src={props.imageURL} width="138px" height="195px" />
+        <img
+          src={props.imageURL}
+          width="138px"
+          height="195px"
+          //Když kliknu na obrázek, pošlu do funkce props.id itemu, na který jsem klikl.
+          onClick={onClickImg}
+        />
         <GoTrashcan className="trash-icon" onClick={onClickButton} />
       </div>
       <h2>{props.title}</h2>
@@ -31,8 +46,8 @@ export default function MovieCard(props) {
         L:
         <Rating
           name="simple-controlled"
-          value={value}
-          onChange={onChangeRating}
+          value={valueL}
+          onChange={onChangeRatingL}
           size="small"
           max={10}
           precision={0.5}
@@ -42,8 +57,8 @@ export default function MovieCard(props) {
         V:{" "}
         <Rating
           name="simple-controlled"
-          value={value}
-          onChange={onChangeRating}
+          value={valueV}
+          onChange={onChangeRatingV}
           size="small"
           max={10}
           precision={0.5}

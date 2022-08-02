@@ -1,7 +1,7 @@
 //tady bude map, která bude vytvářet movie s props --> <Movie props - key, title, date, watched
 import { React, useContext, useState } from "react";
 import MovieCard from "./MovieCard";
-import MovieDetail from "./MovieDetail";
+import MovieDetail from "./movie-detail/MovieDetail";
 import { StyledMovies } from "./styled/StyledMovies";
 import { ContainerMovies } from "./styled/containers/ContainerMovies";
 import MoviesContext from "../MoviesContext";
@@ -32,7 +32,8 @@ const DUMMY_MOVIES = [
 ];
 
 export default function Movies(props) {
-  const { movies, setDisplayedDetail } = useContext(MoviesContext);
+  const { movies, setDisplayedDetail, setClickedMovieId } =
+    useContext(MoviesContext);
   const [detailClicked, setDetailClicked] = useState(false);
   const [hasDetail, setHasDetail] = useState(false);
 
@@ -40,10 +41,7 @@ export default function Movies(props) {
     setDetailClicked(true);
     //Sem se dotáhne detail, který se bude zobrazovat
 
-    setDisplayedDetail(movies.find((movie) => movie.id == movieId).title);
-    /* const findingDetail = movies.find((movie) => movie.id == movieId).title;
-    console.log(findingDetail); */
-    //sem se posílá movieID
+    setClickedMovieId(movieId);
   };
 
   const handleMovieClickBack = () => {

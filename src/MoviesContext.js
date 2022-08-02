@@ -6,6 +6,8 @@ export function MoviesContextProvider({ children }) {
   //Array s filmy, do kt. se budou přidávat
   const [movies, setMovies] = useState([]);
   const [displayedDetail, setDisplayedDetail] = useState("");
+  //Sleduje ID filmu, na který se kliknulo - aby pak šel identifikovat až se bude měnit detail
+  const [clickedMovieId, setClickedMovieId] = useState("");
 
   //Funkce na přidání filmu do array
   const addToMovies = (addedMovie) => {
@@ -22,7 +24,6 @@ export function MoviesContextProvider({ children }) {
     setMovies((prevMovies) => {
       return [movieToBeAdded, ...prevMovies];
     });
-    console.log(movies);
   };
 
   //Funkce na odstranění filmu po kliknutí na ikonu.
@@ -40,10 +41,13 @@ export function MoviesContextProvider({ children }) {
     <MoviesContext.Provider
       value={{
         movies,
+        setMovies,
         addToMovies,
         deleteMovie,
         displayedDetail,
         setDisplayedDetail,
+        setClickedMovieId,
+        clickedMovieId,
       }}
     >
       {children}

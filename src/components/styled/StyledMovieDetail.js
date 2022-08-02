@@ -45,4 +45,13 @@ export const StyledMovieDetail = styled.div`
     z-index: 30;
     animation: slide-down 300ms ease-out forwards;
   }
+  .detail-buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 7px;
+  }
+  .text-field {
+    background-color: white;
+  }
 `;

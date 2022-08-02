@@ -5,6 +5,7 @@ const MoviesContext = createContext();
 export function MoviesContextProvider({ children }) {
   //Array s filmy, do kt. se budou přidávat
   const [movies, setMovies] = useState([]);
+  const [displayedDetail, setDisplayedDetail] = useState("");
 
   //Funkce na přidání filmu do array
   const addToMovies = (addedMovie) => {
@@ -41,6 +42,8 @@ export function MoviesContextProvider({ children }) {
         movies,
         addToMovies,
         deleteMovie,
+        displayedDetail,
+        setDisplayedDetail,
       }}
     >
       {children}

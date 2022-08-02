@@ -32,14 +32,17 @@ const DUMMY_MOVIES = [
 ];
 
 export default function Movies(props) {
-  const { movies } = useContext(MoviesContext);
+  const { movies, setDisplayedDetail } = useContext(MoviesContext);
   const [detailClicked, setDetailClicked] = useState(false);
   const [hasDetail, setHasDetail] = useState(false);
 
   const handleMovieClick = (movieId) => {
     setDetailClicked(true);
-    const findingDetail = movies.find((movie) => movie.id == movieId).title;
-    console.log(findingDetail);
+    //Sem se dotáhne detail, který se bude zobrazovat
+
+    setDisplayedDetail(movies.find((movie) => movie.id == movieId).title);
+    /* const findingDetail = movies.find((movie) => movie.id == movieId).title;
+    console.log(findingDetail); */
     //sem se posílá movieID
   };
 

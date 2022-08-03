@@ -35,18 +35,15 @@ export default function Movies(props) {
   const { movies, setDisplayedDetail, setClickedMovieId } =
     useContext(MoviesContext);
   const [detailClicked, setDetailClicked] = useState(false);
-  const [hasDetail, setHasDetail] = useState(false);
 
   const handleMovieClick = (movieId) => {
     setDetailClicked(true);
-    //Sem se dotáhne detail, který se bude zobrazovat
 
     setClickedMovieId(movieId);
   };
 
   const handleMovieClickBack = () => {
     setDetailClicked(false);
-    setHasDetail(false);
   };
 
   return (

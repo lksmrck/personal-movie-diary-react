@@ -1,12 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import MoviesContext from "../../MoviesContext";
 import AddMovieDetail from "./AddMovieDetail";
 import NoMovieDetail from "./NoMovieDetail";
 import DisplayDetail from "./DisplayDetail";
 
 export default function MovieDetail(props) {
-  const { movies, clickedMovieId, setMovies, setDisplayedDetail } =
-    useContext(MoviesContext);
+  const {
+    movies,
+    clickedMovieId,
+    setMovies,
+    setDisplayedDetail,
+    displayedDetail,
+  } = useContext(MoviesContext);
   //State, kterému se přidělují 3 hodnoty a podle nich se podmíněně renderujou věci v modálním okně. Viz níže.
   //Tyto hodnoty může state mít:
   // "DISPLAY-DETAIL"
@@ -15,10 +20,28 @@ export default function MovieDetail(props) {
   const [detailState, setDetailState] = useState("DISPLAY-NO_DETAIL");
   //State sledující detail, který se vyplňuje
   const [filledDetail, setFilledDetail] = useState("");
+  const [clickedMovieHasDetail, setClickedMovieHasDetail] = useState(null);
+
+  useEffect(() => {
+    if (displayedDetail.length > 0) {
+      /* setClickedMovieHasDetail(true) */
+      setDetailState("DISPLAY-DETAIL");
+    }
+  }, []);
 
   const detailClick = () => {
     props.detailClick();
   };
+
+  useEffect(() => {
+    const updatedMovies = movies.map((movie) => {
+      if (movie.id === clickedMovieId) {
+        return { ...movie, detail: filledDetail };
+      }
+      return movie;
+    });
+    setMovies(updatedMovies);
+  }, [filledDetail]);
 
   const handleDetailChange = (event) => {
     setFilledDetail(event.target.value);
@@ -27,24 +50,19 @@ export default function MovieDetail(props) {
   //Přepunutí state, když se klikne na Add Movie Detail (aby se vyrenderovalo textové pole)
   const addMovieDetailHandler = () => {
     setDetailState("DISPLAY-TEXT_AREA");
-    console.log(detailState);
   };
 
   //Vyplňování detailu a update movie v array z MoviesContextu
   const detailSubmitHandler = (event) => {
     event.preventDefault();
-    console.log("STart:" + detailState);
-    const updatedMovies = movies.map((movie) => {
-      if (movie.id === clickedMovieId) {
-        return { ...movie, detail: filledDetail };
-      }
+    setDetailState("DISPLAY-DETAIL");
 
-      return movie;
-    });
+    const detailToBeShown = movies.find(
+      (movie) => movie.id == clickedMovieId
+    ).detail;
+    console.log(detailToBeShown);
+    setDisplayedDetail(detailToBeShown);
 
-    setMovies(updatedMovies);
-
-    showDetailHandler();
     //2.zpusob
     /* const movieIndex = movies.findIndex(
       (movie) => movie.id == clickedMovieId
@@ -52,15 +70,6 @@ export default function MovieDetail(props) {
     setMovies((prevMovies) => {
       return [...prevMovies, prevMovies.[movieIndex].detail = detail]
     }) */
-  };
-
-  const showDetailHandler = () => {
-    setDisplayedDetail(
-      movies.find((movie) => movie.id == clickedMovieId).detail
-    );
-    const actualState = "DISPLAY-DETAIL";
-    setDetailState(actualState);
-    console.log("END:" + detailState);
   };
 
   const closeDetailHandler = () => {

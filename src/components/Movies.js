@@ -50,11 +50,11 @@ export default function Movies(props) {
     setClickedMovieId(movieId);
 
     const detailToBeShown = movies.find((movie) => movie.id == movieId).detail;
-    if (displayedDetail.length > 0) {
+    if (detailToBeShown.length > 0) {
       setDetailState("DISPLAY-DETAIL");
       console.log(detailToBeShown);
       setDisplayedDetail(detailToBeShown);
-    }
+    } else setDetailState("DISPLAY-TEXT_AREA");
     setDisplayedDetail(detailToBeShown);
   };
 

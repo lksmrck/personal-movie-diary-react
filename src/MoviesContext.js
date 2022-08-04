@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const MoviesContext = createContext();
 
@@ -8,6 +8,8 @@ export function MoviesContextProvider({ children }) {
   const [displayedDetail, setDisplayedDetail] = useState("");
   //Sleduje ID filmu, na který se kliknulo - aby pak šel identifikovat až se bude měnit detail
   const [clickedMovieId, setClickedMovieId] = useState("");
+
+  const [detailState, setDetailState] = useState("DISPLAY-NO_DETAIL");
 
   //Funkce na přidání filmu do array
   const addToMovies = (addedMovie) => {
@@ -37,6 +39,15 @@ export function MoviesContextProvider({ children }) {
   //Po kliknutí na obrázek s filmem se objeví modální okno. Tam se vyrenderuje buď "Add Detail" nebo ten detail, pokud už pridaný je. Tato funkce je pro přidání detailu.
   const onAddMovieDetail = (movieId) => {};
 
+  const onChangeDisplayedDetail = () => {
+    const detailToBeShown = movies.find(
+      (movie) => movie.id == clickedMovieId
+    ).detail;
+
+    console.log(detailToBeShown);
+    setDisplayedDetail(detailToBeShown);
+  };
+
   return (
     <MoviesContext.Provider
       value={{
@@ -48,6 +59,9 @@ export function MoviesContextProvider({ children }) {
         setDisplayedDetail,
         setClickedMovieId,
         clickedMovieId,
+        onChangeDisplayedDetail,
+        setDetailState,
+        detailState,
       }}
     >
       {children}

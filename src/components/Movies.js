@@ -32,14 +32,30 @@ const DUMMY_MOVIES = [
 ];
 
 export default function Movies(props) {
-  const { movies, setDisplayedDetail, setClickedMovieId } =
-    useContext(MoviesContext);
+  const {
+    movies,
+    setDisplayedDetail,
+    setClickedMovieId,
+    clickedMovieId,
+    onChangeDisplayedDetail,
+    setDetailState,
+    detailState,
+    displayedDetail,
+  } = useContext(MoviesContext);
   const [detailClicked, setDetailClicked] = useState(false);
 
+  ///DULEZITA FUNKCE - KLIK NA FILM
   const handleMovieClick = (movieId) => {
     setDetailClicked(true);
-
     setClickedMovieId(movieId);
+
+    const detailToBeShown = movies.find((movie) => movie.id == movieId).detail;
+    if (displayedDetail.length > 0) {
+      setDetailState("DISPLAY-DETAIL");
+      console.log(detailToBeShown);
+      setDisplayedDetail(detailToBeShown);
+    }
+    setDisplayedDetail(detailToBeShown);
   };
 
   const handleMovieClickBack = () => {
@@ -61,7 +77,10 @@ export default function Movies(props) {
           />
         ))}
         {detailClicked ? (
-          <MovieDetail detailClick={handleMovieClickBack} />
+          <MovieDetail
+            detailClick={handleMovieClickBack}
+            movieState={detailClicked}
+          />
         ) : (
           ""
         )}

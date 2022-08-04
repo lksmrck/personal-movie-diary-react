@@ -10,7 +10,11 @@ export default function DisplayDetail(props) {
     <StyledMovieDetail>
       <p>{displayedDetail} </p>
 
-      <Button variant="outlined" color="success">
+      <Button
+        variant="outlined"
+        onClick={props.testDeleteLater}
+        color="success"
+      >
         Edit
       </Button>
       <Button variant="outlined" color="error" onClick={props.detailClick}>

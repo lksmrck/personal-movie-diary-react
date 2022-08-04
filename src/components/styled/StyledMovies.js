@@ -9,4 +9,14 @@ export const StyledMovies = styled.div`
   margin: 20px;
 
   border: 1px solid white;
+
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
 `;

@@ -12,15 +12,15 @@ export default function AddMovieDetail(props) {
             sx={{ width: 500 }}
             className="text-field"
             id="filled-multiline-static"
-            label="Movie detail"
+            label="Movie thoughts"
             multiline
             rows={10}
-            placeholder="Add your thoughts..."
+            placeholder="Whatcha think about the movie?"
             variant="filled"
             value={props.filledDetail}
             onChange={props.handleDetailChange}
           />
-          <div className="detail-buttons-container">
+          <div className="add-detail-buttons-container">
             <Button variant="contained" type="submit">
               Add movie detail
             </Button>

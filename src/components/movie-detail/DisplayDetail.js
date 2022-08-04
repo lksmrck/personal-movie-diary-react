@@ -12,14 +12,19 @@ export default function DisplayDetail(props) {
 
   return (
     <StyledMovieDetail>
-      <p>{displayedDetail} </p>
-
-      <Button variant="outlined" onClick={onEditHandler} color="success">
-        Edit
-      </Button>
-      <Button variant="outlined" color="error" onClick={props.detailClick}>
-        Take me back
-      </Button>
+      <div className="detail-container">
+        <div className="detail-text-container">
+          <p>{displayedDetail} </p>
+        </div>
+        <div className="detail-buttons-container">
+          <Button variant="outlined" onClick={onEditHandler} color="success">
+            Edit
+          </Button>
+          <Button variant="outlined" color="error" onClick={props.detailClick}>
+            Take me back
+          </Button>
+        </div>
+      </div>
     </StyledMovieDetail>
   );
 }

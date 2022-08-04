@@ -1,10 +1,17 @@
 import styled from "styled-components";
 
 export const StyledMovieDetail = styled.div`
+  position: fixed;
+  top: 20vh;
+  left: 25%;
+  height: 330px;
+
   width: 500px;
   background-color: #12141f;
   border-radius: 5px;
   margin: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
 
   border: 1px solid white;
 
@@ -23,35 +30,39 @@ export const StyledMovieDetail = styled.div`
     margin: 4px;
   }
 
-  .backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 20;
-    background-color: rgba(0, 0, 0, 0.75);
+  .add-detail-buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 12px;
   }
 
-  .modal {
-    position: fixed;
-    top: 15vh;
-    left: 5%;
-    width: 90%;
+  .text-field {
     background-color: white;
-    padding: 1rem;
-    border-radius: 14px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    z-index: 30;
-    animation: slide-down 300ms ease-out forwards;
+  }
+
+  //MovieDetail.js
+  .detail-container {
+    width: 100%;
+    height: 100%;
   }
   .detail-buttons-container {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 7px;
+    margin-top: 5%;
   }
-  .text-field {
-    background-color: white;
+  .detail-buttons-container button {
+    margin-top: 2%;
+  }
+  .detail-text-container {
+    background-color: #161d2e;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 200px;
+    border-radius: 5px;
+  }
+  .detail-text-container p {
+    margin-left: 7px;
   }
 `;

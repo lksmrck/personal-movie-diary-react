@@ -15,11 +15,6 @@ export default function MovieDetail(props) {
     setDetailState,
     detailState,
   } = useContext(MoviesContext);
-  //State, kterému se přidělují 3 hodnoty a podle nich se podmíněně renderujou věci v modálním okně. Viz níže.
-  //Tyto hodnoty může state mít:
-  // "DISPLAY-DETAIL"
-  // "DISPLAY-TEXT_AREA"
-  // "DISPLAY-NO_DETAIL"
 
   //State sledující detail, který se vyplňuje
   const [filledDetail, setFilledDetail] = useState("");
@@ -46,9 +41,6 @@ export default function MovieDetail(props) {
     event.preventDefault();
     setDetailState("DISPLAY-DETAIL");
     console.log(displayedDetail);
-    /* createDetailDisplay(); */
-    //Tady je chyba !!!! Dobře se uloží do array ten detail, ale špatně se zobrazí. clickedMovieId je OK !!!
-    //Tohle není funkce!!! Provede se jen u prvního detailu.
 
     const updatedMovies = movies.map((movie) => {
       if (movie.id === clickedMovieId) {

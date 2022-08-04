@@ -5,6 +5,7 @@ import MovieDetail from "./movie-detail/MovieDetail";
 import { StyledMovies } from "./styled/StyledMovies";
 import { ContainerMovies } from "./styled/containers/ContainerMovies";
 import MoviesContext from "../MoviesContext";
+import Backdrop from "./Backdrop";
 
 //Dummy movies na test
 const DUMMY_MOVIES = [
@@ -54,7 +55,7 @@ export default function Movies(props) {
       setDetailState("DISPLAY-DETAIL");
       console.log(detailToBeShown);
       setDisplayedDetail(detailToBeShown);
-    } else setDetailState("DISPLAY-TEXT_AREA");
+    } else setDetailState("DISPLAY-NO_DETAIL");
     setDisplayedDetail(detailToBeShown);
   };
 
@@ -77,10 +78,12 @@ export default function Movies(props) {
           />
         ))}
         {detailClicked ? (
-          <MovieDetail
-            detailClick={handleMovieClickBack}
-            movieState={detailClicked}
-          />
+          <Backdrop>
+            <MovieDetail
+              detailClick={handleMovieClickBack}
+              movieState={detailClicked}
+            />
+          </Backdrop>
         ) : (
           ""
         )}

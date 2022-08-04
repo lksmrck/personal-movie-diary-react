@@ -9,7 +9,12 @@ export function MoviesContextProvider({ children }) {
   //Sleduje ID filmu, na který se kliknulo - aby pak šel identifikovat až se bude měnit detail
   const [clickedMovieId, setClickedMovieId] = useState("");
 
-  const [detailState, setDetailState] = useState("DISPLAY-NO_DETAIL");
+  //State, kterému se přidělují 3 hodnoty a podle nich se podmíněně renderujou věci v modálním okně (comp. MovieDetail).
+  //Tyto hodnoty může state mít:
+  // "DISPLAY-DETAIL"
+  // "DISPLAY-TEXT_AREA"
+  // "DISPLAY-NO_DETAIL"
+  const [detailState, setDetailState] = useState("");
 
   //Funkce na přidání filmu do array
   const addToMovies = (addedMovie) => {

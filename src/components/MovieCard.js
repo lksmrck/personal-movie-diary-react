@@ -11,12 +11,24 @@ export default function MovieCard(props) {
 
   const { deleteMovie } = useContext(MoviesContext);
 
+  //Zobrazení uděleného ratingu
   const onChangeRatingL = (event, newValue) => {
     setValueL(newValue);
+    onChangeRatingLArrayUpdate(newValue);
   };
 
   const onChangeRatingV = (event, newValue) => {
     setValueV(newValue);
+    onChangeRatingVArrayUpdate(newValue);
+  };
+
+  //Uložení uděleného ratingu do array
+  const onChangeRatingLArrayUpdate = (newValue) => {
+    props.ratingLUpdate(props.id, newValue);
+  };
+
+  const onChangeRatingVArrayUpdate = (newValue) => {
+    props.ratingVUpdate(props.id, newValue);
   };
 
   const onClickButton = () => {

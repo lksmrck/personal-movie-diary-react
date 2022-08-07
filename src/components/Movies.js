@@ -37,15 +37,12 @@ export default function Movies(props) {
     movies,
     setDisplayedDetail,
     setClickedMovieId,
-    clickedMovieId,
-    onChangeDisplayedDetail,
     setDetailState,
-    detailState,
-    displayedDetail,
+    setMovies,
   } = useContext(MoviesContext);
   const [detailClicked, setDetailClicked] = useState(false);
 
-  ///DULEZITA FUNKCE - KLIK NA FILM
+  ///Kliknuti na obrázek filmu
   const handleMovieClick = (movieId) => {
     setDetailClicked(true);
     setClickedMovieId(movieId);
@@ -63,6 +60,28 @@ export default function Movies(props) {
     setDetailClicked(false);
   };
 
+  const ratingLUpdate = (movieId, newValue) => {
+    const updatedMovies = movies.map((movie) => {
+      if (movie.id === movieId) {
+        return { ...movie, stars_1: newValue };
+      }
+      return movie;
+    });
+    setMovies(updatedMovies);
+    console.log(movies);
+  };
+
+  const ratingVUpdate = (movieId, newValue) => {
+    const updatedMovies = movies.map((movie) => {
+      if (movie.id === movieId) {
+        return { ...movie, stars_2: newValue };
+      }
+      return movie;
+    });
+    setMovies(updatedMovies);
+    console.log(movies);
+  };
+
   return (
     <ContainerMovies>
       <StyledMovies>
@@ -75,6 +94,8 @@ export default function Movies(props) {
             dateWatched={movie.dateWatched}
             imageURL="https://image.pmgstatic.com/cache/resized/w140/files/images/film/posters/158/406/158406856_d4a471.jpg"
             detailClick={handleMovieClick}
+            ratingLUpdate={ratingLUpdate}
+            ratingVUpdate={ratingVUpdate}
           />
         ))}
         {detailClicked ? (

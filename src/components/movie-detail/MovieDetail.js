@@ -49,12 +49,6 @@ export default function MovieDetail(props) {
       return movie;
     });
     setMovies(updatedMovies);
-    console.log(movies);
-  };
-
-  const testDeleteLater = () => {
-    console.log(clickedMovieId);
-    console.log(detailState);
   };
 
   const closeDetailHandler = () => {
@@ -63,12 +57,7 @@ export default function MovieDetail(props) {
 
   //1. možný render - Když daný film má přidaný detail, tak se vyrenderuje detail.
   if (detailState == "DISPLAY-DETAIL") {
-    return (
-      <DisplayDetail
-        detailClick={detailClick}
-        testDeleteLater={testDeleteLater}
-      />
-    );
+    return <DisplayDetail detailClick={detailClick} />;
   }
 
   //2. možný render - textové pole se zadanim detailu

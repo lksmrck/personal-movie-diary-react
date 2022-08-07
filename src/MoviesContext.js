@@ -16,6 +16,18 @@ export function MoviesContextProvider({ children }) {
   // "DISPLAY-NO_DETAIL"
   const [detailState, setDetailState] = useState("");
 
+  useEffect(() => {
+    const localData = localStorage.getItem("movies");
+    if (localData) {
+      setMovies(JSON.parse(localData));
+    }
+  }, []);
+
+  //Ukládání movies do localStorage
+  useEffect(() => {
+    localStorage.setItem("movies", JSON.stringify(movies));
+  }, [movies]);
+
   //Funkce na přidání filmu do array
   const addToMovies = (addedMovie) => {
     const movieToBeAdded = {

@@ -1,4 +1,4 @@
-import { React, useContext, useState } from "react";
+import { React, useContext, useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
 import MovieDetail from "./movie-detail/MovieDetail";
 import MoviesFilter from "./MoviesSort";
@@ -18,7 +18,8 @@ export default function Movies(props) {
 
   // *STATES*
   const [detailClicked, setDetailClicked] = useState(false);
-  const [filterCondition, setFilterCondition] = useState("Date descending");
+  const [sortCondition, setSortCondition] = useState("Date descending");
+  const [sortedMovies, setSortedMovies] = useState(movies);
 
   // **FUNCTIONS**
   ///Kliknuti na obrázek filmu
@@ -60,39 +61,73 @@ export default function Movies(props) {
     setMovies(updatedMovies);
     console.log(movies);
   };
-  let sortedMovies = [];
-  const onChangeFilterHandler = (condition) => {
-    setFilterCondition(condition);
 
-    switch (filterCondition) {
-      /*   case "Date ascending":
-        const sortedMovies = movies.sort;
+  //Sorting logika - běží při přidání movie - nový movie má na začátku hodnocení 0 (řadí se dle nastavené sort condition), nebo při změně sort condition, nebo při zadání hodnocení.
+  useEffect(() => {
+    let moviesToBeSorted;
+    if (sortCondition == "Rating lowest") {
+      moviesToBeSorted = [...movies].sort((a, b) => {
+        return a.stars_1 - b.stars_1;
+      });
+      setSortedMovies(moviesToBeSorted);
+    } else if (sortCondition == "Rating highest") {
+      moviesToBeSorted = [...movies].sort((a, b) => {
+        return b.stars_1 - a.stars_1;
+      });
+      setSortedMovies(moviesToBeSorted);
+    } else {
+      console.log("hey");
+    }
+  }, [movies, sortCondition]);
+
+  const onChangeFilterHandler = (condition) => {
+    setSortCondition(condition);
+    console.log(sortedMovies);
+    /* let moviesToBeSorted; */
+
+    /* switch (sortCondition) {
+      case "Date ascending":
+        moviesToBeSorted = movies.sort;
         break;
       case "Date descending":
         //code
-        break; */
+        break; 
       case "Rating highest":
-        sortedMovies = movies.sort((a, b) => {
+        moviesToBeSorted = movies.sort((a, b) => {
           return a.stars_1 - b.stars_1;
         });
+        setSortedMovies(moviesToBeSorted);
+
         break;
       case "Rating lowest":
-        sortedMovies = movies.sort((a, b) => {
+        moviesToBeSorted = movies.sort((a, b) => {
           return b.stars_1 - a.stars_1;
         });
+        setSortedMovies(moviesToBeSorted);
         break;
-      default:
-        sortedMovies = [movies];
     }
-    console.log(sortedMovies);
+    console.log(sortedMovies); */
   };
+
+  // 2.zpusob
+  /*  const ratingHighestSorted = movies.sort((a, b) => {
+    return a.stars_1 - b.stars_1;
+  });
+
+  const ratingLowestSorted = movies.sort((a, b) => {
+    return b.stars_1 - a.stars_1;
+  });
+
+  const sortedMovies = (filterCondition = "Rating highest"
+    ? ratingHighestSorted
+    : ratingLowestSorted); */
 
   return (
     <div>
       {/*  {movies.length > 0 ? ( */}
       <MoviesFilter
         onChangeFilter={onChangeFilterHandler}
-        selected={filterCondition}
+        selected={sortCondition}
       />
       {/* ) : (
         ""

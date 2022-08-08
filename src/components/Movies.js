@@ -83,55 +83,15 @@ export default function Movies(props) {
   const onChangeFilterHandler = (condition) => {
     setSortCondition(condition);
     console.log(sortedMovies);
-    /* let moviesToBeSorted; */
-
-    /* switch (sortCondition) {
-      case "Date ascending":
-        moviesToBeSorted = movies.sort;
-        break;
-      case "Date descending":
-        //code
-        break; 
-      case "Rating highest":
-        moviesToBeSorted = movies.sort((a, b) => {
-          return a.stars_1 - b.stars_1;
-        });
-        setSortedMovies(moviesToBeSorted);
-
-        break;
-      case "Rating lowest":
-        moviesToBeSorted = movies.sort((a, b) => {
-          return b.stars_1 - a.stars_1;
-        });
-        setSortedMovies(moviesToBeSorted);
-        break;
-    }
-    console.log(sortedMovies); */
   };
 
-  // 2.zpusob
-  /*  const ratingHighestSorted = movies.sort((a, b) => {
-    return a.stars_1 - b.stars_1;
-  });
-
-  const ratingLowestSorted = movies.sort((a, b) => {
-    return b.stars_1 - a.stars_1;
-  });
-
-  const sortedMovies = (filterCondition = "Rating highest"
-    ? ratingHighestSorted
-    : ratingLowestSorted); */
-
-  return (
+  return movies.length > 0 ? (
     <div>
-      {/*  {movies.length > 0 ? ( */}
       <MoviesFilter
         onChangeFilter={onChangeFilterHandler}
         selected={sortCondition}
       />
-      {/* ) : (
-        ""
-      )} */}
+
       <ContainerMovies>
         <StyledMovies>
           {sortedMovies.map((movie) => (
@@ -160,5 +120,7 @@ export default function Movies(props) {
         </StyledMovies>
       </ContainerMovies>
     </div>
+  ) : (
+    <p className="no-movies-found-paragraph">No movies added 🥺 </p>
   );
 }

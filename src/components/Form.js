@@ -11,7 +11,7 @@ export default function Form(props) {
   const [newMovieYear, setNewMovieYear] = useState();
   const [newDateWatched, setNewDateWatched] = useState();
 
-  const { addToMovies } = useContext(MoviesContext);
+  const { addToMovies, movies } = useContext(MoviesContext);
 
   const onChangeTitle = (e) => {
     setNewTitle(e.target.value);
@@ -34,9 +34,6 @@ export default function Form(props) {
       stars_2: "",
     };
     addToMovies(movieItem);
-    /*  setNewTitle("");
-    setNewMovieYear("");
-    setNewDateWatched(""); */
   };
 
   return (

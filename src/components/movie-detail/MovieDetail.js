@@ -1,9 +1,8 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import MoviesContext from "../../MoviesContext";
 import AddMovieDetail from "./AddMovieDetail";
 import NoMovieDetail from "./NoMovieDetail";
 import DisplayDetail from "./DisplayDetail";
-import { getCheckboxUtilityClass } from "@mui/material";
 
 export default function MovieDetail(props) {
   const {
@@ -18,8 +17,6 @@ export default function MovieDetail(props) {
 
   //State sledující detail, který se vyplňuje
   const [filledDetail, setFilledDetail] = useState("");
-
-  const detailExistsCheck = () => {};
 
   const detailClick = () => {
     props.detailClick();
@@ -55,6 +52,7 @@ export default function MovieDetail(props) {
     props.detailClick();
   };
 
+  // *RENDER*
   //1. možný render - Když daný film má přidaný detail, tak se vyrenderuje detail.
   if (detailState == "DISPLAY-DETAIL") {
     return <DisplayDetail detailClick={detailClick} />;

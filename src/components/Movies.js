@@ -1,36 +1,11 @@
-//tady bude map, která bude vytvářet movie s props --> <Movie props - key, title, date, watched
 import { React, useContext, useState } from "react";
 import MovieCard from "./MovieCard";
 import MovieDetail from "./movie-detail/MovieDetail";
+import MoviesFilter from "./MoviesSort";
 import { StyledMovies } from "./styled/StyledMovies";
 import { ContainerMovies } from "./styled/containers/ContainerMovies";
 import MoviesContext from "../MoviesContext";
 import Backdrop from "./Backdrop";
-
-//Dummy movies na test
-const DUMMY_MOVIES = [
-  {
-    title: "Kairo",
-    movieYear: "2011",
-    dateWatched: "31.12.2021",
-    stars_1: "",
-    stars_2: "",
-  },
-  {
-    title: "Kairo",
-    movieYear: "2011",
-    dateWatched: "31.12.2021",
-    stars_1: "",
-    stars_2: "",
-  },
-  {
-    title: "Kairo",
-    movieYear: "2011",
-    dateWatched: "31.12.2021",
-    stars_1: "",
-    stars_2: "",
-  },
-];
 
 export default function Movies(props) {
   const {
@@ -40,8 +15,12 @@ export default function Movies(props) {
     setDetailState,
     setMovies,
   } = useContext(MoviesContext);
-  const [detailClicked, setDetailClicked] = useState(false);
 
+  // *STATES*
+  const [detailClicked, setDetailClicked] = useState(false);
+  const [filterCondition, setFilterCondition] = useState("Date descending");
+
+  // **FUNCTIONS**
   ///Kliknuti na obrázek filmu
   const handleMovieClick = (movieId) => {
     setDetailClicked(true);
@@ -81,34 +60,70 @@ export default function Movies(props) {
     setMovies(updatedMovies);
     console.log(movies);
   };
+  let sortedMovies = [];
+  const onChangeFilterHandler = (condition) => {
+    setFilterCondition(condition);
+
+    switch (filterCondition) {
+      /*   case "Date ascending":
+        const sortedMovies = movies.sort;
+        break;
+      case "Date descending":
+        //code
+        break; */
+      case "Rating highest":
+        sortedMovies = movies.sort((a, b) => {
+          return a.stars_1 - b.stars_1;
+        });
+        break;
+      case "Rating lowest":
+        sortedMovies = movies.sort((a, b) => {
+          return b.stars_1 - a.stars_1;
+        });
+        break;
+      default:
+        sortedMovies = [movies];
+    }
+    console.log(sortedMovies);
+  };
 
   return (
-    <ContainerMovies>
-      <StyledMovies>
-        {movies.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            id={movie.id}
-            title={movie.title}
-            movieYear={movie.movieYear}
-            dateWatched={movie.dateWatched}
-            imageURL="https://image.pmgstatic.com/cache/resized/w140/files/images/film/posters/158/406/158406856_d4a471.jpg"
-            detailClick={handleMovieClick}
-            ratingLUpdate={ratingLUpdate}
-            ratingVUpdate={ratingVUpdate}
-          />
-        ))}
-        {detailClicked ? (
-          <Backdrop>
-            <MovieDetail
-              detailClick={handleMovieClickBack}
-              movieState={detailClicked}
+    <div>
+      {/*  {movies.length > 0 ? ( */}
+      <MoviesFilter
+        onChangeFilter={onChangeFilterHandler}
+        selected={filterCondition}
+      />
+      {/* ) : (
+        ""
+      )} */}
+      <ContainerMovies>
+        <StyledMovies>
+          {sortedMovies.map((movie) => (
+            <MovieCard
+              key={movie.id}
+              id={movie.id}
+              title={movie.title}
+              movieYear={movie.movieYear}
+              dateWatched={movie.dateWatched}
+              imageURL="https://image.pmgstatic.com/cache/resized/w140/files/images/film/posters/158/406/158406856_d4a471.jpg"
+              detailClick={handleMovieClick}
+              ratingLUpdate={ratingLUpdate}
+              ratingVUpdate={ratingVUpdate}
             />
-          </Backdrop>
-        ) : (
-          ""
-        )}
-      </StyledMovies>
-    </ContainerMovies>
+          ))}
+          {detailClicked ? (
+            <Backdrop>
+              <MovieDetail
+                detailClick={handleMovieClickBack}
+                movieState={detailClicked}
+              />
+            </Backdrop>
+          ) : (
+            ""
+          )}
+        </StyledMovies>
+      </ContainerMovies>
+    </div>
   );
 }

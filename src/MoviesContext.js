@@ -3,11 +3,14 @@ import { createContext, useEffect, useState } from "react";
 const MoviesContext = createContext();
 
 export function MoviesContextProvider({ children }) {
+  // *STATES*
   //Array s filmy, do kt. se budou přidávat
   const [movies, setMovies] = useState([]);
   const [displayedDetail, setDisplayedDetail] = useState("");
   //Sleduje ID filmu, na který se kliknulo - aby pak šel identifikovat až se bude měnit detail
   const [clickedMovieId, setClickedMovieId] = useState("");
+  // Sleduje sort condition - viz. MoviesSort.js
+  const [sortCondition, setSortCondition] = useState("");
 
   //State, kterému se přidělují 3 hodnoty a podle nich se podmíněně renderujou věci v modálním okně (comp. MovieDetail).
   //Tyto hodnoty může state mít:
@@ -16,6 +19,7 @@ export function MoviesContextProvider({ children }) {
   // "DISPLAY-NO_DETAIL"
   const [detailState, setDetailState] = useState("");
 
+  //Initial načtení a zobrazení z localStorage
   useEffect(() => {
     const localData = localStorage.getItem("movies");
     if (localData) {
@@ -28,6 +32,7 @@ export function MoviesContextProvider({ children }) {
     localStorage.setItem("movies", JSON.stringify(movies));
   }, [movies]);
 
+  // **FUNCTIONS**
   //Funkce na přidání filmu do array
   const addToMovies = (addedMovie) => {
     const movieToBeAdded = {

@@ -1,7 +1,7 @@
 import { React, useContext, useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
 import MovieDetail from "./movie-detail/MovieDetail";
-import MoviesFilter from "./MoviesSort";
+import MoviesSort from "./MoviesSort";
 import { StyledMovies } from "./styled/StyledMovies";
 import { ContainerMovies } from "./styled/containers/ContainerMovies";
 import MoviesContext from "../MoviesContext";
@@ -21,57 +21,11 @@ export default function Movies(props) {
   const [sortCondition, setSortCondition] = useState("");
   const [sortedMovies, setSortedMovies] = useState(movies);
 
+  // *USEEFFECTS*
+  //Po načtení se nastaví default seřazování na Date newest
   useEffect(() => {
     setSortCondition("Date newest");
   }, []);
-
-  // **FUNCTIONS**
-  ///Kliknuti na obrázek filmu
-  const handleMovieClick = (movieId) => {
-    setDetailClicked(true);
-    setClickedMovieId(movieId);
-
-    const detailToBeShown = movies.find((movie) => movie.id == movieId).detail;
-    if (detailToBeShown.length > 0) {
-      setDetailState("DISPLAY-DETAIL");
-      console.log(detailToBeShown);
-      setDisplayedDetail(detailToBeShown);
-    } else setDetailState("DISPLAY-NO_DETAIL");
-    setDisplayedDetail(detailToBeShown);
-  };
-
-  const handleMovieClickBack = () => {
-    setDetailClicked(false);
-  };
-
-  const ratingLUpdate = (movieId, newValue) => {
-    const updatedMovies = movies.map((movie) => {
-      if (movie.id === movieId) {
-        return {
-          ...movie,
-          stars_1: newValue,
-          totalRating: movie.stars_2 + newValue,
-        };
-      }
-      return movie;
-    });
-    setMovies(updatedMovies);
-  };
-
-  const ratingVUpdate = (movieId, newValue) => {
-    const updatedMovies = movies.map((movie) => {
-      if (movie.id === movieId) {
-        return {
-          ...movie,
-          stars_2: newValue,
-          totalRating: movie.stars_1 + newValue,
-        };
-      }
-      return movie;
-    });
-    setMovies(updatedMovies);
-    console.log(updatedMovies);
-  };
 
   //Sorting logika - běží při přidání movie - nový movie má na začátku hodnocení 0 (řadí se dle nastavené sort condition), nebo při změně sort condition, nebo při zadání hodnocení.
   useEffect(() => {
@@ -99,16 +53,62 @@ export default function Movies(props) {
     }
   }, [movies, sortCondition]);
 
-  const onChangeFilterHandler = (condition) => {
+  // **FUNCTIONS**
+  ///Kliknuti na obrázek filmu
+  const handleMovieClick = (movieId) => {
+    setDetailClicked(true);
+    setClickedMovieId(movieId);
+
+    const detailToBeShown = movies.find((movie) => movie.id == movieId).detail;
+    if (detailToBeShown.length > 0) {
+      setDetailState("DISPLAY-DETAIL");
+      console.log(detailToBeShown);
+      setDisplayedDetail(detailToBeShown);
+    } else setDetailState("DISPLAY-NO_DETAIL");
+    setDisplayedDetail(detailToBeShown);
+  };
+
+  const handleMovieClickBack = () => {
+    setDetailClicked(false);
+  };
+  //update object property v původní array po změně ratingu
+  const ratingLUpdate = (movieId, newValue) => {
+    const updatedMovies = movies.map((movie) => {
+      if (movie.id === movieId) {
+        return {
+          ...movie,
+          stars_1: newValue,
+          totalRating: movie.stars_2 + newValue,
+        };
+      }
+      return movie;
+    });
+    setMovies(updatedMovies);
+  };
+  //update object property v původní array po změně ratingu
+  const ratingVUpdate = (movieId, newValue) => {
+    const updatedMovies = movies.map((movie) => {
+      if (movie.id === movieId) {
+        return {
+          ...movie,
+          stars_2: newValue,
+          totalRating: movie.stars_1 + newValue,
+        };
+      }
+      return movie;
+    });
+    setMovies(updatedMovies);
+    console.log(updatedMovies);
+  };
+
+  //Nastavení sort condition po vybrání z
+  const onChangeSortHandler = (condition) => {
     setSortCondition(condition);
   };
 
   return movies.length > 0 ? (
     <div>
-      <MoviesFilter
-        onChangeFilter={onChangeFilterHandler}
-        selected={sortCondition}
-      />
+      <MoviesSort onChangeSort={onChangeSortHandler} selected={sortCondition} />
 
       <ContainerMovies>
         <StyledMovies>

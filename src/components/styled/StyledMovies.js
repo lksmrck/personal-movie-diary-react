@@ -4,7 +4,7 @@ export const StyledMovies = styled.div`
   width: 955px;
   display: flex;
   flex-wrap: wrap;
-  background-color: #161d2e;
+  background-color: #333252;
   border-radius: 5px;
   margin: 20px;
 

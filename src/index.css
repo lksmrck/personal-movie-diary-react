@@ -10,7 +10,8 @@ html {
 
 body {
   margin: 0;
-  background-color: #11141f;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(13,22,29,1) 0%, rgba(122,122,148,1) 71%, rgba(118,179,205,1) 100%, rgba(0,212,255,1) 100%);
   color: white;
 }
 
@@ -30,4 +31,14 @@ body {
   margin-top: 10%;
   margin-left: 40%;
   font-size: 30px;
+}
+footer {
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.sort-control {
+  margin-left: 14%
 }

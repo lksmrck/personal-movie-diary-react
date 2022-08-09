@@ -25,7 +25,6 @@ export default function MovieDetail(props) {
   const handleDetailChange = (event) => {
     setFilledDetail(event.target.value);
     setDisplayedDetail(event.target.value);
-    console.log(filledDetail);
   };
 
   //Přepunutí state, když se klikne na Add Movie Detail (aby se vyrenderovalo textové pole)

@@ -1,4 +1,4 @@
-import { React, useContext } from "react";
+import { React, useContext, useEffect } from "react";
 import { StyledMovieCard } from "./styled/StyledMovieCard";
 import { Rating } from "@mui/material";
 import { useState } from "react";
@@ -9,7 +9,23 @@ export default function MovieCard(props) {
   const [valueL, setValueL] = useState(null);
   const [valueV, setValueV] = useState(null);
 
-  const { deleteMovie } = useContext(MoviesContext);
+  const { deleteMovie, movies } = useContext(MoviesContext);
+
+  //Načítání a zobrazování ratingu z localStorage při vyrenderování komponentu.
+  useEffect(() => {
+    const localData = localStorage.getItem("movies");
+    if (localData) {
+      const localDataParsed = JSON.parse(localData);
+      const localRatingL = localDataParsed.find(
+        (movie) => movie.id == props.id
+      ).stars_1;
+      const localRatingV = localDataParsed.find(
+        (movie) => movie.id == props.id
+      ).stars_2;
+      setValueL(localRatingL);
+      setValueV(localRatingV);
+    }
+  }, []);
 
   //Zobrazení uděleného ratingu
   const onChangeRatingL = (event, newValue) => {

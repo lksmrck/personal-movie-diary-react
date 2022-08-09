@@ -50,7 +50,7 @@ export default function Movies(props) {
         return {
           ...movie,
           stars_1: newValue,
-          totalRating: movie.totalRating + newValue,
+          totalRating: movie.stars_2 + newValue,
         };
       }
       return movie;
@@ -64,7 +64,7 @@ export default function Movies(props) {
         return {
           ...movie,
           stars_2: newValue,
-          totalRating: movie.totalRating + newValue,
+          totalRating: movie.stars_1 + newValue,
         };
       }
       return movie;

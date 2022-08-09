@@ -4,6 +4,7 @@ import { ContainerForm } from "./styled/containers/ContainerForm";
 import { StyledForm } from "./styled/StyledForm";
 import MoviesContext from "../MoviesContext";
 import { Button } from "@mui/material";
+import Statistics from "./Statistics";
 
 export default function Form(props) {
   //Udělat přes state object?
@@ -79,6 +80,7 @@ export default function Form(props) {
             </Button>
           </form>
         </div>
+        <Statistics />
       </StyledForm>
     </ContainerForm>
   );

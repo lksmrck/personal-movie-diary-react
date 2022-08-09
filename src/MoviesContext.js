@@ -42,7 +42,7 @@ export function MoviesContextProvider({ children }) {
       dateWatched: addedMovie.dateWatched,
       stars_1: 0,
       stars_2: 0,
-      totalRating: 0,
+      totalRating: null,
       detail: "",
     };
 

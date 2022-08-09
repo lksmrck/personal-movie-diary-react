@@ -10,8 +10,8 @@ const MoviesSort = (props) => {
       <div>
         <label>Sort by: </label>
         <select onChange={dropdownChangeHandler}>
-          <option value="Date ascending">Date ascending</option>
-          <option value="Date descending">Date descending</option>
+          <option value="Date newest">Date newest</option>
+          <option value="Date oldest">Date oldest</option>
           <option value="Rating highest">Rating highest</option>
           <option value="Rating lowest">Rating lowest</option>
         </select>

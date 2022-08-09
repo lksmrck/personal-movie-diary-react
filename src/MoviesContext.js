@@ -40,8 +40,9 @@ export function MoviesContextProvider({ children }) {
       title: addedMovie.title,
       movieYear: addedMovie.movieYear,
       dateWatched: addedMovie.dateWatched,
-      stars_1: "",
-      stars_2: "",
+      stars_1: 0,
+      stars_2: 0,
+      totalRating: 0,
       detail: "",
     };
 
@@ -58,15 +59,11 @@ export function MoviesContextProvider({ children }) {
     });
   };
 
-  //Po kliknutí na obrázek s filmem se objeví modální okno. Tam se vyrenderuje buď "Add Detail" nebo ten detail, pokud už pridaný je. Tato funkce je pro přidání detailu.
-  const onAddMovieDetail = (movieId) => {};
-
   const onChangeDisplayedDetail = () => {
     const detailToBeShown = movies.find(
       (movie) => movie.id == clickedMovieId
     ).detail;
 
-    console.log(detailToBeShown);
     setDisplayedDetail(detailToBeShown);
   };
 

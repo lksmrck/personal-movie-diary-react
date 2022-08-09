@@ -18,8 +18,12 @@ export default function Movies(props) {
 
   // *STATES*
   const [detailClicked, setDetailClicked] = useState(false);
-  const [sortCondition, setSortCondition] = useState("Date descending");
+  const [sortCondition, setSortCondition] = useState("");
   const [sortedMovies, setSortedMovies] = useState(movies);
+
+  useEffect(() => {
+    setSortCondition("Date newest");
+  }, []);
 
   // **FUNCTIONS**
   ///Kliknuti na obrázek filmu
@@ -43,23 +47,30 @@ export default function Movies(props) {
   const ratingLUpdate = (movieId, newValue) => {
     const updatedMovies = movies.map((movie) => {
       if (movie.id === movieId) {
-        return { ...movie, stars_1: newValue };
+        return {
+          ...movie,
+          stars_1: newValue,
+          totalRating: movie.totalRating + newValue,
+        };
       }
       return movie;
     });
     setMovies(updatedMovies);
-    console.log(movies);
   };
 
   const ratingVUpdate = (movieId, newValue) => {
     const updatedMovies = movies.map((movie) => {
       if (movie.id === movieId) {
-        return { ...movie, stars_2: newValue };
+        return {
+          ...movie,
+          stars_2: newValue,
+          totalRating: movie.totalRating + newValue,
+        };
       }
       return movie;
     });
     setMovies(updatedMovies);
-    console.log(movies);
+    console.log(updatedMovies);
   };
 
   //Sorting logika - běží při přidání movie - nový movie má na začátku hodnocení 0 (řadí se dle nastavené sort condition), nebo při změně sort condition, nebo při zadání hodnocení.
@@ -67,22 +78,29 @@ export default function Movies(props) {
     let moviesToBeSorted;
     if (sortCondition == "Rating lowest") {
       moviesToBeSorted = [...movies].sort((a, b) => {
-        return a.stars_1 - b.stars_1;
+        return a.totalRating - b.totalRating;
       });
       setSortedMovies(moviesToBeSorted);
     } else if (sortCondition == "Rating highest") {
       moviesToBeSorted = [...movies].sort((a, b) => {
-        return b.stars_1 - a.stars_1;
+        return b.totalRating - a.totalRating;
       });
       setSortedMovies(moviesToBeSorted);
-    } else {
-      console.log("hey");
+    } else if (sortCondition == "Date newest") {
+      moviesToBeSorted = [...movies].sort((a, b) => {
+        return new Date(b.dateWatched) - new Date(a.dateWatched);
+      });
+      setSortedMovies(moviesToBeSorted);
+    } else if (sortCondition == "Date oldest") {
+      moviesToBeSorted = [...movies].sort((a, b) => {
+        return new Date(a.dateWatched) - new Date(b.dateWatched);
+      });
+      setSortedMovies(moviesToBeSorted);
     }
   }, [movies, sortCondition]);
 
   const onChangeFilterHandler = (condition) => {
     setSortCondition(condition);
-    console.log(sortedMovies);
   };
 
   return movies.length > 0 ? (

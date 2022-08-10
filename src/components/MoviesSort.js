@@ -12,6 +12,7 @@ const MoviesSort = (props) => {
         <FormControl
           variant="filled"
           sx={{ m: 1, minWidth: 120, backgroundColor: "white" }}
+          size="small"
         >
           <InputLabel id="sort-select">Sort by:</InputLabel>
           <Select

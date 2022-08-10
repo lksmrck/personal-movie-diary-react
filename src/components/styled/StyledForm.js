@@ -13,12 +13,44 @@ export const StyledForm = styled.div`
   }
 
   .statistics {
-    width: 180px;
-    height: 130px;
+    font-size: 13px;
+    padding-left: 7px;
+
+    width: 10.5vw;
+    height: 14vh;
     background-color: white;
     position: absolute;
-    margin-left: 81%;
-    margin-top: -20%;
+    margin-left: 80%;
+    margin-top: 0.6%;
     color: black;
+    border-radius: 7px;
+
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 2s, opacity 1s linear;
+    /* transition: transform 0.3s linear; */
+  }
+  .statistics-icon {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin-left: 90%;
+    margin-top: -5%;
+  }
+
+  .statistics-hidden {
+    font-size: 13px;
+    padding-left: 7px;
+    width: 10.5vw;
+    height: 14vh;
+    background-color: white;
+    position: absolute;
+    margin-left: 80%;
+    margin-top: 0.6%;
+    color: black;
+    border-radius: 7px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s, opacity 0.5s linear;
   }
 `;

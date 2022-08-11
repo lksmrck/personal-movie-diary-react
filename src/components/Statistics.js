@@ -27,9 +27,18 @@ export default function Statistics() {
   return (
     <div>
       <div className={isShown ? "statistics" : "statistics-hidden"}>
-        <p>Movies watched: {movies.length}</p>
-        <p>Average rating L: {averageRatingL} </p>
-        <p>Average rating V: {averageRatingV} </p>
+        <p>
+          Movies watched:{" "}
+          <span className="statistics-data">{movies.length}</span>
+        </p>
+        <p>
+          Average rating L:{" "}
+          <span className="statistics-data">{averageRatingL}</span>{" "}
+        </p>
+        <p>
+          Average rating V:{" "}
+          <span className="statistics-data">{averageRatingV}</span>{" "}
+        </p>
       </div>
       <FcStatistics
         className="statistics-icon"

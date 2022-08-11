@@ -31,8 +31,8 @@ export const StyledForm = styled.div`
     /* transition: transform 0.3s linear; */
   }
   .statistics-icon {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     position: absolute;
     margin-left: 90%;
     margin-top: -5%;
@@ -52,5 +52,9 @@ export const StyledForm = styled.div`
     visibility: hidden;
     opacity: 0;
     transition: visibility 1s, opacity 0.5s linear;
+  }
+  .statistics-data {
+    font-weight: bold;
+    color: red;
   }
 `;

@@ -5,7 +5,7 @@ const Input = (props) => {
   return (
     <div>
       <TextField
-        sx={{ width: 500 }}
+        sx={{ width: 500, borderRadius: 1 }}
         className="inputs"
         id="fullWidth"
         label={props.input.id}

@@ -80,7 +80,7 @@ export default function Form(props) {
             </Button>
           </form>
         </div>
-        <Statistics />
+        {movies.length > 0 ? <Statistics /> : ""}
       </StyledForm>
     </ContainerForm>
   );

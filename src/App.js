@@ -5,13 +5,16 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Search from "./components/search/Search";
 import { MoviesContextProvider } from "./MoviesContext";
+import { SearchContextProvider } from "./SearchContext";
 
 function App() {
   return (
     <div>
       <MoviesContextProvider>
         <Header />
-        <Search />
+        <SearchContextProvider>
+          <Search />
+        </SearchContextProvider>
         {/* <Form /> */}
         <Movies />
         <Footer />

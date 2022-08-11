@@ -57,4 +57,8 @@ export const StyledForm = styled.div`
     font-weight: bold;
     color: red;
   }
+  .inputs-container.search {
+    display: flex;
+    justify-content: space-evenly;
+  }
 `;

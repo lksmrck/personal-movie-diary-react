@@ -3,6 +3,7 @@ import Form from "./components/Form";
 import Movies from "./components/Movies";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Search from "./components/search/Search";
 import { MoviesContextProvider } from "./MoviesContext";
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
     <div>
       <MoviesContextProvider>
         <Header />
-        <Form />
+        <Search />
+        {/* <Form /> */}
         <Movies />
         <Footer />
       </MoviesContextProvider>

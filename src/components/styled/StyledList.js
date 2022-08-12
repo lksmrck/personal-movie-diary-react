@@ -1,25 +1,25 @@
 import styled from "styled-components";
 
 export const StyledList = styled.ul`
-  background-color: #333252;
   color: black;
   text-align: center;
   list-style: none;
-  ul {
-    background-color: white;
-  }
+  width: 498px;
+  height: 300px;
+  overflow-y: scroll;
+  background-color: white;
 
   li {
     display: flex;
-
+    cursor: pointer;
     background-color: white;
-    width: 498px;
+    width: 484px;
     height: 100px;
     border: 1px solid grey;
     border-radius: 1px;
-    margin-left: 85px;
+    margin-left: -40px;
     text-align: left;
-    margin-bottom: -17px;
+    margin-bottom: -10px;
   }
 
   li div {

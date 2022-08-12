@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-i;
+
 import SearchContext from "../../SearchContext";
 
 export default function SearchItem(props) {

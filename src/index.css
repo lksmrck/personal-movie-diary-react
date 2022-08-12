@@ -44,3 +44,15 @@ footer {
 .sort-control {
   margin-left: 14%
 }
+
+
+
+.search-list-container {
+  position: absolute
+}
+
+
+.search-list-container button {
+  margin-left: 640px;
+  margin-top: -17px;
+} 

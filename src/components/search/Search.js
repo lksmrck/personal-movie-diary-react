@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Input from "../Input";
 import { ContainerForm } from "../styled/containers/ContainerForm";
 import { Button } from "@mui/material";
@@ -8,9 +8,10 @@ import SearchItem from "./SearchItem";
 import SearchContext from "../../SearchContext";
 
 export default function Search() {
-  const [displayedSearch, setDisplayedSearch] = useState("");
   const { setSearchTerm, getMovies, searchURL, foundMovies } =
     useContext(SearchContext);
+
+  const [isDisplayedSearch, setIsDisplayedSearch] = useState(false);
 
   const onChangeHandler = (e) => {
     setSearchTerm(e.target.value);
@@ -20,43 +21,55 @@ export default function Search() {
     e.preventDefault();
 
     getMovies(searchURL);
-    console.log(foundMovies);
+    setIsDisplayedSearch(true);
+  };
+
+  const cancelSearch = () => {
+    setIsDisplayedSearch(false);
   };
 
   return (
-    <ContainerForm>
-      <StyledForm>
-        <div className="inputs-container search">
-          <form onSubmit={onSubmitForm}>
-            <Input
-              label="Movie name"
-              input={{
-                id: "Movie name",
-                type: "search",
-              }}
-              placeholder="Harry Potter"
-              onChangeInput={onChangeHandler}
-            />
-            <Button variant="contained" type="submit">
-              Submit
-            </Button>
-          </form>
-        </div>
-        <div>
-          <StyledList>
-            {foundMovies.length > 0 &&
-              foundMovies.map((movie) => (
-                <SearchItem
-                  key={movie.id}
-                  id={movie.id}
-                  title={movie.title}
-                  movieYear={movie.release_date}
-                  imageURL={movie.poster_path}
-                />
-              ))}
-          </StyledList>
-        </div>
-      </StyledForm>
-    </ContainerForm>
+    <div>
+      <ContainerForm>
+        <StyledForm>
+          <div className="inputs-container search">
+            <form onSubmit={onSubmitForm}>
+              <Input
+                label="Movie name"
+                input={{
+                  id: "Movie name",
+                  type: "search",
+                }}
+                placeholder="Harry Potter"
+                onChangeInput={onChangeHandler}
+              />
+              {isDisplayedSearch && foundMovies.length > 0 ? (
+                <div className="search-list-container">
+                  <StyledList>
+                    {foundMovies.map((movie) => (
+                      <SearchItem
+                        key={movie.id}
+                        id={movie.id}
+                        title={movie.title}
+                        movieYear={movie.release_date}
+                        imageURL={movie.poster_path}
+                      />
+                    ))}
+                  </StyledList>
+                  <Button variant="contained" onClick={cancelSearch}>
+                    Back
+                  </Button>
+                </div>
+              ) : (
+                ""
+              )}
+              <Button variant="contained" type="submit">
+                Submit
+              </Button>
+            </form>
+          </div>
+        </StyledForm>
+      </ContainerForm>
+    </div>
   );
 }

@@ -37,6 +37,7 @@ export function SearchContextProvider({ children }) {
         setSearchTerm,
         getMovies,
         searchURL,
+        IMG_API,
       }}
     >
       {children}

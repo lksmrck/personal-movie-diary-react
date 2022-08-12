@@ -19,6 +19,7 @@ export const StyledList = styled.ul`
     border-radius: 1px;
     margin-left: 85px;
     text-align: left;
+    margin-bottom: -17px;
   }
 
   li div {

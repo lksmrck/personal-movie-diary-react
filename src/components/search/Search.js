@@ -1,13 +1,15 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Input from "../Input";
 import { ContainerForm } from "../styled/containers/ContainerForm";
 import { Button } from "@mui/material";
 import { StyledForm } from "../styled/StyledForm";
+import { StyledList } from "../styled/StyledList";
 import SearchItem from "./SearchItem";
 import SearchContext from "../../SearchContext";
 
 export default function Search() {
-  const { searchTerm, setSearchTerm, getMovies, searchURL, foundMovies } =
+  const [displayedSearch, setDisplayedSearch] = useState("");
+  const { setSearchTerm, getMovies, searchURL, foundMovies } =
     useContext(SearchContext);
 
   const onChangeHandler = (e) => {
@@ -41,7 +43,18 @@ export default function Search() {
           </form>
         </div>
         <div>
-          <SearchItem />
+          <StyledList>
+            {foundMovies.length > 0 &&
+              foundMovies.map((movie) => (
+                <SearchItem
+                  key={movie.id}
+                  id={movie.id}
+                  title={movie.title}
+                  movieYear={movie.release_date}
+                  imageURL={movie.poster_path}
+                />
+              ))}
+          </StyledList>
         </div>
       </StyledForm>
     </ContainerForm>

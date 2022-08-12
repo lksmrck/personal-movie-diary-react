@@ -61,4 +61,10 @@ export const StyledForm = styled.div`
     display: flex;
     justify-content: space-evenly;
   }
+
+  .search-list-container {
+    width: 498px;
+    height: 505px;
+    overflow: hidden;
+  }
 `;

@@ -15,6 +15,7 @@ export default function SearchItem(props) {
       id: Math.random().toString(),
       title: props.title,
       movieYear: props.movieYear,
+      imageURL: IMG_API + props.imageURL,
       dateWatched: 1,
       stars_1: "",
       stars_2: "",

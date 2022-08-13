@@ -119,7 +119,7 @@ export default function Movies(props) {
               title={movie.title}
               movieYear={movie.movieYear}
               dateWatched={movie.dateWatched}
-              imageURL="https://image.pmgstatic.com/cache/resized/w140/files/images/film/posters/158/406/158406856_d4a471.jpg"
+              imageURL={movie.imageURL}
               detailClick={handleMovieClick}
               ratingLUpdate={ratingLUpdate}
               ratingVUpdate={ratingVUpdate}

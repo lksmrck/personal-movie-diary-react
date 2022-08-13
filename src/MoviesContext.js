@@ -39,6 +39,7 @@ export function MoviesContextProvider({ children }) {
       id: addedMovie.id,
       title: addedMovie.title,
       movieYear: addedMovie.movieYear,
+      imageURL: addedMovie.imageURL,
       dateWatched: addedMovie.dateWatched,
       stars_1: 0,
       stars_2: 0,

@@ -29,4 +29,7 @@ export const StyledList = styled.ul`
   span {
     margin-bottom: 80%;
   }
+  .search-title {
+    font-weight: bold;
+  }
 `;

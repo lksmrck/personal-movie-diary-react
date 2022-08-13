@@ -53,6 +53,7 @@ export default function Search() {
                         title={movie.title}
                         movieYear={movie.release_date}
                         imageURL={movie.poster_path}
+                        searchDisplayToggle={cancelSearch}
                       />
                     ))}
                   </StyledList>

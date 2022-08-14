@@ -17,7 +17,8 @@ const Input = (props) => {
         value={props.value}
         color="primary"
         defaultValue={props.defaultValue}
-        required
+        required={true}
+        InputLabelProps={props.inputLabelProps}
       />
     </div>
   );

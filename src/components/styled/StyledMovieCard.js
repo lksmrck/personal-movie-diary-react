@@ -6,7 +6,7 @@ export const StyledMovieCard = styled.div`
   max-width: 180px;
 
   h2 {
-    font-size: 15px;
+    font-size: 13px;
     margin-bottom: -5px;
   }
 
@@ -15,7 +15,7 @@ export const StyledMovieCard = styled.div`
     color: grey;
   }
   h4 {
-    font-size: 13px;
+    font-size: 12px;
     margin-top: -2px;
   }
 
@@ -25,12 +25,16 @@ export const StyledMovieCard = styled.div`
     cursor: pointer;
   }
 
-  .img-trash-container {
+  .img-icon-container {
     display: flex;
   }
-  .trash-icon {
+  .delete-icon {
     margin-left: 7px;
     margin-top: -1px;
     cursor: pointer;
+  }
+
+  .title-text {
+    height: 50px;
   }
 `;

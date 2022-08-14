@@ -6,10 +6,20 @@ import { GoTrashcan } from "react-icons/go";
 import MoviesContext from "../../store/MoviesContext";
 
 export default function MovieCard(props) {
+  // *STATES*
   const [valueL, setValueL] = useState(null);
   const [valueV, setValueV] = useState(null);
 
-  const { deleteMovie, movies } = useContext(MoviesContext);
+  // *CONTEXT IMPORT*
+  const { deleteMovie } = useContext(MoviesContext);
+
+  //Upravení formátu datumu
+  const date = new Date(props.dateWatched);
+  const month = date.toLocaleString("en-US", { month: "2-digit" });
+  const day = date.toLocaleString("en-US", { day: "2-digit" });
+  const year = date.getFullYear();
+
+  const myDate = day + "-" + month + "-" + year;
 
   //Načítání a zobrazování ratingu z localStorage při vyrenderování komponentu.
   useEffect(() => {
@@ -57,7 +67,7 @@ export default function MovieCard(props) {
 
   return (
     <StyledMovieCard>
-      <div className="img-trash-container">
+      <div className="img-icon-container">
         <img
           src={props.imageURL}
           width="138px"
@@ -66,13 +76,13 @@ export default function MovieCard(props) {
           onClick={onClickImg}
         />
         {/* <GoTrashcan className="trash-icon" onClick={onClickButton} /> */}
-        <p className="trash-icon" onClick={onClickButton}>
+        <p className="delete-icon" onClick={onClickButton}>
           ❌
         </p>
       </div>
-      <h2>{props.title}</h2>
+      <h2 className="title-text">{props.title}</h2>
       <h3>{props.movieYear}</h3>
-      <h4>{props.dateWatched}</h4>
+      <h4>{myDate}</h4>
       <span>
         L:
         <Rating

@@ -17,6 +17,7 @@ export default function Search(props) {
     searchURL,
     foundMovies,
     searchTerm,
+    setIsLoading,
     isLoading,
   } = useContext(SearchContext);
 
@@ -54,7 +55,6 @@ export default function Search(props) {
   return (
     <div>
       <ContainerForm>
-        {isLoading && <LoadingSpinner />}
         <StyledForm>
           <div className="inputs-container search">
             <form>
@@ -64,7 +64,7 @@ export default function Search(props) {
                   id: "Movie name",
                   type: "search",
                 }}
-                placeholder="Harry Potter"
+                placeholder="Star Wars"
                 onChangeInput={onChangeHandler}
               />
               {isDisplayedSearch && foundMovies.length > 0 ? (
@@ -96,7 +96,7 @@ export default function Search(props) {
               ) : (
                 ""
               )}
-              {!isDisplayedSearch ? (
+              {!isDisplayedSearch && !isLoading && (
                 <Button
                   variant="outlined"
                   color="error"
@@ -104,9 +104,8 @@ export default function Search(props) {
                 >
                   Back
                 </Button>
-              ) : (
-                ""
               )}
+              {!isDisplayedSearch && isLoading && <LoadingSpinner />}
             </form>
             {isDisplayedDateModal == true ? (
               <Backdrop>

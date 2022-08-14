@@ -23,7 +23,7 @@ export const StyledMoviesSort = styled.div`
     height: 14vh;
     background-color: #b0dae9;
     position: absolute;
-    margin-top: -14px;
+    margin-top: -12px;
     color: black;
     border-radius: 7px;
 

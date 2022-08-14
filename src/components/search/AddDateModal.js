@@ -48,7 +48,9 @@ export default function AddDateModal(props) {
           }}
           value={dateWatched}
           onChangeInput={onChangeDateWatched}
-          defaultValue="1992-10-31"
+          inputLabelProps={{
+            shrink: true,
+          }}
         />
         <Button variant="contained" type="submit">
           Submit

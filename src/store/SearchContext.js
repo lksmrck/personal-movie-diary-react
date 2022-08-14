@@ -29,8 +29,8 @@ export function SearchContextProvider({ children }) {
       .then((res) => res.json())
       .then((data) => {
         setFoundMovies(data.results);
+        setIsLoading(false);
       });
-    setIsLoading(false);
   }
 
   return (
@@ -46,6 +46,7 @@ export function SearchContextProvider({ children }) {
         setClickedMovieID,
         clickedMovieID,
         isLoading,
+        setIsLoading,
       }}
     >
       {children}

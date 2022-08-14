@@ -79,7 +79,7 @@ export default function Form(props) {
               }}
               value={newMovieYear}
               onChangeInput={onChangeDateFilmed}
-              defaultValue="2021"
+              placeholder="2021"
             />
             <Input
               label="Date watched"
@@ -89,7 +89,9 @@ export default function Form(props) {
               }}
               value={newDateWatched}
               onChangeInput={onChangeDateWatched}
-              defaultValue="1992-10-31"
+              inputLabelProps={{
+                shrink: true,
+              }}
             />
             <Button variant="contained" type="submit">
               Add Movie

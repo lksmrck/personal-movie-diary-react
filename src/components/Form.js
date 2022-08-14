@@ -4,13 +4,18 @@ import { ContainerForm } from "./styled/containers/ContainerForm";
 import { StyledForm } from "./styled/StyledForm";
 import MoviesContext from "../MoviesContext";
 import { Button } from "@mui/material";
-import Statistics from "./Statistics";
+
+import Backdrop from "./Backdrop";
+import AddImgURLModal from "./AddImgURLModal";
 
 export default function Form(props) {
   //Udělat přes state object?
   const [newTitle, setNewTitle] = useState();
   const [newMovieYear, setNewMovieYear] = useState();
   const [newDateWatched, setNewDateWatched] = useState();
+
+  const [movieToBeAdded, setMovieToBeAdded] = useState({});
+  const [addImgDisplay, setAddImgDisplay] = useState(false);
 
   const { addToMovies, movies } = useContext(MoviesContext);
 
@@ -26,6 +31,7 @@ export default function Form(props) {
 
   const onSubmitForm = (e) => {
     e.preventDefault();
+
     const movieItem = {
       id: Math.random().toString(),
       title: newTitle,
@@ -34,7 +40,17 @@ export default function Form(props) {
       stars_1: "",
       stars_2: "",
     };
-    addToMovies(movieItem);
+    /* addToMovies(movieItem); */
+    setMovieToBeAdded(movieItem);
+    setAddImgDisplay(true);
+  };
+
+  const backToMainPage = () => {
+    props.addMovieState("PICK");
+  };
+
+  const backToAddMovie = () => {
+    setAddImgDisplay(false);
   };
 
   return (
@@ -78,9 +94,23 @@ export default function Form(props) {
             <Button variant="contained" type="submit">
               Add Movie
             </Button>
+            <Button variant="outlined" color="error" onClick={backToMainPage}>
+              Back
+            </Button>
           </form>
         </div>
-        {movies.length > 0 ? <Statistics /> : ""}
+
+        {addImgDisplay == true ? (
+          <Backdrop>
+            <AddImgURLModal
+              movieToBeAdded={movieToBeAdded}
+              displayImgModalToggle={setAddImgDisplay}
+              backToAddMovie={backToAddMovie}
+            />
+          </Backdrop>
+        ) : (
+          ""
+        )}
       </StyledForm>
     </ContainerForm>
   );

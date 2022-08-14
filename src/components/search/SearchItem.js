@@ -4,11 +4,15 @@ import SearchContext from "../../SearchContext";
 import MoviesContext from "../../MoviesContext";
 
 export default function SearchItem(props) {
-  const { IMG_API } = useContext(SearchContext);
+  const { IMG_API, setClickedMovieID } = useContext(SearchContext);
   const { addToMovies } = useContext(MoviesContext);
 
   const releaseDate = new Date(props.movieYear);
   const releaseYear = releaseDate.getFullYear();
+
+  const clickedMovieID = (movieID) => {
+    setClickedMovieID(movieID);
+  };
 
   const onClickMovieHandler = () => {
     //Po přidání filmu se přestanou renderovat vyhledané filmy.
@@ -18,11 +22,14 @@ export default function SearchItem(props) {
       title: props.title,
       movieYear: releaseYear,
       imageURL: IMG_API + props.imageURL,
-      dateWatched: 1,
+      dateWatched: "",
       stars_1: "",
       stars_2: "",
     };
-    addToMovies(movieItem);
+    /*   addToMovies(movieItem);
+    clickedMovieID(movieItem.id); */
+    props.liftUpMovieToBeAdded(movieItem);
+    props.displayDateModalToggle(true);
   };
 
   return (

@@ -8,6 +8,8 @@ export function SearchContextProvider({ children }) {
   //Tady jsou dotáhnuté movies z API na základě vyhledávání
   const [foundMovies, setFoundMovies] = useState("");
 
+  const [clickedMovieID, setClickedMovieID] = useState("");
+
   // *API data*
   const API_KEY = "api_key=274808d92789c49e637a022e855f63dd";
   const BASE_URL = "https://api.themoviedb.org/3";
@@ -38,6 +40,8 @@ export function SearchContextProvider({ children }) {
         getMovies,
         searchURL,
         IMG_API,
+        setClickedMovieID,
+        clickedMovieID,
       }}
     >
       {children}

@@ -6,12 +6,20 @@ import { StyledForm } from "../styled/StyledForm";
 import { StyledList } from "../styled/StyledList";
 import SearchItem from "./SearchItem";
 import SearchContext from "../../SearchContext";
+import Backdrop from "../Backdrop";
+import AddDateModal from "./AddDateModal";
 
-export default function Search() {
+export default function Search(props) {
   const { setSearchTerm, getMovies, searchURL, foundMovies } =
     useContext(SearchContext);
 
+  const [movieToBeAdded, setMovieToBeAdded] = useState({});
   const [isDisplayedSearch, setIsDisplayedSearch] = useState(false);
+  const [isDisplayedDateModal, setIsDisplayedDateModal] = useState(false);
+
+  const liftUpMovieToBeAdded = (movie) => {
+    setMovieToBeAdded(movie);
+  };
 
   const onChangeHandler = (e) => {
     setSearchTerm(e.target.value);
@@ -28,6 +36,9 @@ export default function Search() {
     setIsDisplayedSearch(false);
   };
 
+  const backToMainPage = () => {
+    props.addMovieState("PICK");
+  };
   return (
     <div>
       <ContainerForm>
@@ -54,6 +65,8 @@ export default function Search() {
                         movieYear={movie.release_date}
                         imageURL={movie.poster_path}
                         searchDisplayToggle={cancelSearch}
+                        displayDateModalToggle={setIsDisplayedDateModal}
+                        liftUpMovieToBeAdded={liftUpMovieToBeAdded}
                       />
                     ))}
                   </StyledList>
@@ -67,7 +80,20 @@ export default function Search() {
               <Button variant="contained" type="submit">
                 Submit
               </Button>
+              <Button variant="outlined" color="error" onClick={backToMainPage}>
+                Back
+              </Button>
             </form>
+            {isDisplayedDateModal == true ? (
+              <Backdrop>
+                <AddDateModal
+                  displayDateModalToggle={setIsDisplayedDateModal}
+                  movieToBeAdded={movieToBeAdded}
+                />
+              </Backdrop>
+            ) : (
+              ""
+            )}
           </div>
         </StyledForm>
       </ContainerForm>

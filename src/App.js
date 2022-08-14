@@ -22,12 +22,16 @@ function App() {
         )}
         {addMovieState == "SEARCH" ? (
           <SearchContextProvider>
-            <Search />
+            <Search addMovieState={setAddMovieState} />
           </SearchContextProvider>
         ) : (
           ""
         )}
-        {addMovieState == "MANUAL" ? <Form /> : ""}
+        {addMovieState == "MANUAL" ? (
+          <Form addMovieState={setAddMovieState} />
+        ) : (
+          ""
+        )}
 
         <Movies />
         <Footer />

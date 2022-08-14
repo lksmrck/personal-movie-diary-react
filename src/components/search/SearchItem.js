@@ -26,8 +26,7 @@ export default function SearchItem(props) {
       stars_1: "",
       stars_2: "",
     };
-    /*   addToMovies(movieItem);
-    clickedMovieID(movieItem.id); */
+
     props.liftUpMovieToBeAdded(movieItem);
     props.displayDateModalToggle(true);
   };
@@ -36,8 +35,8 @@ export default function SearchItem(props) {
     <li onClick={onClickMovieHandler}>
       <img
         src={IMG_API + props.imageURL}
-        width="71px"
-        height="99.5px"
+        width="64.9px"
+        height="91px"
         //Když kliknu na obrázek, pošlu do funkce props.id itemu, na který jsem klikl.
       />
       <div className="search-movie-data">

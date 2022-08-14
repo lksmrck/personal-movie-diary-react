@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const StyledMoviesSort = styled.div`
-  /*   width: 1300px; */
   display: flex;
   justify-content: center;
-  /*   justify-content: space-between; */
+
   margin-left: 15px;
 
   .sort-control {
@@ -22,16 +21,34 @@ export const StyledMoviesSort = styled.div`
 
     width: 10.5vw;
     height: 14vh;
-    background-color: white;
+    background-color: #b0dae9;
     position: absolute;
-
+    margin-top: -14px;
     color: black;
     border-radius: 7px;
 
     visibility: visible;
     opacity: 1;
     transition: visibility 2s, opacity 1s linear;
-    /* transition: transform 0.3s linear; */
+
+    animation: bounce-in-right 1s ease;
+    animation-fill-mode: forwards;
+  }
+  @keyframes bounce-in-right {
+    0% {
+      opacity: 0;
+      transform: translateX(-600px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateX(-170px);
+    }
+    80% {
+      transform: translateX(-175px);
+    }
+    100% {
+      transform: translateX(-170px);
+    }
   }
 
   .statistics-icon {
@@ -46,18 +63,18 @@ export const StyledMoviesSort = styled.div`
     padding-left: 7px;
     width: 10.5vw;
     height: 14vh;
-    background-color: white;
+    background-color: #b0dae9;
     position: absolute;
-    /*    margin-left: 80%;
-    margin-top: 0.6%; */
+    margin-top: -14px;
     color: black;
     border-radius: 7px;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 1s, opacity 0.5s linear;
   }
   .statistics-data {
     font-weight: bold;
     color: red;
   }
+
+  //ANIMATION
 `;

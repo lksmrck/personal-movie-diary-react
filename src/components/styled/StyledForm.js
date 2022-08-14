@@ -21,4 +21,8 @@ export const StyledForm = styled.div`
     justify-content: space-evenly;
     margin-top: 10px;
   }
+
+  .search-button-container {
+    margin-top: 5px;
+  }
 `;

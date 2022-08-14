@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Input from "../Input";
 import { ContainerForm } from "../styled/containers/ContainerForm";
 import { Button } from "@mui/material";
@@ -10,12 +10,23 @@ import Backdrop from "../Backdrop";
 import AddDateModal from "./AddDateModal";
 
 export default function Search(props) {
-  const { setSearchTerm, getMovies, searchURL, foundMovies } =
+  const { setSearchTerm, getMovies, searchURL, foundMovies, searchTerm } =
     useContext(SearchContext);
 
   const [movieToBeAdded, setMovieToBeAdded] = useState({});
   const [isDisplayedSearch, setIsDisplayedSearch] = useState(false);
   const [isDisplayedDateModal, setIsDisplayedDateModal] = useState(false);
+
+  //API call, kde se hledá searchTerm po 1 vteřine, kdy user přestane psát
+  useEffect(() => {
+    const API_CALL = setTimeout(() => {
+      if (searchTerm) {
+        getMovies(searchURL);
+        setIsDisplayedSearch(true);
+      }
+    }, 1000);
+    return () => clearTimeout(API_CALL);
+  }, [searchTerm]);
 
   const liftUpMovieToBeAdded = (movie) => {
     setMovieToBeAdded(movie);
@@ -23,13 +34,6 @@ export default function Search(props) {
 
   const onChangeHandler = (e) => {
     setSearchTerm(e.target.value);
-  };
-
-  const onSubmitForm = (e) => {
-    e.preventDefault();
-
-    getMovies(searchURL);
-    setIsDisplayedSearch(true);
   };
 
   const cancelSearch = () => {
@@ -44,7 +48,7 @@ export default function Search(props) {
       <ContainerForm>
         <StyledForm>
           <div className="inputs-container search">
-            <form onSubmit={onSubmitForm}>
+            <form>
               <Input
                 label="Movie name"
                 input={{
@@ -70,19 +74,26 @@ export default function Search(props) {
                       />
                     ))}
                   </StyledList>
-                  <Button variant="contained" onClick={cancelSearch}>
-                    Back
-                  </Button>
+                  <div className="search-button-container">
+                    <Button variant="contained" onClick={cancelSearch}>
+                      Back
+                    </Button>
+                  </div>
                 </div>
               ) : (
                 ""
               )}
-              <Button variant="contained" type="submit">
-                Submit
-              </Button>
-              <Button variant="outlined" color="error" onClick={backToMainPage}>
-                Back
-              </Button>
+              {!isDisplayedSearch ? (
+                <Button
+                  variant="outlined"
+                  color="error"
+                  onClick={backToMainPage}
+                >
+                  Back
+                </Button>
+              ) : (
+                ""
+              )}
             </form>
             {isDisplayedDateModal == true ? (
               <Backdrop>

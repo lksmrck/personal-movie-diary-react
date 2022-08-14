@@ -27,9 +27,10 @@ export default function AddImgURLModal(props) {
 
   return (
     <StyledAddImgURLModal>
-      <p>Please add the cover image URL.</p>
+      <p className="info-text">Please add the cover image URL.</p>
       <p className="example-text">
-        i.e. https://m.media-amazon.com/images/I/51asM9eJMXL.jpg{" "}
+        <span className="example-text-bold">Example:</span>{" "}
+        https://m.media-amazon.com/images/I/51asM9eJMXL.jpg{" "}
       </p>
       <form onSubmit={onSubmitImgURL}>
         <Input
@@ -42,12 +43,14 @@ export default function AddImgURLModal(props) {
           onChangeInput={onChangeImgURL}
           defaultValue="https://m.media-amazon.com/images/I/51asM9eJMXL.jpg"
         />
-        <Button variant="contained" type="submit">
-          Submit
-        </Button>
-        <Button variant="outlined" color="error" onClick={backToAddMovie}>
-          Back
-        </Button>
+        <div className="buttons-container">
+          <Button variant="contained" type="submit">
+            Submit
+          </Button>
+          <Button variant="outlined" color="error" onClick={backToAddMovie}>
+            Back
+          </Button>
+        </div>
       </form>
     </StyledAddImgURLModal>
   );

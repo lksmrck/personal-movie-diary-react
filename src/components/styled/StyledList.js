@@ -4,10 +4,12 @@ export const StyledList = styled.ul`
   color: black;
   text-align: center;
   list-style: none;
-  width: 498px;
-  height: 300px;
+  width: 500px;
+  height: 292px;
   overflow-y: scroll;
   background-color: white;
+  margin-top: 0px;
+  border-radius: 4px;
 
   li {
     display: flex;

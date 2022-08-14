@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { StyledMovieDetail } from "../styled/StyledMovieDetail";
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
-import MoviesContext from "../../MoviesContext";
+import MoviesContext from "../../store/MoviesContext";
 
 export default function AddMovieDetail(props) {
   const { displayedDetail } = useContext(MoviesContext);

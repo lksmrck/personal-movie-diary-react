@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import { StyledAddDateModal } from "../styled/StyledAddDateModal";
-import Input from "../Input";
+import Input from "../add-movie/Input";
 import { Button } from "@mui/material";
-import SearchContext from "../../SearchContext";
-import MoviesContext from "../../MoviesContext";
+import SearchContext from "../../store/SearchContext";
+import MoviesContext from "../../store/MoviesContext";
 
 export default function AddDateModal(props) {
   const { clickedMovieID } = useContext(SearchContext);

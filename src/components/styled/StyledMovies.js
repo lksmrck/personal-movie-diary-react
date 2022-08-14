@@ -7,8 +7,8 @@ export const StyledMovies = styled.div`
   background-color: #333252;
   border-radius: 5px;
   margin: 20px;
-
-  border: 1px solid white;
+  box-shadow: 3px 4px black;
+  border: 0.5px solid grey;
 
   .backdrop {
     position: fixed;

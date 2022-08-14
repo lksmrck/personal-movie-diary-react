@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
-/* import { StyledAddImgURLModal } from "./styled/StyledAddImgUrlModal"; */
-import { StyledAddImgURLModal } from "./styled/StyledAddImgURLModal";
-import MoviesContext from "../MoviesContext";
+import { StyledAddImgURLModal } from "../styled/StyledAddImgURLModal";
+import MoviesContext from "../../store/MoviesContext";
 import Input from "./Input";
 import { Button } from "@mui/material";
 

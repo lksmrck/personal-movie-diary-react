@@ -4,12 +4,13 @@ export const StyledMainAddMoviePage = styled.div`
   width: 955px;
   height: 212px;
   background-color: #333252;
-  border: 1px solid white;
+  border: 0.5px solid grey;
   border-radius: 5px;
   margin: 20px;
   position: relative;
   display: flex;
   justify-content: center;
+  box-shadow: 3px 4px black;
 
   .main-buttons-container {
     display: flex;

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Form from "./components/Form";
-import Movies from "./components/Movies";
+import Form from "./components/add-movie/Form";
+import Movies from "./components/movies/Movies";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Search from "./components/search/Search";
 import MainAddMoviePage from "./components/add-movie/MainAddMoviePage";
-import { MoviesContextProvider } from "./MoviesContext";
-import { SearchContextProvider } from "./SearchContext";
+import { MoviesContextProvider } from "./store/MoviesContext";
+import { SearchContextProvider } from "./store/SearchContext";
 
 function App() {
   const [addMovieState, setAddMovieState] = useState("PICK");

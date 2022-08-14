@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Select, InputLabel, MenuItem, FormControl } from "@mui/material";
-import MoviesContext from "../MoviesContext";
+import MoviesContext from "../../store/MoviesContext";
 import Statistics from "./Statistics";
-import { StyledMoviesSort } from "./styled/StyledMoviesSort";
+import { StyledMoviesSort } from "../styled/StyledMoviesSort";
 
 const MoviesSort = (props) => {
   const { movies } = useContext(MoviesContext);

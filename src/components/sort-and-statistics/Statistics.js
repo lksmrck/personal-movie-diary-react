@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import MoviesContext from "../MoviesContext";
+import MoviesContext from "../../store/MoviesContext";
 import { FcStatistics } from "react-icons/fc";
 export default function Statistics() {
   const { movies } = useContext(MoviesContext);

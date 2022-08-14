@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { StyledMovieDetail } from "../styled/StyledMovieDetail";
 import { Button } from "@mui/material";
-import MoviesContext from "../../MoviesContext";
+import MoviesContext from "../../store/MoviesContext";
 
 export default function DisplayDetail(props) {
   const { displayedDetail, setDetailState } = useContext(MoviesContext);

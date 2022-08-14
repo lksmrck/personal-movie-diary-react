@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
-import SearchContext from "../../SearchContext";
-import MoviesContext from "../../MoviesContext";
+import SearchContext from "../../store/SearchContext";
+/* import MoviesContext from "../../store/MoviesContext"; */
 
 export default function SearchItem(props) {
   const { IMG_API /* setClickedMovieID */ } = useContext(SearchContext);

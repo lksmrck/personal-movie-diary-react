@@ -1,9 +1,9 @@
 import { React, useContext, useEffect } from "react";
-import { StyledMovieCard } from "./styled/StyledMovieCard";
+import { StyledMovieCard } from "../styled/StyledMovieCard";
 import { Rating } from "@mui/material";
 import { useState } from "react";
 import { GoTrashcan } from "react-icons/go";
-import MoviesContext from "../MoviesContext";
+import MoviesContext from "../../store/MoviesContext";
 
 export default function MovieCard(props) {
   const [valueL, setValueL] = useState(null);

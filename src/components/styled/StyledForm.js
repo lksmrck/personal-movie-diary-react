@@ -3,10 +3,11 @@ import styled from "styled-components";
 export const StyledForm = styled.div`
   width: 955px;
   background-color: #333252;
-  border: 1px solid white;
+  border: 0.5px solid grey;
   border-radius: 5px;
   margin: 20px;
   position: relative;
+  box-shadow: 3px 4px black;
 
   form {
     margin: 10px;

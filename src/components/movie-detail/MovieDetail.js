@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import MoviesContext from "../../MoviesContext";
+import MoviesContext from "../../store/MoviesContext";
 import AddMovieDetail from "./AddMovieDetail";
 import NoMovieDetail from "./NoMovieDetail";
 import DisplayDetail from "./DisplayDetail";

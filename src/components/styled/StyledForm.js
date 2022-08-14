@@ -20,9 +20,13 @@ export const StyledForm = styled.div`
     display: flex;
     justify-content: space-evenly;
     margin-top: 10px;
+    height: 120px;
   }
 
   .search-button-container {
-    margin-top: 5px;
+    display: flex;
+    justify-content: right;
+    margin-top: -20px;
+    margin-right: -5px;
   }
 `;

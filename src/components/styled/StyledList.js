@@ -5,7 +5,7 @@ export const StyledList = styled.ul`
   text-align: center;
   list-style: none;
   width: 500px;
-  height: 292px;
+  height: 271px;
   overflow-y: scroll;
   background-color: white;
   margin-top: 0px;
@@ -16,12 +16,17 @@ export const StyledList = styled.ul`
     cursor: pointer;
     background-color: white;
     width: 484px;
-    height: 100px;
+    height: 90.9px;
     border: 1px solid grey;
     border-radius: 1px;
     margin-left: -40px;
     text-align: left;
-    margin-bottom: -10px;
+    /* margin-bottom: -10px; */
+    overflow: hidden;
+  }
+  li img {
+    width: 64.9px;
+    height: 91px;
   }
 
   li div {
@@ -31,6 +36,10 @@ export const StyledList = styled.ul`
   span {
     margin-bottom: 80%;
   }
+  .search-movie-data {
+    font-size: 12px;
+  }
+
   .search-title {
     font-weight: bold;
   }

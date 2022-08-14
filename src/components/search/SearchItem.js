@@ -4,15 +4,15 @@ import SearchContext from "../../SearchContext";
 import MoviesContext from "../../MoviesContext";
 
 export default function SearchItem(props) {
-  const { IMG_API, setClickedMovieID } = useContext(SearchContext);
-  const { addToMovies } = useContext(MoviesContext);
+  const { IMG_API /* setClickedMovieID */ } = useContext(SearchContext);
+  /*   const { addToMovies } = useContext(MoviesContext); */
 
   const releaseDate = new Date(props.movieYear);
   const releaseYear = releaseDate.getFullYear();
 
-  const clickedMovieID = (movieID) => {
+  /*  const clickedMovieID = (movieID) => {
     setClickedMovieID(movieID);
-  };
+  }; */
 
   const onClickMovieHandler = () => {
     //Po přidání filmu se přestanou renderovat vyhledané filmy.

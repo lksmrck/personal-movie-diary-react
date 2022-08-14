@@ -61,7 +61,12 @@ export const StyledMovieDetail = styled.div`
     margin-right: 5%;
     height: 200px;
     border-radius: 5px;
+    overflow-wrap: break-word;
     overflow-y: scroll;
+  }
+
+  .detail-text-container::-webkit-scrollbar {
+    display: none;
   }
   .detail-text-container p {
     background-color: #161d2e;

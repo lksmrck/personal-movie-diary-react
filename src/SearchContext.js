@@ -9,6 +9,7 @@ export function SearchContextProvider({ children }) {
   const [foundMovies, setFoundMovies] = useState("");
 
   const [clickedMovieID, setClickedMovieID] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // *API data*
   const API_KEY = "api_key=274808d92789c49e637a022e855f63dd";
@@ -23,11 +24,13 @@ export function SearchContextProvider({ children }) {
   //např. https://api.themoviedb.org/3/search/movie?api_key=274808d92789c49e637a022e855f63dd&query=potter
 
   function getMovies(url) {
+    setIsLoading(true);
     fetch(url + searchTerm)
       .then((res) => res.json())
       .then((data) => {
         setFoundMovies(data.results);
       });
+    setIsLoading(false);
   }
 
   return (
@@ -42,6 +45,7 @@ export function SearchContextProvider({ children }) {
         IMG_API,
         setClickedMovieID,
         clickedMovieID,
+        isLoading,
       }}
     >
       {children}

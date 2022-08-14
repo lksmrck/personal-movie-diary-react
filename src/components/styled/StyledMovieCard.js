@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 export const StyledMovieCard = styled.div`
@@ -23,12 +22,15 @@ export const StyledMovieCard = styled.div`
   img {
     border-radius: 7px;
     margin-left: 8px;
+    cursor: pointer;
   }
 
   .img-trash-container {
     display: flex;
   }
   .trash-icon {
-    margin-left: 10px;
+    margin-left: 7px;
+    margin-top: -1px;
+    cursor: pointer;
   }
 `;

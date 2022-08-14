@@ -8,11 +8,19 @@ import SearchItem from "./SearchItem";
 import SearchContext from "../../SearchContext";
 import Backdrop from "../Backdrop";
 import AddDateModal from "./AddDateModal";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function Search(props) {
-  const { setSearchTerm, getMovies, searchURL, foundMovies, searchTerm } =
-    useContext(SearchContext);
+  const {
+    setSearchTerm,
+    getMovies,
+    searchURL,
+    foundMovies,
+    searchTerm,
+    isLoading,
+  } = useContext(SearchContext);
 
+  // 1. *STATES*
   const [movieToBeAdded, setMovieToBeAdded] = useState({});
   const [isDisplayedSearch, setIsDisplayedSearch] = useState(false);
   const [isDisplayedDateModal, setIsDisplayedDateModal] = useState(false);
@@ -24,7 +32,7 @@ export default function Search(props) {
         getMovies(searchURL);
         setIsDisplayedSearch(true);
       }
-    }, 1000);
+    }, 500);
     return () => clearTimeout(API_CALL);
   }, [searchTerm]);
 
@@ -46,6 +54,7 @@ export default function Search(props) {
   return (
     <div>
       <ContainerForm>
+        {isLoading && <LoadingSpinner />}
         <StyledForm>
           <div className="inputs-container search">
             <form>
@@ -75,7 +84,11 @@ export default function Search(props) {
                     ))}
                   </StyledList>
                   <div className="search-button-container">
-                    <Button variant="contained" onClick={cancelSearch}>
+                    <Button
+                      variant="contained"
+                      color="error"
+                      onClick={cancelSearch}
+                    >
                       Back
                     </Button>
                   </div>

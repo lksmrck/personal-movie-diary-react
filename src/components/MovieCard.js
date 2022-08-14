@@ -65,7 +65,10 @@ export default function MovieCard(props) {
           //Když kliknu na obrázek, pošlu do funkce props.id itemu, na který jsem klikl.
           onClick={onClickImg}
         />
-        <GoTrashcan className="trash-icon" onClick={onClickButton} />
+        {/* <GoTrashcan className="trash-icon" onClick={onClickButton} /> */}
+        <p className="trash-icon" onClick={onClickButton}>
+          ❌
+        </p>
       </div>
       <h2>{props.title}</h2>
       <h3>{props.movieYear}</h3>

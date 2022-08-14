@@ -11,18 +11,18 @@ export default function SearchItem(props) {
   const releaseYear = releaseDate.getFullYear();
 
   const onClickMovieHandler = () => {
+    //Po přidání filmu se přestanou renderovat vyhledané filmy.
+    props.searchDisplayToggle();
     const movieItem = {
       id: Math.random().toString(),
       title: props.title,
-      movieYear: props.movieYear,
+      movieYear: releaseYear,
       imageURL: IMG_API + props.imageURL,
       dateWatched: 1,
       stars_1: "",
       stars_2: "",
     };
     addToMovies(movieItem);
-    //Po přidání filmu se přestanou renderovat vyhledané filmy.
-    props.searchDisplayToggle();
   };
 
   return (

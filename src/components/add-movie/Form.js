@@ -9,7 +9,6 @@ import Backdrop from "../Backdrop";
 import AddImgURLModal from "./AddImgURLModal";
 
 export default function Form(props) {
-  //Udělat přes state object?
   const [newTitle, setNewTitle] = useState();
   const [newMovieYear, setNewMovieYear] = useState();
   const [newDateWatched, setNewDateWatched] = useState();
@@ -17,7 +16,7 @@ export default function Form(props) {
   const [movieToBeAdded, setMovieToBeAdded] = useState({});
   const [addImgDisplay, setAddImgDisplay] = useState(false);
 
-  const { addToMovies, movies } = useContext(MoviesContext);
+  /* const { addToMovies, movies } = useContext(MoviesContext); */
 
   const onChangeTitle = (e) => {
     setNewTitle(e.target.value);
@@ -40,9 +39,13 @@ export default function Form(props) {
       stars_1: "",
       stars_2: "",
     };
-    /* addToMovies(movieItem); */
+
     setMovieToBeAdded(movieItem);
     setAddImgDisplay(true);
+    setNewTitle("");
+    setNewMovieYear("");
+    setNewDateWatched("");
+    console.log(movieItem);
   };
 
   const backToMainPage = () => {
@@ -73,9 +76,9 @@ export default function Form(props) {
               input={{
                 id: "Year filmed",
                 type: "number",
-                min: "1900",
-                max: "2022",
-                step: "1",
+                min: 1930,
+                max: 2022,
+                step: 1,
               }}
               value={newMovieYear}
               onChangeInput={onChangeDateFilmed}

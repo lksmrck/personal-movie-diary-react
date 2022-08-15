@@ -9,6 +9,7 @@ import SearchContext from "../../store/SearchContext";
 import Backdrop from "../Backdrop";
 import AddDateModal from "./AddDateModal";
 import LoadingSpinner from "./LoadingSpinner";
+import FoundNoMovie from "./FoundNoMovie";
 
 export default function Search(props) {
   const {
@@ -96,6 +97,13 @@ export default function Search(props) {
               ) : (
                 ""
               )}
+              {isDisplayedSearch && foundMovies.length == 0 ? (
+                <StyledList>
+                  <FoundNoMovie />
+                </StyledList>
+              ) : (
+                ""
+              )}
               {!isDisplayedSearch && !isLoading && (
                 <Button
                   variant="outlined"
@@ -105,7 +113,7 @@ export default function Search(props) {
                   Back
                 </Button>
               )}
-              {!isDisplayedSearch && isLoading && <LoadingSpinner />}
+              {isLoading && <LoadingSpinner />}
             </form>
             {isDisplayedDateModal == true ? (
               <Backdrop>

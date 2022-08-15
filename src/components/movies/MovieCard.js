@@ -21,6 +21,11 @@ export default function MovieCard(props) {
 
   const myDate = day + "-" + month + "-" + year;
 
+  //Upravení formátu movieDate
+  const dateFilmed = props.movieYear;
+
+  const dateFilmedType = typeof dateFilmed;
+
   //Načítání a zobrazování ratingu z localStorage při vyrenderování komponentu.
   useEffect(() => {
     const localData = localStorage.getItem("movies");
@@ -75,13 +80,12 @@ export default function MovieCard(props) {
           //Když kliknu na obrázek, pošlu do funkce props.id itemu, na který jsem klikl.
           onClick={onClickImg}
         />
-        {/* <GoTrashcan className="trash-icon" onClick={onClickButton} /> */}
         <p className="delete-icon" onClick={onClickButton}>
           ❌
         </p>
       </div>
       <h2 className="title-text">{props.title}</h2>
-      <h3>{props.movieYear}</h3>
+      <h3>{dateFilmedType == "object" ? "---" : dateFilmed}</h3>
       <h4>{myDate}</h4>
       <span>
         L:

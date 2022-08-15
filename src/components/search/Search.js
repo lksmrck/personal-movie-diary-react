@@ -98,9 +98,20 @@ export default function Search(props) {
                 ""
               )}
               {isDisplayedSearch && foundMovies.length == 0 ? (
-                <StyledList>
-                  <FoundNoMovie />
-                </StyledList>
+                <div className="search-list-container">
+                  <StyledList>
+                    <FoundNoMovie />
+                  </StyledList>
+                  <div className="search-button-container">
+                    <Button
+                      variant="contained"
+                      color="error"
+                      onClick={cancelSearch}
+                    >
+                      Back
+                    </Button>
+                  </div>
+                </div>
               ) : (
                 ""
               )}

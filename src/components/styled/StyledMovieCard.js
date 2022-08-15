@@ -6,7 +6,7 @@ export const StyledMovieCard = styled.div`
   max-width: 180px;
 
   h2 {
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: -5px;
   }
 

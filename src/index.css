@@ -29,9 +29,10 @@ body {
 }
 
 .no-movies-found-paragraph {
+  display:flex;
+  justify-content: center;
   margin-top: 10%;
-  margin-left: 40%;
-  font-size: 30px;
+  font-size: 25px;
 }
 footer {
   font-size: 10px;

@@ -59,6 +59,7 @@ export const StyledMovieDetail = styled.div`
     background-color: #161d2e;
     margin-left: 5%;
     margin-right: 5%;
+    margin-top: 5%;
     height: 200px;
     border-radius: 5px;
     overflow-wrap: break-word;

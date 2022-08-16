@@ -1,18 +1,21 @@
 import React, { useContext } from "react";
+import image from "../../assets/no-poster-available.webp";
 
 import SearchContext from "../../store/SearchContext";
-/* import MoviesContext from "../../store/MoviesContext"; */
 
 export default function SearchItem(props) {
-  const { IMG_API /* setClickedMovieID */ } = useContext(SearchContext);
-  /*   const { addToMovies } = useContext(MoviesContext); */
+  const { IMG_API } = useContext(SearchContext);
 
   const releaseDate = new Date(props.movieYear);
   const releaseYear = releaseDate.getFullYear();
 
-  /*  const clickedMovieID = (movieID) => {
-    setClickedMovieID(movieID);
-  }; */
+  //Pokud není nalezet poster, tak použije No Poster Found image
+  let foundImgURL = "";
+  if (props.imageURL == null) {
+    foundImgURL = image;
+  } else {
+    foundImgURL = IMG_API + props.imageURL;
+  }
 
   const onClickMovieHandler = () => {
     //Po přidání filmu se přestanou renderovat vyhledané filmy.
@@ -21,7 +24,7 @@ export default function SearchItem(props) {
       id: Math.random().toString(),
       title: props.title,
       movieYear: releaseYear,
-      imageURL: IMG_API + props.imageURL,
+      imageURL: foundImgURL,
       dateWatched: "",
       stars_1: "",
       stars_2: "",
@@ -34,7 +37,7 @@ export default function SearchItem(props) {
   return (
     <li onClick={onClickMovieHandler}>
       <img
-        src={IMG_API + props.imageURL}
+        src={foundImgURL}
         width="64.9px"
         height="91px"
         //Když kliknu na obrázek, pošlu do funkce props.id itemu, na který jsem klikl.

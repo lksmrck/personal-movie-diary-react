@@ -4,12 +4,14 @@ import { ContainerForm } from "../styled/containers/ContainerForm";
 import { Button } from "@mui/material";
 import { StyledForm } from "../styled/StyledForm";
 import { StyledList } from "../styled/StyledList";
+import { StyledListShort } from "../styled/StyledListShort";
 import SearchItem from "./SearchItem";
 import SearchContext from "../../store/SearchContext";
 import Backdrop from "../Backdrop";
 import AddDateModal from "./AddDateModal";
 import LoadingSpinner from "./LoadingSpinner";
 import FoundNoMovie from "./FoundNoMovie";
+import Error from "./Error";
 
 export default function Search(props) {
   const {
@@ -20,6 +22,7 @@ export default function Search(props) {
     searchTerm,
     setIsLoading,
     isLoading,
+    error,
   } = useContext(SearchContext);
 
   // 1. *STATES*
@@ -68,7 +71,8 @@ export default function Search(props) {
                 placeholder="Star Wars"
                 onChangeInput={onChangeHandler}
               />
-              {isDisplayedSearch && foundMovies.length > 0 ? (
+              {/* Toto se vyrenderuje pokud: 1. Se vyslal fetch request, 2. našel se alespoň jeden film, 3. a zároveň nenastal error */}
+              {isDisplayedSearch && foundMovies.length > 0 && error == null ? (
                 <div className="search-list-container">
                   <StyledList>
                     {foundMovies.map((movie) => (
@@ -97,11 +101,32 @@ export default function Search(props) {
               ) : (
                 ""
               )}
-              {isDisplayedSearch && foundMovies.length == 0 ? (
+              {/* Toto se vyrenderuje pokud: 1. Se vyslal fetch request, 2.nastal při tom error */}
+              {isDisplayedSearch && error !== null ? (
                 <div className="search-list-container">
-                  <StyledList>
+                  <StyledListShort>
+                    <Error />
+                  </StyledListShort>
+                  <div className="search-button-container">
+                    <Button
+                      variant="contained"
+                      color="error"
+                      onClick={cancelSearch}
+                    >
+                      Back
+                    </Button>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
+
+              {/* Toto se vyrenderuje pokud: 1. Se vyslal fetch request, 2. počet nalezených filmů je 0, 3. a zároveň nenastal error */}
+              {isDisplayedSearch && foundMovies.length == 0 && error == null ? (
+                <div className="search-list-container">
+                  <StyledListShort>
                     <FoundNoMovie />
-                  </StyledList>
+                  </StyledListShort>
                   <div className="search-button-container">
                     <Button
                       variant="contained"

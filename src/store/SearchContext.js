@@ -11,6 +11,11 @@ export function SearchContextProvider({ children }) {
   const [clickedMovieID, setClickedMovieID] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const [error, setError] = useState(null);
+
+  //State na základě kterého se vyrenderuje titulní stránka/search/manuální přidání
+  const [addMovieState, setAddMovieState] = useState("PICK");
+
   // *API data*
   const API_KEY = "api_key=274808d92789c49e637a022e855f63dd";
   const BASE_URL = "https://api.themoviedb.org/3";
@@ -25,11 +30,25 @@ export function SearchContextProvider({ children }) {
 
   function getMovies(url) {
     setIsLoading(true);
+    setError(null);
+
     fetch(url + searchTerm)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw Error("⚙️ Something went wrong: could not fetch the data ⚙️");
+        } else {
+          return res.json();
+        }
+      })
       .then((data) => {
         setFoundMovies(data.results);
         setIsLoading(false);
+        setError(null);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+
+        setError(error.message);
       });
   }
 
@@ -47,6 +66,9 @@ export function SearchContextProvider({ children }) {
         clickedMovieID,
         isLoading,
         setIsLoading,
+        error,
+        addMovieState,
+        setAddMovieState,
       }}
     >
       {children}

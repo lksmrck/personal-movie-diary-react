@@ -85,7 +85,7 @@ export default function MovieCard(props) {
         </p>
       </div>
       <h2 className="title-text">{props.title}</h2>
-      <h3>{dateFilmedType == "object" ? "---" : dateFilmed}</h3>
+      <h3>{dateFilmedType == "number" ? dateFilmed : "---"}</h3>
       <h4>{myDate}</h4>
       <span>
         L:

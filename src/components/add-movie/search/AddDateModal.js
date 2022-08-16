@@ -7,7 +7,7 @@ import MoviesContext from "../../../store/MoviesContext";
 
 export default function AddDateModal(props) {
   const { setAddMovieState, setSearchTerm } = useContext(SearchContext);
-  const { addToMovies } = useContext(MoviesContext);
+  const { addToMovies, movies } = useContext(MoviesContext);
 
   const [dateWatched, setDateWatched] = useState();
 
@@ -22,10 +22,12 @@ export default function AddDateModal(props) {
   const onSubmitDateWatched = () => {
     const movieToBeAdded = props.movieToBeAdded;
     const updatedMovie = { ...movieToBeAdded, dateWatched: dateWatched };
+    //Tady se pošle finální movie object do funkce, která ho přidá do array s filmy.
     addToMovies(updatedMovie);
     backToSearch();
     setSearchTerm("");
     setAddMovieState("PICK");
+    console.log(movies);
   };
 
   return (

@@ -5,7 +5,7 @@ export const StyledList = styled.ul`
   text-align: center;
   list-style: none;
   width: 400px;
-  height: 271px;
+  max-height: 271px;
   overflow-y: scroll;
   background-color: white;
   margin-top: 0px;
@@ -25,8 +25,8 @@ export const StyledList = styled.ul`
     overflow: hidden;
   }
   li img {
-    width: 64.9px;
-    height: 91px;
+    /*  width: 64.9px;
+    height: 91px; */
   }
 
   li div {
@@ -38,9 +38,11 @@ export const StyledList = styled.ul`
   }
   .search-movie-data {
     font-size: 12px;
+    width: 100%;
   }
 
   .search-title {
     font-weight: bold;
+    width: 100%;
   }
 `;

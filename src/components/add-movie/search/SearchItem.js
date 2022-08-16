@@ -8,6 +8,7 @@ export default function SearchItem(props) {
 
   const releaseDate = new Date(props.movieYear);
   const releaseYear = releaseDate.getFullYear();
+  const type = typeof releaseYear;
 
   //Pokud není dotáhnut obrázek z API, tak použije No Poster Found image
   let foundImgURL = "";
@@ -44,7 +45,7 @@ export default function SearchItem(props) {
       />
       <div className="search-movie-data">
         <p className="search-title">{props.title}</p>
-        <p>{releaseYear}</p>
+        <p>{isNaN(releaseYear) ? "---" : releaseYear}</p>
       </div>
     </li>
   );

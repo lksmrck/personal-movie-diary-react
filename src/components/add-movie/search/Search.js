@@ -1,13 +1,13 @@
 import React, { useContext, useState, useEffect } from "react";
-import Input from "../add-movie/Input";
-import { ContainerForm } from "../styled/containers/ContainerForm";
+import Input from "../manually/Input";
+import { ContainerForm } from "../../styled/containers/ContainerForm";
 import { Button } from "@mui/material";
-import { StyledForm } from "../styled/StyledForm";
-import { StyledList } from "../styled/StyledList";
-import { StyledListShort } from "../styled/StyledListShort";
+import { StyledForm } from "../../styled/StyledForm";
+import { StyledList } from "../../styled/StyledList";
+import { StyledListShort } from "../../styled/StyledListShort";
 import SearchItem from "./SearchItem";
-import SearchContext from "../../store/SearchContext";
-import Backdrop from "../Backdrop";
+import SearchContext from "../../../store/SearchContext";
+import Backdrop from "../../Backdrop";
 import AddDateModal from "./AddDateModal";
 import LoadingSpinner from "./LoadingSpinner";
 import FoundNoMovie from "./FoundNoMovie";
@@ -20,9 +20,10 @@ export default function Search(props) {
     searchURL,
     foundMovies,
     searchTerm,
-    setIsLoading,
+
     isLoading,
     error,
+    setAddMovieState,
   } = useContext(SearchContext);
 
   // 1. *STATES*
@@ -30,7 +31,7 @@ export default function Search(props) {
   const [isDisplayedSearch, setIsDisplayedSearch] = useState(false);
   const [isDisplayedDateModal, setIsDisplayedDateModal] = useState(false);
 
-  //API call, kde se hledá searchTerm po 1 vteřine, kdy user přestane psát
+  //API call, kde se hledá searchTerm po 0.5 vteřine, kdy user přestane psát
   useEffect(() => {
     const API_CALL = setTimeout(() => {
       if (searchTerm) {
@@ -54,7 +55,7 @@ export default function Search(props) {
   };
 
   const backToMainPage = () => {
-    props.addMovieState("PICK");
+    setAddMovieState("PICK");
   };
   return (
     <div>
@@ -71,7 +72,7 @@ export default function Search(props) {
                 placeholder="Star Wars"
                 onChangeInput={onChangeHandler}
               />
-              {/* Toto se vyrenderuje pokud: 1. Se vyslal fetch request, 2. našel se alespoň jeden film, 3. a zároveň nenastal error */}
+              {/* Toto se vyrenderuje pokud: 1. Se vyslal fetch request, 2. fetch request se i dokončil 3. našel se alespoň jeden film, 4. a zároveň nenastal error */}
               {isDisplayedSearch &&
               isLoading == false &&
               foundMovies.length > 0 &&
@@ -124,8 +125,11 @@ export default function Search(props) {
                 ""
               )}
 
-              {/* Toto se vyrenderuje pokud: 1. Se vyslal fetch request, 2. počet nalezených filmů je 0, 3. a zároveň nenastal error */}
-              {isDisplayedSearch && foundMovies.length == 0 && error == null ? (
+              {/* Toto se vyrenderuje pokud: 1. Se vyslal fetch request, 2. fetch request se i dokončil 3. počet nalezených filmů je 0, 4. a zároveň nenastal error */}
+              {isDisplayedSearch &&
+              isLoading == false &&
+              foundMovies.length == 0 &&
+              error == null ? (
                 <div className="search-list-container">
                   <StyledListShort>
                     <FoundNoMovie />

@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyledMainAddMoviePage } from "../styled/StyledMainAddMoviePage";
 import { Button } from "@mui/material";
 import { ContainerForm } from "../styled/containers/ContainerForm";
+import SearchContext from "../../store/SearchContext";
 
 export default function MainAddMoviePage(props) {
+  const { setAddMovieState } = useContext(SearchContext);
+
   const setSearchForm = () => {
-    props.addFormDisplay("SEARCH");
+    setAddMovieState("SEARCH");
   };
   const setManualForm = () => {
-    props.addFormDisplay("MANUAL");
+    setAddMovieState("MANUAL");
   };
 
   return (

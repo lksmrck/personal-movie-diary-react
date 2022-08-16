@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import SearchContext from "../../store/SearchContext";
+import SearchContext from "../../../store/SearchContext";
 
 export default function Error() {
   const { error } = useContext(SearchContext);

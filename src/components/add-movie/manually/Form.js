@@ -1,11 +1,12 @@
 import { React, useState, useContext } from "react";
 import Input from "./Input";
-import { ContainerForm } from "../styled/containers/ContainerForm";
-import { StyledForm } from "../styled/StyledForm";
-import MoviesContext from "../../store/MoviesContext";
+import { ContainerForm } from "../../styled/containers/ContainerForm";
+import { StyledForm } from "../../styled/StyledForm";
+import MoviesContext from "../../../store/MoviesContext";
 import { Button } from "@mui/material";
+import SearchContext from "../../../store/SearchContext";
 
-import Backdrop from "../Backdrop";
+import Backdrop from "../../Backdrop";
 import AddImgURLModal from "./AddImgURLModal";
 
 export default function Form(props) {
@@ -17,6 +18,7 @@ export default function Form(props) {
   const [addImgDisplay, setAddImgDisplay] = useState(false);
 
   const { addToMovies, movies } = useContext(MoviesContext);
+  const { setAddMovieState } = useContext(SearchContext);
 
   const onChangeTitle = (e) => {
     setNewTitle(e.target.value);
@@ -49,11 +51,12 @@ export default function Form(props) {
   };
 
   const backToMainPage = () => {
-    props.addMovieState("PICK");
+    setAddMovieState("PICK");
   };
 
   const backToAddMovie = () => {
     setAddImgDisplay(false);
+    backToMainPage();
   };
 
   return (
@@ -76,7 +79,7 @@ export default function Form(props) {
               input={{
                 id: "Year filmed",
                 type: "number",
-                min: 1930,
+                min: 1900,
                 max: 2022,
                 step: 1,
               }}

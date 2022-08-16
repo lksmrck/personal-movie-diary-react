@@ -13,7 +13,7 @@ const Input = (props) => {
         size="small"
         placeholder={props.placeholder}
         onChange={props.onChangeInput}
-        {...props.input}
+        inputProps={{ ...props.input }}
         value={props.value}
         color="primary"
         defaultValue={props.defaultValue}

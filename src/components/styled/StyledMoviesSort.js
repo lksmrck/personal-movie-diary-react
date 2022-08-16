@@ -5,6 +5,7 @@ export const StyledMoviesSort = styled.div`
   justify-content: center;
 
   margin-left: 15px;
+  z-index: 1;
 
   .sort-control {
     display: flex;

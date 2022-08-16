@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const StyledAddImgURLModal = styled.div`
+  display: flex;
+  justify-content: center;
   position: fixed;
   top: 20vh;
   left: 25%;
@@ -35,5 +37,8 @@ export const StyledAddImgURLModal = styled.div`
   .buttons-container {
     display: flex;
     justify-content: center;
+    margin-top: 5px;
+  }
+  .add-url-container {
   }
 `;

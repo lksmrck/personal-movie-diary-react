@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import image from "../../assets/no-poster-available.webp";
+import image from "../../../assets/no-poster-available.webp";
 
-import SearchContext from "../../store/SearchContext";
+import SearchContext from "../../../store/SearchContext";
 
 export default function SearchItem(props) {
   const { IMG_API } = useContext(SearchContext);
@@ -9,7 +9,7 @@ export default function SearchItem(props) {
   const releaseDate = new Date(props.movieYear);
   const releaseYear = releaseDate.getFullYear();
 
-  //Pokud není nalezet poster, tak použije No Poster Found image
+  //Pokud není dotáhnut obrázek z API, tak použije No Poster Found image
   let foundImgURL = "";
   if (props.imageURL == null) {
     foundImgURL = image;

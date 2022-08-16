@@ -4,7 +4,7 @@ export const StyledAddDateModal = styled.div`
   position: fixed;
   top: 20vh;
   left: 25%;
-  height: 150px;
+  height: 155px;
 
   width: 550px;
   background-color: #12141f;
@@ -14,8 +14,13 @@ export const StyledAddDateModal = styled.div`
   z-index: 30;
 
   border: 1px solid white;
+
   @media only screen and (max-width: 600px) {
     left: 0;
     width: 420px;
+  }
+
+  .buttons-container {
+    margin-top: 5px;
   }
 `;

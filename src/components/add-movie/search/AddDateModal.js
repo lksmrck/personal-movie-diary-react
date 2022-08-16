@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
-import { StyledAddDateModal } from "../styled/StyledAddDateModal";
-import Input from "../add-movie/Input";
+import { StyledAddDateModal } from "../../styled/StyledAddDateModal";
+import Input from "../manually/Input";
 import { Button } from "@mui/material";
-import SearchContext from "../../store/SearchContext";
-import MoviesContext from "../../store/MoviesContext";
+import SearchContext from "../../../store/SearchContext";
+import MoviesContext from "../../../store/MoviesContext";
 
 export default function AddDateModal(props) {
-  const { clickedMovieID } = useContext(SearchContext);
-  const { movies, setMovies, addToMovies } = useContext(MoviesContext);
+  const { setAddMovieState, setSearchTerm } = useContext(SearchContext);
+  const { addToMovies } = useContext(MoviesContext);
 
   const [dateWatched, setDateWatched] = useState();
 
@@ -20,20 +20,12 @@ export default function AddDateModal(props) {
   };
 
   const onSubmitDateWatched = () => {
-    /*  const updatedMovies = movies.map((movie) => {
-      if (movie.id === clickedMovieID) {
-        return {
-          ...movie,
-          dateWatched: dateWatched,
-        };
-      }
-      return movie;
-    });
-    setMovies(updatedMovies); */
     const movieToBeAdded = props.movieToBeAdded;
     const updatedMovie = { ...movieToBeAdded, dateWatched: dateWatched };
     addToMovies(updatedMovie);
     backToSearch();
+    setSearchTerm("");
+    setAddMovieState("PICK");
   };
 
   return (
@@ -52,12 +44,14 @@ export default function AddDateModal(props) {
             shrink: true,
           }}
         />
-        <Button variant="contained" type="submit">
-          Submit
-        </Button>
-        <Button variant="outlined" color="error" onClick={backToSearch}>
-          Back
-        </Button>
+        <div className="buttons-container">
+          <Button variant="contained" type="submit">
+            Submit
+          </Button>
+          <Button variant="outlined" color="error" onClick={backToSearch}>
+            Back
+          </Button>
+        </div>
       </form>
     </StyledAddDateModal>
   );

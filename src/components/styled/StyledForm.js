@@ -8,6 +8,7 @@ export const StyledForm = styled.div`
   margin: 20px;
   position: relative;
   box-shadow: 3px 4px black;
+  z-index: 5;
 
   form {
     margin: 10px;

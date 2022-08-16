@@ -19,11 +19,11 @@ export const StyledMoviesSort = styled.div`
     font-size: 13px;
     padding-left: 7px;
 
-    width: 10.5vw;
-    height: 14vh;
+    width: 150px;
+    height: 92px;
     background-color: #b0dae9;
     position: absolute;
-    margin-top: -12px;
+    margin-top: -12.5px;
     color: black;
     border-radius: 7px;
 

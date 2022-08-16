@@ -4,7 +4,7 @@ export const StyledListShort = styled.ul`
   color: black;
   text-align: center;
   list-style: none;
-  width: 500px;
+  width: 400px;
   height: 91px;
   overflow-y: scroll;
   background-color: white;
@@ -15,7 +15,7 @@ export const StyledListShort = styled.ul`
     display: flex;
     cursor: pointer;
     background-color: white;
-    width: 484px;
+    width: 386px;
     height: 90.9px;
     border: 1px solid grey;
     border-radius: 1px;
@@ -24,10 +24,10 @@ export const StyledListShort = styled.ul`
     /* margin-bottom: -10px; */
     overflow: hidden;
   }
-  li img {
+  /*  li img {
     width: 64.9px;
     height: 91px;
-  }
+  } */
 
   li div {
     margin-left: 20px;

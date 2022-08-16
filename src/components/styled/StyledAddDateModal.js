@@ -14,4 +14,8 @@ export const StyledAddDateModal = styled.div`
   z-index: 30;
 
   border: 1px solid white;
+  @media only screen and (max-width: 600px) {
+    left: 0;
+    width: 420px;
+  }
 `;

@@ -2,6 +2,7 @@
 
 * {
   box-sizing: border-box;
+  margin:0
 }
 
 html {
@@ -14,6 +15,7 @@ body {
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(13,22,29,1) 0%, rgba(122,122,148,1) 71%, rgba(118,179,205,1) 100%, rgba(0,212,255,1) 100%);
   color: white;
   z-index: -1;
+  height: 100%
 }
 
 .inputs {
@@ -33,13 +35,28 @@ body {
   justify-content: center;
   margin-top: 10%;
   font-size: 25px;
+  height: 200px;
+  
+}
+
+@media only screen and (max-width: 600px) {
+  .no-movies-found-paragraph {
+    
+    height: 350px;
+    
+  }
 }
 footer {
   font-size: 10px;
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
-  margin-top: 15%
+  margin-top: 10%;
+
+/*   position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px */
 }
 
 

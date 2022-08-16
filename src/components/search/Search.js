@@ -72,7 +72,10 @@ export default function Search(props) {
                 onChangeInput={onChangeHandler}
               />
               {/* Toto se vyrenderuje pokud: 1. Se vyslal fetch request, 2. našel se alespoň jeden film, 3. a zároveň nenastal error */}
-              {isDisplayedSearch && foundMovies.length > 0 && error == null ? (
+              {isDisplayedSearch &&
+              isLoading == false &&
+              foundMovies.length > 0 &&
+              error == null ? (
                 <div className="search-list-container">
                   <StyledList>
                     {foundMovies.map((movie) => (

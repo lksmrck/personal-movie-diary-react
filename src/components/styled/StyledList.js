@@ -4,7 +4,7 @@ export const StyledList = styled.ul`
   color: black;
   text-align: center;
   list-style: none;
-  width: 500px;
+  width: 400px;
   height: 271px;
   overflow-y: scroll;
   background-color: white;
@@ -15,13 +15,13 @@ export const StyledList = styled.ul`
     display: flex;
     cursor: pointer;
     background-color: white;
-    width: 484px;
+    width: 386px;
     height: 90.9px;
     border: 1px solid grey;
     border-radius: 1px;
     margin-left: -40px;
     text-align: left;
-    /* margin-bottom: -10px; */
+
     overflow: hidden;
   }
   li img {

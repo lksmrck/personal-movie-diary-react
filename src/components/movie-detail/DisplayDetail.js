@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { StyledMovieDetail } from "./styled";
 import { Button } from "@mui/material";
 import MoviesContext from "../../store/MoviesContext";

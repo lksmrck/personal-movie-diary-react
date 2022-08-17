@@ -14,7 +14,8 @@ export default function Statistics() {
   const statisticsDisplayHandler = () => {
     setIsShown(!isShown);
   };
-  //Dodělat
+
+  //Při každém přidání/úpravě/hodnocení filmu přepočte jeho průměrný rating, který se pak ukazuje ve Statistics
   useEffect(() => {
     let avgRatingL = 0;
     let avgRatingV = 0;

@@ -22,7 +22,6 @@ export default function Movies(props) {
   const [sortCondition, setSortCondition] = useState("");
   const [sortedMovies, setSortedMovies] = useState(movies);
 
-  // *USEEFFECTS*
   //Po načtení se nastaví default seřazování na Date newest
   useEffect(() => {
     setSortCondition("Date newest");
@@ -102,12 +101,13 @@ export default function Movies(props) {
     console.log(updatedMovies);
   };
 
-  //Nastavení sort condition po vybrání z
+  //Nastavení sort condition po vybrání ze Selectu
   const onChangeSortHandler = (condition) => {
     setSortCondition(condition);
   };
 
   return movies.length > 0 ? (
+    //Pokud je přidán nějaký film, vyrenderujou se filmy + MoviesSort. Pokud není přidán žádný film, vyrenderuje se component viz. níž.
     <div>
       <MoviesSort onChangeSort={onChangeSortHandler} selected={sortCondition} />
 

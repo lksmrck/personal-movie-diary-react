@@ -51,7 +51,6 @@ export default function MovieDetail(props) {
     props.detailClick();
   };
 
-  // *RENDER*
   //1. možný render - Když daný film má přidaný detail, tak se vyrenderuje detail.
   if (detailState == "DISPLAY-DETAIL") {
     return <DisplayDetail detailClick={detailClick} />;

@@ -3,6 +3,7 @@ import { StyledAddImgURLModal } from "./styled";
 import MoviesContext from "../../../store/MoviesContext";
 import Input from "./Input";
 import { Button } from "@mui/material";
+import { TiArrowBackOutline } from "react-icons/ti";
 
 export default function AddImgURLModal(props) {
   const { addToMovies } = useContext(MoviesContext);
@@ -47,7 +48,12 @@ export default function AddImgURLModal(props) {
             <Button variant="contained" type="submit">
               Submit
             </Button>
-            <Button variant="outlined" color="error" onClick={backToAddMovie}>
+            <Button
+              variant="outlined"
+              color="error"
+              onClick={backToAddMovie}
+              startIcon={<TiArrowBackOutline />}
+            >
               Back
             </Button>
           </div>

@@ -10,7 +10,6 @@ export default function MovieCard(props) {
   const [valueL, setValueL] = useState(null);
   const [valueV, setValueV] = useState(null);
 
-  // *CONTEXT IMPORT*
   const { deleteMovie } = useContext(MoviesContext);
 
   //Upravení formátu datumu
@@ -23,7 +22,6 @@ export default function MovieCard(props) {
 
   //Upravení formátu movieDate
   const dateFilmed = props.movieYear;
-
   const dateFilmedType = typeof dateFilmed;
 
   //Načítání a zobrazování ratingu z localStorage při vyrenderování komponentu.
@@ -77,7 +75,6 @@ export default function MovieCard(props) {
           src={props.imageURL}
           width="138px"
           height="195px"
-          //Když kliknu na obrázek, pošlu do funkce props.id itemu, na který jsem klikl.
           onClick={onClickImg}
         />
         <p className="delete-icon" onClick={onClickButton}>

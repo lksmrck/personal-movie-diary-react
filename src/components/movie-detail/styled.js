@@ -85,6 +85,12 @@ export const StyledMovieDetail = styled.div`
   }
 
   button {
-    width: 170px;
+    width: 200px;
+  }
+  @media only screen and (max-width: 600px) {
+    button {
+      width: 150px;
+    }
+    height: 360px;
   }
 `;

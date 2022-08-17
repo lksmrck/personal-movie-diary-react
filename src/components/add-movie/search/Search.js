@@ -12,6 +12,7 @@ import AddDateModal from "./AddDateModal";
 import LoadingSpinner from "./LoadingSpinner";
 import FoundNoMovie from "./FoundNoMovie";
 import Error from "./Error";
+import { TiArrowBackOutline } from "react-icons/ti";
 
 export default function Search(props) {
   const {
@@ -97,6 +98,7 @@ export default function Search(props) {
                       variant="contained"
                       color="error"
                       onClick={cancelSearch}
+                      startIcon={<TiArrowBackOutline />}
                     >
                       Back
                     </Button>
@@ -116,6 +118,7 @@ export default function Search(props) {
                       variant="contained"
                       color="error"
                       onClick={cancelSearch}
+                      startIcon={<TiArrowBackOutline />}
                     >
                       Back
                     </Button>
@@ -139,6 +142,7 @@ export default function Search(props) {
                       variant="contained"
                       color="error"
                       onClick={cancelSearch}
+                      startIcon={<TiArrowBackOutline />}
                     >
                       Back
                     </Button>
@@ -152,6 +156,7 @@ export default function Search(props) {
                   variant="outlined"
                   color="error"
                   onClick={backToMainPage}
+                  startIcon={<TiArrowBackOutline />}
                 >
                   Back
                 </Button>

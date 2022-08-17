@@ -4,6 +4,7 @@ import Input from "../manually/Input";
 import { Button } from "@mui/material";
 import SearchContext from "../../../store/SearchContext";
 import MoviesContext from "../../../store/MoviesContext";
+import { TiArrowBackOutline } from "react-icons/ti";
 
 export default function AddDateModal(props) {
   const { setAddMovieState, setSearchTerm } = useContext(SearchContext);
@@ -50,7 +51,12 @@ export default function AddDateModal(props) {
           <Button variant="contained" type="submit">
             Submit
           </Button>
-          <Button variant="outlined" color="error" onClick={backToSearch}>
+          <Button
+            variant="outlined"
+            color="error"
+            onClick={backToSearch}
+            startIcon={<TiArrowBackOutline />}
+          >
             Back
           </Button>
         </div>

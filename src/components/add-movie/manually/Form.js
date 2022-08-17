@@ -2,12 +2,14 @@ import { React, useState, useContext } from "react";
 import Input from "./Input";
 import { ContainerForm } from "./styled";
 import { StyledForm } from "./styled";
-import MoviesContext from "../../../store/MoviesContext";
+/* import MoviesContext from "../../../store/MoviesContext"; */
 import { Button } from "@mui/material";
 import SearchContext from "../../../store/SearchContext";
 
 import Backdrop from "../../../layout/Backdrop";
 import AddImgURLModal from "./AddImgURLModal";
+import { IoAddCircleOutline } from "react-icons/io5";
+import { TiArrowBackOutline } from "react-icons/ti";
 
 export default function Form(props) {
   const [newTitle, setNewTitle] = useState();
@@ -17,7 +19,7 @@ export default function Form(props) {
   const [movieToBeAdded, setMovieToBeAdded] = useState({});
   const [addImgDisplay, setAddImgDisplay] = useState(false);
 
-  const { movies } = useContext(MoviesContext);
+  /* const { movies } = useContext(MoviesContext); */
   const { setAddMovieState } = useContext(SearchContext);
 
   const onChangeTitle = (e) => {
@@ -98,15 +100,25 @@ export default function Form(props) {
                 shrink: true,
               }}
             />
-            <Button variant="contained" type="submit">
+            <Button
+              variant="contained"
+              type="submit"
+              startIcon={<IoAddCircleOutline />}
+            >
               Add Movie
             </Button>
-            <Button variant="outlined" color="error" onClick={backToMainPage}>
+            <Button
+              variant="outlined"
+              color="error"
+              onClick={backToMainPage}
+              startIcon={<TiArrowBackOutline />}
+            >
               Back
             </Button>
           </form>
         </div>
 
+        {/* Po kliknutí na Add Movie se vyrenderuje modální okno, kde se zadá URL obrázku */}
         {addImgDisplay == true ? (
           <Backdrop>
             <AddImgURLModal

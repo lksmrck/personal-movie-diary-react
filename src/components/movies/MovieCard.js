@@ -91,7 +91,7 @@ export default function MovieCard(props) {
           : "---"}
       </h3>
       <h4>{myDate}</h4>
-      <span>
+      <div className="rating">
         L:
         <Rating
           name="simple-controlled"
@@ -101,8 +101,8 @@ export default function MovieCard(props) {
           max={10}
           precision={0.5}
         />
-      </span>
-      <span>
+      </div>
+      <div className="rating">
         V:{" "}
         <Rating
           name="simple-controlled"
@@ -112,7 +112,7 @@ export default function MovieCard(props) {
           max={10}
           precision={0.5}
         />
-      </span>
+      </div>
     </StyledMovieCard>
   );
 }

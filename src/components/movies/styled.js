@@ -37,6 +37,20 @@ export const StyledMovieCard = styled.div`
   .title-text {
     height: 50px;
   }
+
+  @media only screen and (max-width: 600px) {
+    margin-left: 12px;
+    max-width: 153px;
+    .rating {
+      margin-left: -7px;
+      width: 100px;
+    }
+  }
+
+  @media only screen and (max-width: 375px) {
+    margin-left: 12px;
+    max-width: 140px;
+  }
 `;
 
 export const StyledMovies = styled.div`
@@ -48,6 +62,10 @@ export const StyledMovies = styled.div`
   margin: 20px;
   box-shadow: 3px 4px black;
   border: 0.5px solid grey;
+
+  @media only screen and (max-width: 375px) {
+    justify-content: center;
+  }
 
   .backdrop {
     position: fixed;
@@ -63,4 +81,15 @@ export const StyledMovies = styled.div`
 export const ContainerMovies = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+export const StyledNoMoviesFound = styled.p`
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  font-size: 25px;
+  height: 200px;
+  @media only screen and (max-width: 600px) {
+    height: 350px;
+  }
 `;

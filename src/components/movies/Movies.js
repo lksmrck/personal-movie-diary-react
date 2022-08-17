@@ -4,6 +4,7 @@ import MovieDetail from "../movie-detail/MovieDetail";
 import MoviesSort from "../sort-and-statistics/MoviesSort";
 import { StyledMovies } from "./styled";
 import { ContainerMovies } from "./styled";
+import { StyledNoMoviesFound } from "./styled";
 import MoviesContext from "../../store/MoviesContext";
 import Backdrop from "../../layout/Backdrop";
 
@@ -139,6 +140,6 @@ export default function Movies(props) {
       </ContainerMovies>
     </div>
   ) : (
-    <p className="no-movies-found-paragraph">No movies added 🥺 </p>
+    <StyledNoMoviesFound>No movies added 🥺 </StyledNoMoviesFound>
   );
 }

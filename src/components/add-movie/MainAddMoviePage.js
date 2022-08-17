@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { StyledMainAddMoviePage } from "../styled/StyledMainAddMoviePage";
+import { StyledMainAddMoviePage } from "./styled";
 import { Button } from "@mui/material";
-import { ContainerForm } from "../styled/StyledForm";
+import { MainAddMoviePageContainer } from "./styled";
 import SearchContext from "../../store/SearchContext";
 
 export default function MainAddMoviePage(props) {
@@ -15,7 +15,7 @@ export default function MainAddMoviePage(props) {
   };
 
   return (
-    <ContainerForm>
+    <MainAddMoviePageContainer>
       <StyledMainAddMoviePage>
         <div className="main-buttons-container">
           <Button variant="contained" onClick={setSearchForm}>
@@ -26,6 +26,6 @@ export default function MainAddMoviePage(props) {
           </Button>
         </div>
       </StyledMainAddMoviePage>
-    </ContainerForm>
+    </MainAddMoviePageContainer>
   );
 }

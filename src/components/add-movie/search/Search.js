@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import Input from "../manually/Input";
-import { ContainerForm } from "../../styled/StyledForm";
+import { ContainerForm } from "../manually/styled";
 import { Button } from "@mui/material";
-import { StyledForm } from "../../styled/StyledForm";
-import { StyledList } from "../../styled/StyledList";
-import { StyledListShort } from "../../styled/StyledListShort";
+import { StyledForm } from "../manually/styled";
+import { StyledList } from "./styled";
+import { StyledListShort } from "./styled";
 import SearchItem from "./SearchItem";
 import SearchContext from "../../../store/SearchContext";
 import Backdrop from "../../../layout/Backdrop";

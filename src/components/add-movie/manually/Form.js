@@ -1,7 +1,7 @@
 import { React, useState, useContext } from "react";
 import Input from "./Input";
-import { ContainerForm } from "../../styled/StyledForm";
-import { StyledForm } from "../../styled/StyledForm";
+import { ContainerForm } from "./styled";
+import { StyledForm } from "./styled";
 import MoviesContext from "../../../store/MoviesContext";
 import { Button } from "@mui/material";
 import SearchContext from "../../../store/SearchContext";
@@ -17,7 +17,7 @@ export default function Form(props) {
   const [movieToBeAdded, setMovieToBeAdded] = useState({});
   const [addImgDisplay, setAddImgDisplay] = useState(false);
 
-  const { addToMovies, movies } = useContext(MoviesContext);
+  const { movies } = useContext(MoviesContext);
   const { setAddMovieState } = useContext(SearchContext);
 
   const onChangeTitle = (e) => {
@@ -47,7 +47,6 @@ export default function Form(props) {
     setNewTitle("");
     setNewMovieYear("");
     setNewDateWatched("");
-    console.log(movies);
   };
 
   const backToMainPage = () => {

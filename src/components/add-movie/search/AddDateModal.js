@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { StyledAddDateModal } from "../../styled/StyledAddDateModal";
+import { StyledAddDateModal } from "./styled";
 import Input from "../manually/Input";
 import { Button } from "@mui/material";
 import SearchContext from "../../../store/SearchContext";

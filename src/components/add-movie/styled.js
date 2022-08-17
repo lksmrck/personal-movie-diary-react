@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const MainAddMoviePageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 export const StyledMainAddMoviePage = styled.div`
   width: 955px;
   height: 212px;

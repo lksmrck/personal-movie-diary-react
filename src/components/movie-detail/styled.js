@@ -16,7 +16,7 @@ export const StyledMovieDetail = styled.div`
   border: 1px solid white;
   @media only screen and (max-width: 600px) {
     left: 0;
-    width: 420px;
+    width: 370px;
   }
 
   .add-detail-btn-container {
@@ -45,7 +45,7 @@ export const StyledMovieDetail = styled.div`
     background-color: white;
     @media only screen and (max-width: 600px) {
       left: 0;
-      width: 418px;
+      width: 368px;
       margin-left: 0;
     }
   }

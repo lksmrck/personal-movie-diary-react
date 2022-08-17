@@ -1,13 +1,13 @@
 import React, { useContext, useState, useEffect } from "react";
 import Input from "../manually/Input";
-import { ContainerForm } from "../../styled/containers/ContainerForm";
+import { ContainerForm } from "../../styled/StyledForm";
 import { Button } from "@mui/material";
 import { StyledForm } from "../../styled/StyledForm";
 import { StyledList } from "../../styled/StyledList";
 import { StyledListShort } from "../../styled/StyledListShort";
 import SearchItem from "./SearchItem";
 import SearchContext from "../../../store/SearchContext";
-import Backdrop from "../../Backdrop";
+import Backdrop from "../../../layout/Backdrop";
 import AddDateModal from "./AddDateModal";
 import LoadingSpinner from "./LoadingSpinner";
 import FoundNoMovie from "./FoundNoMovie";

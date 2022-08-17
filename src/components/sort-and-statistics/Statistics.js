@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import MoviesContext from "../../store/MoviesContext";
 import { FcStatistics } from "react-icons/fc";
+import { StyledStatistics } from "./styled";
+
 export default function Statistics() {
   const { movies } = useContext(MoviesContext);
 
@@ -25,7 +27,7 @@ export default function Statistics() {
   }, [movies]);
 
   return (
-    <div>
+    <StyledStatistics>
       <div className={isShown ? "statistics" : "statistics-hidden"}>
         <p>
           Movies watched:{" "}
@@ -45,6 +47,6 @@ export default function Statistics() {
         onMouseEnter={statisticsDisplayHandler}
         onMouseLeave={statisticsDisplayHandler}
       />
-    </div>
+    </StyledStatistics>
   );
 }

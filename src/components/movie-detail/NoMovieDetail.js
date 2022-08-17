@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledMovieDetail } from "../styled/StyledMovieDetail";
+import { StyledMovieDetail } from "./styled";
 import { Button } from "@mui/material";
 
 export default function NoMovieDetail(props) {

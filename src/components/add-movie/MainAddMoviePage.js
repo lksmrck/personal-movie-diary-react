@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { StyledMainAddMoviePage } from "../styled/StyledMainAddMoviePage";
 import { Button } from "@mui/material";
-import { ContainerForm } from "../styled/containers/ContainerForm";
+import { ContainerForm } from "../styled/StyledForm";
 import SearchContext from "../../store/SearchContext";
 
 export default function MainAddMoviePage(props) {

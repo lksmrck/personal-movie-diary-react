@@ -32,3 +32,8 @@ export const StyledForm = styled.div`
     margin-right: -5px;
   }
 `;
+
+export const ContainerForm = styled.div`
+  display: flex;
+  justify-content: center;
+`;

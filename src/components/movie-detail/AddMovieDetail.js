@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { StyledMovieDetail } from "../styled/StyledMovieDetail";
+import { StyledMovieDetail } from "./styled";
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
 import MoviesContext from "../../store/MoviesContext";

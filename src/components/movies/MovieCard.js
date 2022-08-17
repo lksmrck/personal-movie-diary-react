@@ -1,8 +1,8 @@
 import { React, useContext, useEffect } from "react";
-import { StyledMovieCard } from "../styled/StyledMovieCard";
+import { StyledMovieCard } from "./styled";
 import { Rating } from "@mui/material";
 import { useState } from "react";
-import { GoTrashcan } from "react-icons/go";
+
 import MoviesContext from "../../store/MoviesContext";
 
 export default function MovieCard(props) {
@@ -85,7 +85,11 @@ export default function MovieCard(props) {
         </p>
       </div>
       <h2 className="title-text">{props.title}</h2>
-      <h3>{dateFilmedType == "number" ? dateFilmed : "---"}</h3>
+      <h3>
+        {dateFilmedType == "number" || dateFilmedType == "string"
+          ? dateFilmed
+          : "---"}
+      </h3>
       <h4>{myDate}</h4>
       <span>
         L:

@@ -1,12 +1,12 @@
 import { React, useState, useContext } from "react";
 import Input from "./Input";
-import { ContainerForm } from "../../styled/containers/ContainerForm";
+import { ContainerForm } from "../../styled/StyledForm";
 import { StyledForm } from "../../styled/StyledForm";
 import MoviesContext from "../../../store/MoviesContext";
 import { Button } from "@mui/material";
 import SearchContext from "../../../store/SearchContext";
 
-import Backdrop from "../../Backdrop";
+import Backdrop from "../../../layout/Backdrop";
 import AddImgURLModal from "./AddImgURLModal";
 
 export default function Form(props) {

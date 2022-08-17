@@ -2,10 +2,10 @@ import { React, useContext, useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
 import MovieDetail from "../movie-detail/MovieDetail";
 import MoviesSort from "../sort-and-statistics/MoviesSort";
-import { StyledMovies } from "../styled/StyledMovies";
-import { ContainerMovies } from "../styled/containers/ContainerMovies";
+import { StyledMovies } from "./styled";
+import { ContainerMovies } from "./styled";
 import MoviesContext from "../../store/MoviesContext";
-import Backdrop from "../Backdrop";
+import Backdrop from "../../layout/Backdrop";
 
 export default function Movies(props) {
   const {

@@ -15,7 +15,9 @@ export const StyledMoviesSort = styled.div`
   .sort-container {
     width: 955px;
   }
+`;
 
+export const StyledStatistics = styled.div`
   .statistics {
     font-size: 13px;
     padding-left: 7px;
@@ -76,6 +78,4 @@ export const StyledMoviesSort = styled.div`
     font-weight: bold;
     color: red;
   }
-
-  //ANIMATION
 `;

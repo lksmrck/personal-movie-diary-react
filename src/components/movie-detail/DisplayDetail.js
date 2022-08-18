@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { StyledMovieDetail } from "./styled";
 import { Button } from "@mui/material";
 import MoviesContext from "../../store/MoviesContext";
+import { TiArrowBackOutline } from "react-icons/ti";
+import { AiOutlineEdit } from "react-icons/ai";
 
 export default function DisplayDetail(props) {
   const { displayedDetail, setDetailState } = useContext(MoviesContext);
@@ -17,10 +19,20 @@ export default function DisplayDetail(props) {
           <p>{displayedDetail} </p>
         </div>
         <div className="detail-buttons-container">
-          <Button variant="outlined" onClick={onEditHandler} color="success">
+          <Button
+            variant="outlined"
+            onClick={onEditHandler}
+            color="success"
+            startIcon={<AiOutlineEdit />}
+          >
             Edit
           </Button>
-          <Button variant="outlined" color="error" onClick={props.detailClick}>
+          <Button
+            variant="outlined"
+            color="error"
+            onClick={props.detailClick}
+            startIcon={<TiArrowBackOutline />}
+          >
             Take me back
           </Button>
         </div>

@@ -1,10 +1,10 @@
 import React from "react";
-import "./LoadingSpinner.css";
+import { StyledLoadingSpinner } from "../styled";
 
 export default function LoadingSpinner() {
   return (
-    <div className="spinner-container">
+    <StyledLoadingSpinner>
       <div className="loading-spinner"></div>
-    </div>
+    </StyledLoadingSpinner>
   );
 }

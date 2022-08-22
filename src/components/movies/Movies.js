@@ -62,7 +62,6 @@ export default function Movies(props) {
     const detailToBeShown = movies.find((movie) => movie.id === movieId).detail;
     if (detailToBeShown.length > 0) {
       setDetailState("DISPLAY-DETAIL");
-      console.log(detailToBeShown);
       setDisplayedDetail(detailToBeShown);
     } else setDetailState("DISPLAY-NO_DETAIL");
     setDisplayedDetail(detailToBeShown);
@@ -98,7 +97,6 @@ export default function Movies(props) {
       return movie;
     });
     setMovies(updatedMovies);
-    console.log(updatedMovies);
   };
 
   //Nastavení sort condition po vybrání ze Selectu

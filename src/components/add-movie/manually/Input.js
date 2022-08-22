@@ -16,7 +16,6 @@ const Input = (props) => {
         inputProps={{ ...props.input }}
         value={props.value}
         color="primary"
-        defaultValue={props.defaultValue}
         required={true}
         InputLabelProps={props.inputLabelProps}
       />

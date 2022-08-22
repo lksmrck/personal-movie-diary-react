@@ -8,9 +8,9 @@ import { TiArrowBackOutline } from "react-icons/ti";
 
 export default function AddDateModal(props) {
   const { setAddMovieState, setSearchTerm } = useContext(SearchContext);
-  const { addToMovies, movies } = useContext(MoviesContext);
+  const { addToMovies } = useContext(MoviesContext);
 
-  const [dateWatched, setDateWatched] = useState();
+  const [dateWatched, setDateWatched] = useState("");
 
   const onChangeDateWatched = (e) => {
     setDateWatched(e.target.value);
@@ -28,7 +28,6 @@ export default function AddDateModal(props) {
     backToSearch();
     setSearchTerm("");
     setAddMovieState("PICK");
-    console.log(movies);
   };
 
   return (

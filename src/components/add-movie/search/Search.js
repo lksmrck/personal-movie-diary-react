@@ -72,8 +72,9 @@ export default function Search(props) {
                 }}
                 placeholder="Star Wars"
                 onChangeInput={onChangeHandler}
+                value={searchTerm}
               />
-              {/* Toto se vyrenderuje pokud: 1. Se vyslal fetch request, 2. fetch request se i dokončil 3. našel se alespoň jeden film, 4. a zároveň nenastal error */}
+              {/* LIST S VYHLEDANÝMI FILMY -  vyrenderuje se pokud: 1. Se vyslal fetch request, 2. fetch request se i dokončil 3. našel se alespoň jeden film, 4. a zároveň nenastal error */}
               {isDisplayedSearch &&
               isLoading === false &&
               foundMovies.length > 0 &&
@@ -107,7 +108,7 @@ export default function Search(props) {
               ) : (
                 ""
               )}
-              {/* Toto se vyrenderuje pokud: 1. Se vyslal fetch request, 2.nastal při tom error */}
+              {/* ERROR HLÁŠKA - vyrenderuje se pokud: 1. Se vyslal fetch request, 2.nastal při tom error */}
               {isDisplayedSearch && error !== null ? (
                 <div className="search-list-container">
                   <StyledListShort>
@@ -128,7 +129,7 @@ export default function Search(props) {
                 ""
               )}
 
-              {/* Toto se vyrenderuje pokud: 1. Se vyslal fetch request, 2. fetch request se i dokončil 3. počet nalezených filmů je 0, 4. a zároveň nenastal error */}
+              {/* NENALEZEN ŽÁDNÝ MOVIE - vyrenderuje se, když 1. Se vyslal fetch request, 2. fetch request se i dokončil 3. počet nalezených filmů je 0, 4. a zároveň nenastal error */}
               {isDisplayedSearch &&
               isLoading === false &&
               foundMovies.length === 0 &&

@@ -12,9 +12,9 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import { TiArrowBackOutline } from "react-icons/ti";
 
 export default function Form(props) {
-  const [newTitle, setNewTitle] = useState();
-  const [newMovieYear, setNewMovieYear] = useState();
-  const [newDateWatched, setNewDateWatched] = useState();
+  const [newTitle, setNewTitle] = useState("");
+  const [newMovieYear, setNewMovieYear] = useState("");
+  const [newDateWatched, setNewDateWatched] = useState("");
 
   const [movieToBeAdded, setMovieToBeAdded] = useState({});
   const [addImgDisplay, setAddImgDisplay] = useState(false);

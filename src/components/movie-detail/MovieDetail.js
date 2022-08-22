@@ -36,7 +36,6 @@ export default function MovieDetail(props) {
   const detailSubmitHandler = (event) => {
     event.preventDefault();
     setDetailState("DISPLAY-DETAIL");
-    console.log(displayedDetail);
 
     const updatedMovies = movies.map((movie) => {
       if (movie.id === clickedMovieId) {

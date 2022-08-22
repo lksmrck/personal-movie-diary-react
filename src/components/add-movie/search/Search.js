@@ -32,7 +32,7 @@ export default function Search(props) {
   const [isDisplayedSearch, setIsDisplayedSearch] = useState(false);
   const [isDisplayedDateModal, setIsDisplayedDateModal] = useState(false);
 
-  //API call, kde se hledá searchTerm po 0.5 vteřine, kdy user přestane psát
+  //API call, kde se hledá searchTerm po 0.5 vteřine, kdy user přestane psát + cleanup function
   useEffect(() => {
     const API_CALL = setTimeout(() => {
       if (searchTerm) {
@@ -75,7 +75,7 @@ export default function Search(props) {
               />
               {/* Toto se vyrenderuje pokud: 1. Se vyslal fetch request, 2. fetch request se i dokončil 3. našel se alespoň jeden film, 4. a zároveň nenastal error */}
               {isDisplayedSearch &&
-              isLoading == false &&
+              isLoading === false &&
               foundMovies.length > 0 &&
               error == null ? (
                 <div className="search-list-container">
@@ -130,8 +130,8 @@ export default function Search(props) {
 
               {/* Toto se vyrenderuje pokud: 1. Se vyslal fetch request, 2. fetch request se i dokončil 3. počet nalezených filmů je 0, 4. a zároveň nenastal error */}
               {isDisplayedSearch &&
-              isLoading == false &&
-              foundMovies.length == 0 &&
+              isLoading === false &&
+              foundMovies.length === 0 &&
               error == null ? (
                 <div className="search-list-container">
                   <StyledListShort>
@@ -163,7 +163,7 @@ export default function Search(props) {
               )}
               {isLoading && <LoadingSpinner />}
             </form>
-            {isDisplayedDateModal == true ? (
+            {isDisplayedDateModal === true ? (
               <Backdrop>
                 <AddDateModal
                   displayDateModalToggle={setIsDisplayedDateModal}

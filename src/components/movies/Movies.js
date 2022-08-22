@@ -30,22 +30,22 @@ export default function Movies(props) {
   //Sorting logika - běží při přidání movie - nový movie má na začátku hodnocení 0 (řadí se dle nastavené sort condition), nebo při změně sort condition, nebo při zadání hodnocení.
   useEffect(() => {
     let moviesToBeSorted;
-    if (sortCondition == "Rating lowest") {
+    if (sortCondition === "Rating lowest") {
       moviesToBeSorted = [...movies].sort((a, b) => {
         return a.totalRating - b.totalRating;
       });
       setSortedMovies(moviesToBeSorted);
-    } else if (sortCondition == "Rating highest") {
+    } else if (sortCondition === "Rating highest") {
       moviesToBeSorted = [...movies].sort((a, b) => {
         return b.totalRating - a.totalRating;
       });
       setSortedMovies(moviesToBeSorted);
-    } else if (sortCondition == "Date newest") {
+    } else if (sortCondition === "Date newest") {
       moviesToBeSorted = [...movies].sort((a, b) => {
         return new Date(b.dateWatched) - new Date(a.dateWatched);
       });
       setSortedMovies(moviesToBeSorted);
-    } else if (sortCondition == "Date oldest") {
+    } else if (sortCondition === "Date oldest") {
       moviesToBeSorted = [...movies].sort((a, b) => {
         return new Date(a.dateWatched) - new Date(b.dateWatched);
       });
@@ -59,7 +59,7 @@ export default function Movies(props) {
     setDetailClicked(true);
     setClickedMovieId(movieId);
 
-    const detailToBeShown = movies.find((movie) => movie.id == movieId).detail;
+    const detailToBeShown = movies.find((movie) => movie.id === movieId).detail;
     if (detailToBeShown.length > 0) {
       setDetailState("DISPLAY-DETAIL");
       console.log(detailToBeShown);

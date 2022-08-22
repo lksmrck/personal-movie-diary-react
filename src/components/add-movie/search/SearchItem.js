@@ -8,7 +8,6 @@ export default function SearchItem(props) {
 
   const releaseDate = new Date(props.movieYear);
   const releaseYear = releaseDate.getFullYear();
-  const type = typeof releaseYear;
 
   //Pokud není dotáhnut obrázek z API, tak použije No Poster Found image
   let foundImgURL = "";
@@ -41,6 +40,7 @@ export default function SearchItem(props) {
         src={foundImgURL}
         width="64.9px"
         height="91px"
+        alt="movie poster"
         //Když kliknu na obrázek, pošlu do funkce props.id itemu, na který jsem klikl.
       />
       <div className="search-movie-data">

@@ -119,7 +119,7 @@ export default function Form(props) {
         </div>
 
         {/* Po kliknutí na Add Movie se vyrenderuje modální okno, kde se zadá URL obrázku */}
-        {addImgDisplay == true ? (
+        {addImgDisplay === true ? (
           <Backdrop>
             <AddImgURLModal
               movieToBeAdded={movieToBeAdded}

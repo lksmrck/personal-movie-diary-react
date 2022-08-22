@@ -9,8 +9,6 @@ export function MoviesContextProvider({ children }) {
   const [displayedDetail, setDisplayedDetail] = useState("");
   //Sleduje ID filmu, na který se kliknulo - aby pak šel identifikovat až se bude měnit detail
   const [clickedMovieId, setClickedMovieId] = useState("");
-  // Sleduje sort condition - viz. MoviesSort.js
-  const [sortCondition, setSortCondition] = useState("");
 
   //State, kterému se přidělují 3 hodnoty a podle nich se podmíněně renderujou věci v modálním okně (comp. MovieDetail).
   //Tyto hodnoty může state mít:
@@ -62,7 +60,7 @@ export function MoviesContextProvider({ children }) {
 
   const onChangeDisplayedDetail = () => {
     const detailToBeShown = movies.find(
-      (movie) => movie.id == clickedMovieId
+      (movie) => movie.id === clickedMovieId
     ).detail;
 
     setDisplayedDetail(detailToBeShown);

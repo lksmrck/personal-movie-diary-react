@@ -30,10 +30,10 @@ export default function MovieCard(props) {
     if (localData) {
       const localDataParsed = JSON.parse(localData);
       const localRatingL = localDataParsed.find(
-        (movie) => movie.id == props.id
+        (movie) => movie.id === props.id
       ).stars_1;
       const localRatingV = localDataParsed.find(
-        (movie) => movie.id == props.id
+        (movie) => movie.id === props.id
       ).stars_2;
       setValueL(localRatingL);
       setValueV(localRatingV);
@@ -76,6 +76,7 @@ export default function MovieCard(props) {
           width="138px"
           height="195px"
           onClick={onClickImg}
+          alt="movie poster"
         />
         <p className="delete-icon" onClick={onClickButton}>
           ❌
@@ -83,7 +84,7 @@ export default function MovieCard(props) {
       </div>
       <h2 className="title-text">{props.title}</h2>
       <h3>
-        {dateFilmedType == "number" || dateFilmedType == "string"
+        {dateFilmedType === "number" || dateFilmedType === "string"
           ? dateFilmed
           : "---"}
       </h3>

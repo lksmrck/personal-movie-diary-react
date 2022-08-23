@@ -2,13 +2,12 @@ import { React, useState, useContext } from "react";
 import Input from "./Input";
 import { ContainerForm } from "./styled";
 import { StyledForm } from "./styled";
-/* import MoviesContext from "../../../store/MoviesContext"; */
 import { Button } from "@mui/material";
 import SearchContext from "../../../store/SearchContext";
 
 import Backdrop from "../../../layout/Backdrop";
 import AddImgURLModal from "./AddImgURLModal";
-import { IoAddCircleOutline } from "react-icons/io5";
+import { HiOutlineDocumentAdd } from "react-icons/hi";
 import { TiArrowBackOutline } from "react-icons/ti";
 
 export default function Form(props) {
@@ -19,7 +18,6 @@ export default function Form(props) {
   const [movieToBeAdded, setMovieToBeAdded] = useState({});
   const [addImgDisplay, setAddImgDisplay] = useState(false);
 
-  /* const { movies } = useContext(MoviesContext); */
   const { setAddMovieState } = useContext(SearchContext);
 
   const onChangeTitle = (e) => {
@@ -103,7 +101,7 @@ export default function Form(props) {
             <Button
               variant="contained"
               type="submit"
-              startIcon={<IoAddCircleOutline />}
+              startIcon={<HiOutlineDocumentAdd />}
             >
               Add Movie
             </Button>

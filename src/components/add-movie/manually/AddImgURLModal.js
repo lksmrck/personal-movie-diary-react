@@ -4,6 +4,7 @@ import MoviesContext from "../../../store/MoviesContext";
 import Input from "./Input";
 import { Button } from "@mui/material";
 import { TiArrowBackOutline } from "react-icons/ti";
+import { IoAddCircleOutline } from "react-icons/io5";
 
 export default function AddImgURLModal(props) {
   const { addToMovies } = useContext(MoviesContext);
@@ -46,7 +47,11 @@ export default function AddImgURLModal(props) {
             }}
           />
           <div className="buttons-container">
-            <Button variant="contained" type="submit">
+            <Button
+              variant="contained"
+              type="submit"
+              startIcon={<IoAddCircleOutline />}
+            >
               Submit
             </Button>
             <Button

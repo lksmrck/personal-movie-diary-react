@@ -3,8 +3,7 @@ import { StyledMainAddMoviePage } from "./styled";
 import { Button } from "@mui/material";
 import { MainAddMoviePageContainer } from "./styled";
 import SearchContext from "../../store/SearchContext";
-import { BsSearch } from "react-icons/bs";
-import { IoAddCircleOutline } from "react-icons/io5";
+import { BsSearch, BsPencil } from "react-icons/bs";
 
 export default function MainAddMoviePage(props) {
   const { setAddMovieState } = useContext(SearchContext);
@@ -30,7 +29,7 @@ export default function MainAddMoviePage(props) {
           <Button
             variant="contained"
             onClick={setManualForm}
-            startIcon={<IoAddCircleOutline />}
+            startIcon={<BsPencil />}
           >
             Add Movie Manually
           </Button>

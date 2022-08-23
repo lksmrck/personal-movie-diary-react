@@ -20,7 +20,7 @@ export default function AddMovieDetail(props) {
             multiline
             rows={10}
             placeholder={
-              !displayedDetail ? "Whatcha think about the movie?" : ""
+              !displayedDetail ? "What do you think about the movie?" : ""
             }
             variant="filled"
             value={displayedDetail ? displayedDetail : ""}

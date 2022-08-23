@@ -3,7 +3,6 @@ import { createContext, useEffect, useState } from "react";
 const MoviesContext = createContext();
 
 export function MoviesContextProvider({ children }) {
-  // *STATES*
   //Array s filmy, do kt. se budou přidávat
   const [movies, setMovies] = useState([]);
   const [displayedDetail, setDisplayedDetail] = useState("");
@@ -30,8 +29,7 @@ export function MoviesContextProvider({ children }) {
     localStorage.setItem("movies", JSON.stringify(movies));
   }, [movies]);
 
-  // **FUNCTIONS**
-  //Funkce na přidání filmu do array
+  //Přidání filmu do array
   const addToMovies = (addedMovie) => {
     const movieToBeAdded = {
       id: addedMovie.id,
@@ -50,7 +48,7 @@ export function MoviesContextProvider({ children }) {
     });
   };
 
-  //Funkce na odstranění filmu po kliknutí na ikonu.
+  //Odstranění filmu po kliknutí na ikonu.
   const deleteMovie = (movieId) => {
     setMovies((prevMovies) => {
       const updatedMovies = prevMovies.filter((movie) => movie.id !== movieId);

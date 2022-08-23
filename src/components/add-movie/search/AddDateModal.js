@@ -5,6 +5,7 @@ import { Button } from "@mui/material";
 import SearchContext from "../../../store/SearchContext";
 import MoviesContext from "../../../store/MoviesContext";
 import { TiArrowBackOutline } from "react-icons/ti";
+import { IoAddCircleOutline } from "react-icons/io5";
 
 export default function AddDateModal(props) {
   const { setAddMovieState, setSearchTerm } = useContext(SearchContext);
@@ -23,7 +24,7 @@ export default function AddDateModal(props) {
   const onSubmitDateWatched = () => {
     const movieToBeAdded = props.movieToBeAdded;
     const updatedMovie = { ...movieToBeAdded, dateWatched: dateWatched };
-    //Tady se pošle finální movie object do funkce, která ho přidá do array s filmy.
+    //Zde se pošle finální movie object do funkce, která ho přidá do array s filmy.
     addToMovies(updatedMovie);
     backToSearch();
     setSearchTerm("");
@@ -47,7 +48,11 @@ export default function AddDateModal(props) {
           }}
         />
         <div className="buttons-container">
-          <Button variant="contained" type="submit">
+          <Button
+            variant="contained"
+            type="submit"
+            startIcon={<IoAddCircleOutline />}
+          >
             Submit
           </Button>
           <Button

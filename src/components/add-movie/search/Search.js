@@ -27,7 +27,6 @@ export default function Search(props) {
     setAddMovieState,
   } = useContext(SearchContext);
 
-  // 1. *STATES*
   const [movieToBeAdded, setMovieToBeAdded] = useState({});
   const [isDisplayedSearch, setIsDisplayedSearch] = useState(false);
   const [isDisplayedDateModal, setIsDisplayedDateModal] = useState(false);

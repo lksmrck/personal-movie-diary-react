@@ -70,10 +70,10 @@ export default function Form(props) {
               input={{
                 id: "Movie name",
                 type: "text",
+                value: newTitle,
+                onChange: onChangeTitle,
+                placeholder: "Harry Potter",
               }}
-              value={newTitle}
-              onChangeInput={onChangeTitle}
-              placeholder="Harry Potter"
             />
             <Input
               label="Year filmed"
@@ -83,19 +83,19 @@ export default function Form(props) {
                 min: 1900,
                 max: 2022,
                 step: 1,
+                value: newMovieYear,
+                onChange: onChangeDateFilmed,
+                placeholder: "2021",
               }}
-              value={newMovieYear}
-              onChangeInput={onChangeDateFilmed}
-              placeholder="2021"
             />
             <Input
               label="Date watched"
               input={{
                 id: "Date watched",
                 type: "date",
+                value: newDateWatched,
+                onChange: onChangeDateWatched,
               }}
-              value={newDateWatched}
-              onChangeInput={onChangeDateWatched}
               inputLabelProps={{
                 shrink: true,
               }}

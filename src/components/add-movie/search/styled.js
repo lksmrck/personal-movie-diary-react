@@ -53,10 +53,6 @@ export const StyledList = styled.ul`
 
     overflow: hidden;
   }
-  li img {
-    /*  width: 64.9px;
-    height: 91px; */
-  }
 
   li div {
     margin-left: 20px;
@@ -97,13 +93,8 @@ export const StyledListShort = styled.ul`
     border-radius: 1px;
     margin-left: -40px;
     text-align: left;
-    /* margin-bottom: -10px; */
     overflow: hidden;
   }
-  /*  li img {
-    width: 64.9px;
-    height: 91px;
-  } */
 
   li div {
     margin-left: 20px;

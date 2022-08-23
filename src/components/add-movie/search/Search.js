@@ -69,10 +69,10 @@ export default function Search(props) {
                 input={{
                   id: "Movie name",
                   type: "search",
+                  placeholder: "Star Wars",
+                  onChange: onChangeHandler,
+                  value: searchTerm,
                 }}
-                placeholder="Star Wars"
-                onChangeInput={onChangeHandler}
-                value={searchTerm}
               />
               {/* LIST S VYHLEDANÝMI FILMY -  vyrenderuje se pokud: 1. Se vyslal fetch request, 2. fetch request se i dokončil 3. našel se alespoň jeden film, 4. a zároveň nenastal error */}
               {isDisplayedSearch &&

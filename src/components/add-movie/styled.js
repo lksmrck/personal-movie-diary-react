@@ -46,8 +46,8 @@ export const StyledLoadingSpinner = styled.div`
   .loading-spinner {
     width: 40px;
     height: 40px;
-    border: 10px solid #f3f3f3; /* Light grey */
-    border-top: 10px solid #383636; /* Blue */
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #383636;
     border-radius: 50%;
     animation: spinner 1.5s linear infinite;
     margin-top: 10px;

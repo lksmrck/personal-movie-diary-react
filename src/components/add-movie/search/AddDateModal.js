@@ -39,9 +39,9 @@ export default function AddDateModal(props) {
           input={{
             id: "Date watched",
             type: "date",
+            value: dateWatched,
+            onChange: onChangeDateWatched,
           }}
-          value={dateWatched}
-          onChangeInput={onChangeDateWatched}
           inputLabelProps={{
             shrink: true,
           }}

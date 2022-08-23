@@ -39,10 +39,11 @@ export default function AddImgURLModal(props) {
             input={{
               id: "Image URL",
               type: "text",
+              value: imgURL,
+              onChange: onChangeImgURL,
+              placeholder:
+                "https://m.media-amazon.com/images/I/51asM9eJMXL.jpg",
             }}
-            value={imgURL}
-            onChangeInput={onChangeImgURL}
-            defaultValue="https://m.media-amazon.com/images/I/51asM9eJMXL.jpg"
           />
           <div className="buttons-container">
             <Button variant="contained" type="submit">

@@ -17,7 +17,6 @@ export default function Movies(props) {
     setMovies,
   } = useContext(MoviesContext);
 
-  // *STATES*
   const [detailClicked, setDetailClicked] = useState(false);
   const [sortCondition, setSortCondition] = useState("");
   const [sortedMovies, setSortedMovies] = useState(movies);
@@ -27,33 +26,42 @@ export default function Movies(props) {
     setSortCondition("Date newest");
   }, []);
 
+  //Nastavení sort condition po vybrání ze Selectu
+  const onChangeSortHandler = (condition) => {
+    setSortCondition(condition);
+  };
+
   //Sorting logika - běží při přidání movie - nový movie má na začátku hodnocení 0 (řadí se dle nastavené sort condition), nebo při změně sort condition, nebo při zadání hodnocení.
   useEffect(() => {
     let moviesToBeSorted;
-    if (sortCondition === "Rating lowest") {
-      moviesToBeSorted = [...movies].sort((a, b) => {
-        return a.totalRating - b.totalRating;
-      });
-      setSortedMovies(moviesToBeSorted);
-    } else if (sortCondition === "Rating highest") {
-      moviesToBeSorted = [...movies].sort((a, b) => {
-        return b.totalRating - a.totalRating;
-      });
-      setSortedMovies(moviesToBeSorted);
-    } else if (sortCondition === "Date newest") {
-      moviesToBeSorted = [...movies].sort((a, b) => {
-        return new Date(b.dateWatched) - new Date(a.dateWatched);
-      });
-      setSortedMovies(moviesToBeSorted);
-    } else if (sortCondition === "Date oldest") {
-      moviesToBeSorted = [...movies].sort((a, b) => {
-        return new Date(a.dateWatched) - new Date(b.dateWatched);
-      });
-      setSortedMovies(moviesToBeSorted);
+    switch (sortCondition) {
+      case "Rating lowest":
+        moviesToBeSorted = [...movies].sort((a, b) => {
+          return a.totalRating - b.totalRating;
+        });
+        setSortedMovies(moviesToBeSorted);
+        break;
+      case "Rating highest":
+        moviesToBeSorted = [...movies].sort((a, b) => {
+          return b.totalRating - a.totalRating;
+        });
+        setSortedMovies(moviesToBeSorted);
+        break;
+      case "Date newest":
+        moviesToBeSorted = [...movies].sort((a, b) => {
+          return new Date(b.dateWatched) - new Date(a.dateWatched);
+        });
+        setSortedMovies(moviesToBeSorted);
+        break;
+      case "Date oldest":
+        moviesToBeSorted = [...movies].sort((a, b) => {
+          return new Date(a.dateWatched) - new Date(b.dateWatched);
+        });
+        setSortedMovies(moviesToBeSorted);
+        break;
     }
   }, [movies, sortCondition]);
 
-  // **FUNCTIONS**
   ///Kliknuti na obrázek filmu
   const handleMovieClick = (movieId) => {
     setDetailClicked(true);
@@ -97,11 +105,6 @@ export default function Movies(props) {
       return movie;
     });
     setMovies(updatedMovies);
-  };
-
-  //Nastavení sort condition po vybrání ze Selectu
-  const onChangeSortHandler = (condition) => {
-    setSortCondition(condition);
   };
 
   return movies.length > 0 ? (

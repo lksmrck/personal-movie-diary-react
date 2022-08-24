@@ -40,23 +40,14 @@ export default function MovieCard(props) {
     }
   }, []);
 
-  //Zobrazení uděleného ratingu
+  //Uložení uděleného ratingu do array
   const onChangeRatingL = (event, newValue) => {
     setValueL(newValue);
-    onChangeRatingLArrayUpdate(newValue);
+    props.ratingLUpdate(props.id, newValue);
   };
 
   const onChangeRatingV = (event, newValue) => {
     setValueV(newValue);
-    onChangeRatingVArrayUpdate(newValue);
-  };
-
-  //Uložení uděleného ratingu do array
-  const onChangeRatingLArrayUpdate = (newValue) => {
-    props.ratingLUpdate(props.id, newValue);
-  };
-
-  const onChangeRatingVArrayUpdate = (newValue) => {
     props.ratingVUpdate(props.id, newValue);
   };
 

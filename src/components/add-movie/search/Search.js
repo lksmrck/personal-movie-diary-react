@@ -21,7 +21,6 @@ export default function Search(props) {
     searchURL,
     foundMovies,
     searchTerm,
-
     isLoading,
     error,
     setAddMovieState,
@@ -52,6 +51,7 @@ export default function Search(props) {
 
   const cancelSearch = () => {
     setIsDisplayedSearch(false);
+    setSearchTerm("");
   };
 
   const backToMainPage = () => {
@@ -78,7 +78,7 @@ export default function Search(props) {
               isLoading === false &&
               foundMovies.length > 0 &&
               error == null ? (
-                <div className="search-list-container">
+                <div>
                   <StyledList>
                     {foundMovies.map((movie) => (
                       <SearchItem

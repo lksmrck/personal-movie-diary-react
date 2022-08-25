@@ -15,7 +15,7 @@ export function SearchContextProvider({ children }) {
   //State na základě kterého se vyrenderuje titulní stránka/search/manuální přidání
   const [addMovieState, setAddMovieState] = useState("PICK");
 
-  // *API data*
+  // API data
   const API_KEY = "api_key=274808d92789c49e637a022e855f63dd";
   const BASE_URL = "https://api.themoviedb.org/3";
 

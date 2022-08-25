@@ -50,12 +50,12 @@ export default function MovieDetail(props) {
     props.detailClick();
   };
 
-  //1. možný render - Když daný film má přidaný detail, tak se vyrenderuje detail.
+  //1. možné zobrazení- Když daný film má přidaný detail, tak se vyrenderuje detail.
   if (detailState === "DISPLAY-DETAIL") {
     return <DisplayDetail detailClick={detailClick} />;
   }
 
-  //2. možný render - textové pole se zadanim detailu
+  //2. možné zobrazení- textové pole se zadanim detailu
   else if (detailState === "DISPLAY-TEXT_AREA") {
     return (
       <AddMovieDetail
@@ -67,7 +67,7 @@ export default function MovieDetail(props) {
     );
   }
 
-  //3. možný render - když rozkliknutý film nemá detail
+  //3. možné zobrazení - když rozkliknutý film nemá detail
   else if (detailState === "DISPLAY-NO_DETAIL") {
     return (
       <NoMovieDetail

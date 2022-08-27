@@ -38,9 +38,9 @@ export const StyledMovieCard = styled.div`
     height: 50px;
   }
   @media only screen and (max-width: 600px) {
-    margin-left: 20px;
-    max-width: 140px;
-    margin-right: 11%;
+    margin-left: 12px;
+    max-width: 135px;
+    margin-right: 13%;
   }
 `;
 

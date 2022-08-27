@@ -33,38 +33,40 @@ export default function AddDateModal(props) {
 
   return (
     <StyledAddDateModal>
-      <p>When did you watch the movie?</p>
-      <form onSubmit={onSubmitDateWatched}>
-        <Input
-          label="Date watched"
-          input={{
-            id: "Date watched",
-            type: "date",
-            value: dateWatched,
-            onChange: onChangeDateWatched,
-          }}
-          inputLabelProps={{
-            shrink: true,
-          }}
-        />
-        <div className="buttons-container">
-          <Button
-            variant="contained"
-            type="submit"
-            startIcon={<IoAddCircleOutline />}
-          >
-            Submit
-          </Button>
-          <Button
-            variant="outlined"
-            color="error"
-            onClick={backToSearch}
-            startIcon={<TiArrowBackOutline />}
-          >
-            Back
-          </Button>
-        </div>
-      </form>
+      <div className="modal-data">
+        <p>When did you watch the movie?</p>
+        <form onSubmit={onSubmitDateWatched}>
+          <Input
+            label="Date watched"
+            input={{
+              id: "Date watched",
+              type: "date",
+              value: dateWatched,
+              onChange: onChangeDateWatched,
+            }}
+            inputLabelProps={{
+              shrink: true,
+            }}
+          />
+          <div className="buttons-container">
+            <Button
+              variant="contained"
+              type="submit"
+              startIcon={<IoAddCircleOutline />}
+            >
+              Submit
+            </Button>
+            <Button
+              variant="outlined"
+              color="error"
+              onClick={backToSearch}
+              startIcon={<TiArrowBackOutline />}
+            >
+              Back
+            </Button>
+          </div>
+        </form>
+      </div>
     </StyledAddDateModal>
   );
 }

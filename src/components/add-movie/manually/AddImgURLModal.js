@@ -28,42 +28,44 @@ export default function AddImgURLModal(props) {
 
   return (
     <StyledAddImgURLModal>
-      <div className="add-url-container">
-        <p className="info-text">Please add the cover image URL.</p>
-        <p className="example-text">
-          <span className="example-text-bold">Example:</span>{" "}
-          https://m.media-amazon.com/images/I/51asM9eJMXL.jpg{" "}
-        </p>
-        <form onSubmit={onSubmitImgURL}>
-          <Input
-            label="Image URL"
-            input={{
-              id: "Image URL",
-              type: "text",
-              value: imgURL,
-              onChange: onChangeImgURL,
-              placeholder:
-                "https://m.media-amazon.com/images/I/51asM9eJMXL.jpg",
-            }}
-          />
-          <div className="buttons-container">
-            <Button
-              variant="contained"
-              type="submit"
-              startIcon={<IoAddCircleOutline />}
-            >
-              Submit
-            </Button>
-            <Button
-              variant="outlined"
-              color="error"
-              onClick={backToAddMovie}
-              startIcon={<TiArrowBackOutline />}
-            >
-              Back
-            </Button>
-          </div>
-        </form>
+      <div className="modal-data">
+        <div className="add-url-container">
+          <p className="info-text">Please add the cover image URL.</p>
+          <p className="example-text">
+            <span className="example-text-bold">Example:</span>{" "}
+            https://m.media-amazon.com/images/I/51asM9eJMXL.jpg{" "}
+          </p>
+          <form onSubmit={onSubmitImgURL}>
+            <Input
+              label="Image URL"
+              input={{
+                id: "Image URL",
+                type: "text",
+                value: imgURL,
+                onChange: onChangeImgURL,
+                placeholder:
+                  "https://m.media-amazon.com/images/I/51asM9eJMXL.jpg",
+              }}
+            />
+            <div className="buttons-container">
+              <Button
+                variant="contained"
+                type="submit"
+                startIcon={<IoAddCircleOutline />}
+              >
+                Submit
+              </Button>
+              <Button
+                variant="outlined"
+                color="error"
+                onClick={backToAddMovie}
+                startIcon={<TiArrowBackOutline />}
+              >
+                Back
+              </Button>
+            </div>
+          </form>
+        </div>
       </div>
     </StyledAddImgURLModal>
   );

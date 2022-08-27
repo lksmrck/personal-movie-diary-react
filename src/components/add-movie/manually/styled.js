@@ -1,28 +1,32 @@
 import styled from "styled-components";
 
 export const StyledAddImgURLModal = styled.div`
+  height: 100%;
   display: flex;
   justify-content: center;
-  position: fixed;
-  top: 20vh;
-  left: 25%;
-  height: 200px;
 
-  width: 550px;
-  background-color: #12141f;
-  border-radius: 5px;
-  margin: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  z-index: 30;
+  .modal-data {
+    height: 180px;
+    width: 550px;
 
-  border: 1px solid white;
+    margin-top: 15vh;
+    background-color: #12141f;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 30;
+    border: 1px solid white;
+
+    form {
+      margin-left: 6%;
+    }
+  }
 
   .info-text {
-    margin-left: 2%;
+    margin-left: 6%;
   }
 
   .example-text {
-    margin-left: 2%;
+    margin-left: 6%;
     font-size: 13px;
     color: #aaa5b8;
   }
@@ -33,16 +37,24 @@ export const StyledAddImgURLModal = styled.div`
   .buttons-container {
     display: flex;
     justify-content: center;
-    margin-top: 5px;
-  }
-  .add-url-container {
+    margin-left: -6%;
+    margin-top: 3px;
   }
 
   @media only screen and (max-width: 600px) {
-    left: 0;
-    width: 370px;
+    .modal-data {
+      width: 370px;
+      form {
+        margin-left: 2.5%;
+      }
+    }
+
     .example-text {
+      margin-left: 2.5%;
       font-size: 11px;
+    }
+    .info-text {
+      margin-left: 2.5%;
     }
   }
 `;

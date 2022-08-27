@@ -1,20 +1,6 @@
 import styled from "styled-components";
 
 export const StyledMovieDetail = styled.div`
-  /*  position: fixed;
-  top: 20vh;
-  left: 25%;
-  height: 330px;
-
-  width: 500px;
-  background-color: #12141f;
-  border-radius: 5px;
-  margin: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  z-index: 30;
-
-  border: 1px solid white; */
-
   height: 100%;
   display: flex;
   justify-content: center;
@@ -32,7 +18,6 @@ export const StyledMovieDetail = styled.div`
 
   @media only screen and (max-width: 600px) {
     .detail-data {
-      /* left: 0; */
       height: 350px;
       width: 370px;
     }

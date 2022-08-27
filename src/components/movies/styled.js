@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledMovieCard = styled.div`
   margin: 20px;
-  margin-left: 30px;
+
   max-width: 180px;
 
   h2 {
@@ -37,25 +37,18 @@ export const StyledMovieCard = styled.div`
   .title-text {
     height: 50px;
   }
-
   @media only screen and (max-width: 600px) {
-    margin-left: 12px;
-    max-width: 153px;
-    .rating {
-      margin-left: -7px;
-      width: 100px;
-    }
-  }
-
-  @media only screen and (max-width: 375px) {
-    margin-left: 12px;
+    margin-left: 20px;
     max-width: 140px;
+    margin-right: 11%;
   }
 `;
 
 export const StyledMovies = styled.div`
   width: 955px;
   display: flex;
+  justify-content: space-between;
+  flex-direction: row;
   flex-wrap: wrap;
   background-color: #333252;
   border-radius: 5px;
@@ -63,8 +56,7 @@ export const StyledMovies = styled.div`
   box-shadow: 3px 4px black;
   border: 0.5px solid grey;
 
-  @media only screen and (max-width: 375px) {
-    justify-content: center;
+  @media only screen and (max-width: 600px) {
   }
 
   .backdrop {

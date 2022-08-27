@@ -14,27 +14,29 @@ export default function DisplayDetail(props) {
 
   return (
     <StyledMovieDetail>
-      <div className="detail-container">
-        <div className="detail-text-container">
-          <p>{displayedDetail} </p>
-        </div>
-        <div className="detail-buttons-container">
-          <Button
-            variant="outlined"
-            onClick={onEditHandler}
-            color="success"
-            startIcon={<AiOutlineEdit />}
-          >
-            Edit
-          </Button>
-          <Button
-            variant="outlined"
-            color="error"
-            onClick={props.detailClick}
-            startIcon={<TiArrowBackOutline />}
-          >
-            Take me back
-          </Button>
+      <div className="detail-data">
+        <div className="detail-container">
+          <div className="detail-text-container">
+            <p>{displayedDetail} </p>
+          </div>
+          <div className="detail-buttons-container">
+            <Button
+              variant="outlined"
+              onClick={onEditHandler}
+              color="success"
+              startIcon={<AiOutlineEdit />}
+            >
+              Edit
+            </Button>
+            <Button
+              variant="outlined"
+              color="error"
+              onClick={props.detailClick}
+              startIcon={<TiArrowBackOutline />}
+            >
+              Take me back
+            </Button>
+          </div>
         </div>
       </div>
     </StyledMovieDetail>

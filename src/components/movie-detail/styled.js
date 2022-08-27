@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledMovieDetail = styled.div`
-  position: fixed;
+  /*  position: fixed;
   top: 20vh;
   left: 25%;
   height: 330px;
@@ -13,10 +13,29 @@ export const StyledMovieDetail = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;
 
-  border: 1px solid white;
+  border: 1px solid white; */
+
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  .detail-data {
+    height: 330px;
+    width: 500px;
+    margin-top: 15vh;
+    background-color: #12141f;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 30;
+    border: 1px solid white;
+  }
+
   @media only screen and (max-width: 600px) {
-    left: 0;
-    width: 370px;
+    .detail-data {
+      /* left: 0; */
+      height: 350px;
+      width: 370px;
+    }
   }
 
   .add-detail-btn-container {

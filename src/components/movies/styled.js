@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledMovieCard = styled.div`
   margin: 20px;
+  margin-left: 33px;
 
   max-width: 180px;
 
@@ -37,7 +38,8 @@ export const StyledMovieCard = styled.div`
   .title-text {
     height: 50px;
   }
-  @media only screen and (max-width: 600px) {
+
+  @media only screen and (max-width: 715px) {
     margin-left: 12px;
     max-width: 135px;
     margin-right: 13%;
@@ -47,7 +49,7 @@ export const StyledMovieCard = styled.div`
 export const StyledMovies = styled.div`
   width: 955px;
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   flex-direction: row;
   flex-wrap: wrap;
   background-color: #333252;
@@ -56,7 +58,8 @@ export const StyledMovies = styled.div`
   box-shadow: 3px 4px black;
   border: 0.5px solid grey;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 753px) {
+    justify-content: space-between;
   }
 
   .backdrop {

@@ -35,7 +35,11 @@ You can try the demo [HERE](https://lukasthevicious.github.io/personal-MyMovieDi
 - Fetch errors are handled by display error message.
 - If the fetched movie has no poster image, the default image from Assets folder is assigned instead.
 
+<<<<<<< HEAD
 ## Data
+=======
+## ⚒ Technologies used
+>>>>>>> 0a7894a (Update README.md)
 
 Data from [TMDB](https://www.themoviedb.org/?language=cs) API are used in this project.
 

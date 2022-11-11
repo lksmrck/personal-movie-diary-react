@@ -1,6 +1,6 @@
 # 📽 My Movie Diary App
 
-Simple personal app that
+Simple personal app that allows user to search/manually add and track watched movies, rate them and store some personal comments about the movies.
 
 ## ⚡️ Motivation
 
@@ -14,6 +14,7 @@ You can try the demo [HERE](https://lukasthevicious.github.io/personal-MyMovieDi
 
 ## ⚙️ Basic functionality
 
+Main functionalities:
 ![App demo](./readMe/movieDiaryGIF.gif)
 
 1. User is able to add watched movie collecting the three main information: Movie name, Date movie was filmed, Date movie was watched (and movie poster path).
@@ -36,12 +37,16 @@ You can try the demo [HERE](https://lukasthevicious.github.io/personal-MyMovieDi
 - If the fetched movie has no poster image, the default image from Assets folder is assigned instead.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Data
 =======
 ## ⚒ Technologies used
 >>>>>>> 0a7894a (Update README.md)
+=======
+## 🗄 Data
+>>>>>>> e11843f (readme)
 
-Data from [TMDB](https://www.themoviedb.org/?language=cs) API are used in this project.
+Data from [TMDB](https://www.themoviedb.org/?language=cs) API is used in this project.
 
 ## ⚒ Technologies used
 

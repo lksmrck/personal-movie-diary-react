@@ -38,28 +38,24 @@ export const StyledMovieCard = styled.div`
   .title-text {
     height: 50px;
   }
-
-  @media only screen and (max-width: 715px) {
-    margin-left: 12px;
-    max-width: 135px;
-    margin-right: 13%;
-  }
 `;
 
 export const StyledMovies = styled.div`
   width: 955px;
-  display: flex;
-  justify-content: start;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   background-color: #333252;
   border-radius: 5px;
   margin: 20px;
   box-shadow: 3px 4px black;
   border: 0.5px solid grey;
+  justify-items: center;
 
   @media only screen and (max-width: 753px) {
-    justify-content: space-between;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media only screen and (max-width: 505px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
   .backdrop {

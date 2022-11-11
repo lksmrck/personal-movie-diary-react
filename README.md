@@ -29,6 +29,22 @@ Main functionalities:
    a. When firstly clicked on particular movie, the modal window with request to fill the detail is displayed (detail = personal notes to the movie after watching it).
    b. If the display was added and movie poster is clicked again, the added detail is displayed instead. Detail can be changed by clicking the Edit button.
 
+## 🔸 Configuration and setup
+
+In order to run this project locally, simply fork and clone the repository or download as zip and unzip on your machine.
+
+- Open the project in your prefered code editor.
+- Go to terminal -> New terminal (If you are using VS code)
+
+```
+$ cd client
+```
+
+```
+$ npm install (to install client-side dependencies)
+& npm start (to start the client)
+```
+
 ## ℹ️ Additional information
 
 - Loading spinner is displayed while the data are being fetched
@@ -36,15 +52,7 @@ Main functionalities:
 - Fetch errors are handled by display error message.
 - If the fetched movie has no poster image, the default image from Assets folder is assigned instead.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-## Data
-=======
-## ⚒ Technologies used
->>>>>>> 0a7894a (Update README.md)
-=======
 ## 🗄 Data
->>>>>>> e11843f (readme)
 
 Data from [TMDB](https://www.themoviedb.org/?language=cs) API is used in this project.
 

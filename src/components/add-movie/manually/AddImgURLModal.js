@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 import { TiArrowBackOutline } from "react-icons/ti";
 import { IoAddCircleOutline } from "react-icons/io5";
 
-export default function AddImgURLModal(props) {
+export default function AddImgURLModal({ movieToBeAdded, backToAddMovie }) {
   const { addToMovies } = useContext(MoviesContext);
 
   const [imgURL, setImgURL] = useState("");
@@ -16,14 +16,9 @@ export default function AddImgURLModal(props) {
   };
 
   const onSubmitImgURL = () => {
-    const movieToBeAdded = props.movieToBeAdded;
     const updatedMovie = { ...movieToBeAdded, imageURL: imgURL };
     addToMovies(updatedMovie);
     backToAddMovie();
-  };
-
-  const backToAddMovie = () => {
-    props.backToAddMovie();
   };
 
   return (

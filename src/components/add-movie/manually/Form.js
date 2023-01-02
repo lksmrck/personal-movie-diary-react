@@ -4,7 +4,6 @@ import { ContainerForm } from "./styled";
 import { StyledForm } from "./styled";
 import { Button } from "@mui/material";
 import SearchContext from "../../../store/SearchContext";
-
 import Backdrop from "../../../layout/Backdrop";
 import AddImgURLModal from "./AddImgURLModal";
 import { HiOutlineDocumentAdd } from "react-icons/hi";

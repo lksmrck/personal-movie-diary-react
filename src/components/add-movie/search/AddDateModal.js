@@ -7,7 +7,10 @@ import MoviesContext from "../../../store/MoviesContext";
 import { TiArrowBackOutline } from "react-icons/ti";
 import { IoAddCircleOutline } from "react-icons/io5";
 
-export default function AddDateModal(props) {
+export default function AddDateModal({
+  movieToBeAdded,
+  displayDateModalToggle,
+}) {
   const { setAddMovieState, setSearchTerm } = useContext(SearchContext);
   const { addToMovies } = useContext(MoviesContext);
 
@@ -18,12 +21,11 @@ export default function AddDateModal(props) {
   };
 
   const backToSearch = () => {
-    props.displayDateModalToggle(false);
+    displayDateModalToggle(false);
   };
 
   const onSubmitDateWatched = () => {
-    const movieToBeAdded = props.movieToBeAdded;
-    const updatedMovie = { ...movieToBeAdded, dateWatched: dateWatched };
+    const updatedMovie = { ...movieToBeAdded, dateWatched };
     //Zde se pošle finální movie object do funkce, která ho přidá do array s filmy.
     addToMovies(updatedMovie);
     backToSearch();

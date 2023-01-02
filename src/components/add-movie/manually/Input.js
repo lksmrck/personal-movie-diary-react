@@ -1,20 +1,20 @@
 import { React } from "react";
 import { TextField } from "@mui/material";
 
-const Input = (props) => {
+const Input = ({ input, placeholder, inputLabelProps }) => {
   return (
     <div>
       <TextField
         sx={{ width: 400, borderRadius: 1 }}
         className="inputs"
-        label={props.input.id}
+        label={input.id}
         variant="filled"
         size="small"
-        placeholder={props.placeholder}
-        inputProps={{ ...props.input }}
+        placeholder={placeholder}
+        inputProps={{ ...input }}
         color="primary"
         required={true}
-        InputLabelProps={props.inputLabelProps}
+        InputLabelProps={inputLabelProps}
       />
     </div>
   );

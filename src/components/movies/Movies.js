@@ -8,7 +8,7 @@ import { StyledNoMoviesFound } from "./styled";
 import MoviesContext from "../../store/MoviesContext";
 import Backdrop from "../../layout/Backdrop";
 
-export default function Movies(props) {
+export default function Movies() {
   const {
     movies,
     setDisplayedDetail,

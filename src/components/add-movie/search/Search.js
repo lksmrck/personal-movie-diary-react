@@ -14,7 +14,7 @@ import FoundNoMovie from "./FoundNoMovie";
 import Error from "./Error";
 import { TiArrowBackOutline } from "react-icons/ti";
 
-export default function Search(props) {
+export default function Search() {
   const {
     setSearchTerm,
     getMovies,
@@ -49,7 +49,7 @@ export default function Search(props) {
     setSearchTerm(e.target.value);
   };
 
-  const cancelSearch = () => {
+  const onCancelSearch = () => {
     setIsDisplayedSearch(false);
     setSearchTerm("");
   };
@@ -87,7 +87,7 @@ export default function Search(props) {
                         title={movie.title}
                         movieYear={movie.release_date}
                         imageURL={movie.poster_path}
-                        searchDisplayToggle={cancelSearch}
+                        searchDisplayToggle={onCancelSearch}
                         displayDateModalToggle={setIsDisplayedDateModal}
                         liftUpMovieToBeAdded={liftUpMovieToBeAdded}
                       />
@@ -97,7 +97,7 @@ export default function Search(props) {
                     <Button
                       variant="contained"
                       color="error"
-                      onClick={cancelSearch}
+                      onClick={onCancelSearch}
                       startIcon={<TiArrowBackOutline />}
                     >
                       Back
@@ -117,7 +117,7 @@ export default function Search(props) {
                     <Button
                       variant="contained"
                       color="error"
-                      onClick={cancelSearch}
+                      onClick={onCancelSearch}
                       startIcon={<TiArrowBackOutline />}
                     >
                       Back
@@ -141,7 +141,7 @@ export default function Search(props) {
                     <Button
                       variant="contained"
                       color="error"
-                      onClick={cancelSearch}
+                      onClick={onCancelSearch}
                       startIcon={<TiArrowBackOutline />}
                     >
                       Back

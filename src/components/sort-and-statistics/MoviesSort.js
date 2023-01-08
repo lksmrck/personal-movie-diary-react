@@ -4,11 +4,11 @@ import MoviesContext from "../../store/MoviesContext";
 import Statistics from "./Statistics";
 import { StyledMoviesSort } from "./styled";
 
-const MoviesSort = (props) => {
+const MoviesSort = ({ onChangeSort, selected }) => {
   const { movies } = useContext(MoviesContext);
 
   function dropdownChangeHandler(e) {
-    props.onChangeSort(e.target.value);
+    onChangeSort(e.target.value);
   }
 
   return (
@@ -25,7 +25,7 @@ const MoviesSort = (props) => {
               labelId="sort-select"
               id="sort-select"
               label="Sort by:"
-              value={props.selected}
+              value={selected}
               onChange={dropdownChangeHandler}
             >
               <MenuItem value="Date newest">Date newest</MenuItem>

@@ -6,7 +6,11 @@ export const StyledAddDateModal = styled.div`
   justify-content: center;
 
   .modal-data {
-    height: 155px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 170px;
     width: 550px;
     margin-top: 15vh;
     background-color: #12141f;
@@ -37,6 +41,7 @@ export const StyledList = styled.ul`
   background-color: white;
   margin-top: 0px;
   border-radius: 4px;
+  overflow-x: hidden;
 
   @media only screen and (max-width: 600px) {
     width: 350px;
@@ -84,6 +89,7 @@ export const StyledListShort = styled.ul`
   background-color: white;
   margin-top: 0px;
   border-radius: 4px;
+  overflow-x: hidden;
 
   li {
     display: flex;

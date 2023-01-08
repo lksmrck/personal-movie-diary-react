@@ -6,13 +6,17 @@ import MoviesContext from "../../store/MoviesContext";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { TiArrowBackOutline } from "react-icons/ti";
 
-export default function AddMovieDetail(props) {
+export default function AddMovieDetail({
+  detailSubmitHandler,
+  handleDetailChange,
+  closeDetailHandler,
+}) {
   const { displayedDetail } = useContext(MoviesContext);
   return (
     <StyledMovieDetail>
       <div className="detail-data">
         <div className="detail-form-container">
-          <form onSubmit={props.detailSubmitHandler}>
+          <form onSubmit={detailSubmitHandler}>
             <TextField
               sx={{ width: 500 }}
               className="text-field"
@@ -25,7 +29,7 @@ export default function AddMovieDetail(props) {
               }
               variant="filled"
               value={displayedDetail ? displayedDetail : ""}
-              onChange={props.handleDetailChange}
+              onChange={handleDetailChange}
             />
             <div className="add-detail-buttons-container">
               <Button
@@ -38,7 +42,7 @@ export default function AddMovieDetail(props) {
               <Button
                 variant="outlined"
                 color="error"
-                onClick={props.closeDetailHandler}
+                onClick={closeDetailHandler}
                 startIcon={<TiArrowBackOutline />}
               >
                 Take me back

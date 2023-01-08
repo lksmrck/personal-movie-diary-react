@@ -5,7 +5,7 @@ import MoviesContext from "../../store/MoviesContext";
 import { TiArrowBackOutline } from "react-icons/ti";
 import { AiOutlineEdit } from "react-icons/ai";
 
-export default function DisplayDetail(props) {
+export default function DisplayDetail({ detailClick }) {
   const { displayedDetail, setDetailState } = useContext(MoviesContext);
 
   const onEditHandler = () => {
@@ -31,7 +31,7 @@ export default function DisplayDetail(props) {
             <Button
               variant="outlined"
               color="error"
-              onClick={props.detailClick}
+              onClick={detailClick}
               startIcon={<TiArrowBackOutline />}
             >
               Take me back

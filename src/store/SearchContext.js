@@ -20,6 +20,7 @@ export function SearchContextProvider({ children }) {
   const BASE_URL = "https://api.themoviedb.org/3";
 
   const IMG_API = "https://image.tmdb.org/t/p/w1280";
+
   const searchURL = BASE_URL + "/search/movie?" + API_KEY + "&query="; //k tomuto potřeba přidat hledanyNazev"
 
   //např. https://api.themoviedb.org/3/search/movie?api_key=274808d92789c49e637a022e855f63dd&query=potter

@@ -5,7 +5,7 @@ import { MainAddMoviePageContainer } from "./styled";
 import SearchContext from "../../store/SearchContext";
 import { BsSearch, BsPencil } from "react-icons/bs";
 
-export default function MainAddMoviePage(props) {
+export default function MainAddMoviePage() {
   const { setAddMovieState } = useContext(SearchContext);
 
   const setSearchForm = () => {

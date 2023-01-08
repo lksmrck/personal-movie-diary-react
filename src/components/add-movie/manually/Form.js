@@ -9,7 +9,7 @@ import AddImgURLModal from "./AddImgURLModal";
 import { HiOutlineDocumentAdd } from "react-icons/hi";
 import { TiArrowBackOutline } from "react-icons/ti";
 
-export default function Form(props) {
+export default function Form() {
   const [newTitle, setNewTitle] = useState("");
   const [newMovieYear, setNewMovieYear] = useState("");
   const [newDateWatched, setNewDateWatched] = useState("");

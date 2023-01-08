@@ -3,26 +3,33 @@ import image from "../../../assets/no-poster-available.webp";
 
 import SearchContext from "../../../store/SearchContext";
 
-export default function SearchItem(props) {
+export default function SearchItem({
+  movieYear,
+  imageURL,
+  searchDisplayToggle,
+  liftUpMovieToBeAdded,
+  displayDateModalToggle,
+  title,
+}) {
   const { IMG_API } = useContext(SearchContext);
 
-  const releaseDate = new Date(props.movieYear);
+  const releaseDate = new Date(movieYear);
   const releaseYear = releaseDate.getFullYear();
 
   //Pokud není dotáhnut obrázek z API, tak použije No Poster Found image
   let foundImgURL = "";
-  if (props.imageURL == null) {
+  if (imageURL == null) {
     foundImgURL = image;
   } else {
-    foundImgURL = IMG_API + props.imageURL;
+    foundImgURL = IMG_API + imageURL;
   }
 
   const onClickMovieHandler = () => {
     //Po přidání filmu se přestanou renderovat vyhledané filmy.
-    props.searchDisplayToggle();
+    searchDisplayToggle();
     const movieItem = {
       id: Math.random().toString(),
-      title: props.title,
+      title: title,
       movieYear: releaseYear,
       imageURL: foundImgURL,
       dateWatched: "",
@@ -30,8 +37,8 @@ export default function SearchItem(props) {
       stars_2: "",
     };
 
-    props.liftUpMovieToBeAdded(movieItem);
-    props.displayDateModalToggle(true);
+    liftUpMovieToBeAdded(movieItem);
+    displayDateModalToggle(true);
   };
 
   return (
@@ -44,7 +51,7 @@ export default function SearchItem(props) {
         //Když kliknu na obrázek, pošlu do funkce props.id itemu, na který jsem klikl.
       />
       <div className="search-movie-data">
-        <p className="search-title">{props.title}</p>
+        <p className="search-title">{title}</p>
         <p>{isNaN(releaseYear) ? "---" : releaseYear}</p>
       </div>
     </li>

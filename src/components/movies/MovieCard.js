@@ -5,7 +5,16 @@ import { useState } from "react";
 
 import MoviesContext from "../../store/MoviesContext";
 
-export default function MovieCard(props) {
+export default function MovieCard({
+  dateWatched,
+  movieYear,
+  ratingLUpdate,
+  ratingVUpdate,
+  id,
+  imageURL,
+  title,
+  detailClick,
+}) {
   // *STATES*
   const [valueL, setValueL] = useState(null);
   const [valueV, setValueV] = useState(null);
@@ -13,15 +22,15 @@ export default function MovieCard(props) {
   const { deleteMovie } = useContext(MoviesContext);
 
   //Upravení formátu datumu
-  const date = new Date(props.dateWatched);
+  const date = new Date(dateWatched);
   const month = date.toLocaleString("en-US", { month: "2-digit" });
   const day = date.toLocaleString("en-US", { day: "2-digit" });
   const year = date.getFullYear();
 
   const myDate = day + "-" + month + "-" + year;
 
-  //Upravení formátu movieDate
-  const dateFilmed = props.movieYear;
+  //Upravení formátu movieDate - aby se správně zobrazovalo v případě, že date z API je NaN
+  const dateFilmed = movieYear;
   const dateFilmedType = typeof dateFilmed;
 
   //Načítání a zobrazování ratingu z localStorage při vyrenderování komponentu.
@@ -30,10 +39,10 @@ export default function MovieCard(props) {
     if (localData) {
       const localDataParsed = JSON.parse(localData);
       const localRatingL = localDataParsed.find(
-        (movie) => movie.id === props.id
+        (movie) => movie.id === id
       ).stars_1;
       const localRatingV = localDataParsed.find(
-        (movie) => movie.id === props.id
+        (movie) => movie.id === id
       ).stars_2;
       setValueL(localRatingL);
       setValueV(localRatingV);
@@ -43,37 +52,37 @@ export default function MovieCard(props) {
   //Uložení uděleného ratingu do array
   const onChangeRatingL = (event, newValue) => {
     setValueL(newValue);
-    props.ratingLUpdate(props.id, newValue);
+    ratingLUpdate(id, newValue);
   };
 
   const onChangeRatingV = (event, newValue) => {
     setValueV(newValue);
-    props.ratingVUpdate(props.id, newValue);
+    ratingVUpdate(id, newValue);
   };
 
   const onClickButton = () => {
-    deleteMovie(props.id);
+    deleteMovie(id);
   };
 
   const onClickImg = () => {
-    props.detailClick(props.id);
+    detailClick(id);
   };
 
   return (
     <StyledMovieCard>
       <div className="img-icon-container">
         <img
-          src={props.imageURL}
+          src={imageURL}
           width="138px"
           height="195px"
           onClick={onClickImg}
           alt="movie poster"
         />
-        <p className="delete-icon" onClick={onClickButton}>
+        <div className="delete-icon" onClick={onClickButton}>
           ❌
-        </p>
+        </div>
       </div>
-      <h2 className="title-text">{props.title}</h2>
+      <h2 className="title-text">{title}</h2>
       <h3>
         {dateFilmedType === "number" || dateFilmedType === "string"
           ? dateFilmed

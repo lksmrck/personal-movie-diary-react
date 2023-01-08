@@ -31,6 +31,7 @@ export const StyledMovieCard = styled.div`
   }
   .delete-icon {
     margin-left: 7px;
+    height: 30px;
     margin-top: -1px;
     cursor: pointer;
   }

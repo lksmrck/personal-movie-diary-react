@@ -12,12 +12,11 @@ import { SearchContextProvider } from "../store/SearchContext";
 export default function MainPage() {
   return (
     <div>
+      <Header />
       <MoviesContextProvider>
-        <Header />
         <SearchContextProvider>
           <AddMovie />
         </SearchContextProvider>
-
         <Movies />
         <Footer />
       </MoviesContextProvider>

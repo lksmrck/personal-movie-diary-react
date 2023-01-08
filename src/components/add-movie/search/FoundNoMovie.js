@@ -4,7 +4,7 @@ export default function FoundNoMovie() {
   return (
     <li>
       <div className="search-movie-data">
-        <p className="search-title-error">Found no movie. 🤷🏻‍♂️</p>
+        <p className="search-title-error">No movie was found 🤷🏻‍♂️</p>
       </div>
     </li>
   );

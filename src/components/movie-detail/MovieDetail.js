@@ -10,7 +10,6 @@ export default function MovieDetail(props) {
     clickedMovieId,
     setMovies,
     setDisplayedDetail,
-    displayedDetail,
     setDetailState,
     detailState,
   } = useContext(MoviesContext);

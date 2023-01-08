@@ -107,7 +107,7 @@ export default function Search() {
               ) : (
                 ""
               )}
-              {/* ERROR HLÁŠKA - vyrenderuje se pokud: 1. Se vyslal fetch request, 2.nastal při tom error */}
+              {/* ERROR HLÁŠKA - vyrenderuje se pokud: 1. Se vyslal fetch request, 2.nastal při tom error. */}
               {isDisplayedSearch && error !== null ? (
                 <div className="search-list-container">
                   <StyledListShort>

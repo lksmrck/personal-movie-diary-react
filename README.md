@@ -10,7 +10,7 @@ Additionally I recently started to watch more movies in specific genres with my 
 
 ## 👇 Demo
 
-You can try the demo [HERE](https://lukasthevicious.github.io/personal-MyMovieDiary-react/)
+You can try the demo [HERE](https://lksmrck.github.io/personal-movie-diary-react/)
 
 ## ⚙️ Basic functionality
 

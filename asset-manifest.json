@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/lksmrck/personal-movie-diary-react/static/css/main.aff4f680.chunk.css",
-    "main.js": "/lksmrck/personal-movie-diary-react/static/js/main.4b80ebd7.chunk.js",
-    "main.js.map": "/lksmrck/personal-movie-diary-react/static/js/main.4b80ebd7.chunk.js.map",
-    "runtime-main.js": "/lksmrck/personal-movie-diary-react/static/js/runtime-main.bd1c7e72.js",
-    "runtime-main.js.map": "/lksmrck/personal-movie-diary-react/static/js/runtime-main.bd1c7e72.js.map",
-    "static/js/2.04fb3d5d.chunk.js": "/lksmrck/personal-movie-diary-react/static/js/2.04fb3d5d.chunk.js",
-    "static/js/2.04fb3d5d.chunk.js.map": "/lksmrck/personal-movie-diary-react/static/js/2.04fb3d5d.chunk.js.map",
-    "index.html": "/lksmrck/personal-movie-diary-react/index.html",
-    "static/css/main.aff4f680.chunk.css.map": "/lksmrck/personal-movie-diary-react/static/css/main.aff4f680.chunk.css.map",
-    "static/js/2.04fb3d5d.chunk.js.LICENSE.txt": "/lksmrck/personal-movie-diary-react/static/js/2.04fb3d5d.chunk.js.LICENSE.txt",
-    "static/media/no-poster-available.aa443dc4.webp": "/lksmrck/personal-movie-diary-react/static/media/no-poster-available.aa443dc4.webp"
+    "main.css": "/personal-movie-diary-react/static/css/main.aff4f680.chunk.css",
+    "main.js": "/personal-movie-diary-react/static/js/main.4b80ebd7.chunk.js",
+    "main.js.map": "/personal-movie-diary-react/static/js/main.4b80ebd7.chunk.js.map",
+    "runtime-main.js": "/personal-movie-diary-react/static/js/runtime-main.31a6444d.js",
+    "runtime-main.js.map": "/personal-movie-diary-react/static/js/runtime-main.31a6444d.js.map",
+    "static/js/2.f9777fb9.chunk.js": "/personal-movie-diary-react/static/js/2.f9777fb9.chunk.js",
+    "static/js/2.f9777fb9.chunk.js.map": "/personal-movie-diary-react/static/js/2.f9777fb9.chunk.js.map",
+    "index.html": "/personal-movie-diary-react/index.html",
+    "static/css/main.aff4f680.chunk.css.map": "/personal-movie-diary-react/static/css/main.aff4f680.chunk.css.map",
+    "static/js/2.f9777fb9.chunk.js.LICENSE.txt": "/personal-movie-diary-react/static/js/2.f9777fb9.chunk.js.LICENSE.txt",
+    "static/media/no-poster-available.aa443dc4.webp": "/personal-movie-diary-react/static/media/no-poster-available.aa443dc4.webp"
   },
   "entrypoints": [
-    "static/js/runtime-main.bd1c7e72.js",
-    "static/js/2.04fb3d5d.chunk.js",
+    "static/js/runtime-main.31a6444d.js",
+    "static/js/2.f9777fb9.chunk.js",
     "static/css/main.aff4f680.chunk.css",
     "static/js/main.4b80ebd7.chunk.js"
   ]

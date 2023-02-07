@@ -8,18 +8,21 @@ import AddMovie from "../components/add-movie/AddMovie";
 
 import { MoviesContextProvider } from "../store/MoviesContext";
 import { SearchContextProvider } from "../store/SearchContext";
+import { StyledMainPage } from "./styled";
 
 export default function MainPage() {
   return (
-    <div>
-      <Header />
-      <MoviesContextProvider>
-        <SearchContextProvider>
-          <AddMovie />
-        </SearchContextProvider>
-        <Movies />
-        <Footer />
-      </MoviesContextProvider>
-    </div>
+    <StyledMainPage>
+      <div className="content">
+        <Header />
+        <MoviesContextProvider>
+          <SearchContextProvider>
+            <AddMovie />
+          </SearchContextProvider>
+          <Movies />
+        </MoviesContextProvider>
+      </div>
+      <Footer />
+    </StyledMainPage>
   );
 }

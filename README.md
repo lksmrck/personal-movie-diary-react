@@ -58,11 +58,10 @@ Data from [TMDB](https://www.themoviedb.org/?language=cs) API is used in this pr
 
 ## ⚒ Technologies used
 
-- <b>ReactJS</b>
-  - <b>Context API</b> (for state management)
-- UI library - <b>Material UI</b> (for Inputs, Buttons and Rating elements.), React Icons for icons
-- Styling - <b>Styled components</b>
-- Hosting - <b>GitHub</b>
+- [React](https://reactjs.org/)
+- [MaterialUI](https://mui.com/)
+- [StyledComponents](https://styled-components.com/)
+- Hosting - [GH pages](https://pages.github.com/)
 
 ## ⏩ Future
 

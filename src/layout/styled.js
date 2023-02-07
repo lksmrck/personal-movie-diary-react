@@ -11,7 +11,7 @@ export const StyledFooter = styled.footer`
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
-  margin-top: 10%;
+  margin-top: auto;
 `;
 
 export const StyledBackdrop = styled.div`

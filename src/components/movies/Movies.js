@@ -21,17 +21,16 @@ export default function Movies() {
   const [sortCondition, setSortCondition] = useState("");
   const [sortedMovies, setSortedMovies] = useState(movies);
 
-  //Po načtení se nastaví default seřazování na Date newest
+  //Default sorting condition for displayed movies after loading is set to "Date newest"
   useEffect(() => {
     setSortCondition("Date newest");
   }, []);
 
-  //Nastavení sort condition po vybrání ze Selectu
   const onChangeSortHandler = (condition) => {
     setSortCondition(condition);
   };
 
-  //Sorting logika - běží při přidání movie - nový movie má na začátku hodnocení 0 (řadí se dle nastavené sort condition), nebo při změně sort condition, nebo při zadání hodnocení.
+  //Sorting logic switch statement -> if the movies array or sortCondition changes - Rating of the newly added movie is set to 0 (and is sorted by the set sorting condition).
   useEffect(() => {
     let moviesToBeSorted;
     switch (sortCondition) {
@@ -62,7 +61,6 @@ export default function Movies() {
     }
   }, [movies, sortCondition]);
 
-  ///Kliknuti na obrázek filmu
   const handleMovieClick = (movieId) => {
     setDetailClicked(true);
     setClickedMovieId(movieId);
@@ -78,7 +76,7 @@ export default function Movies() {
   const handleMovieClickBack = () => {
     setDetailClicked(false);
   };
-  //update object property v původní array po změně ratingu
+
   const ratingLUpdate = (movieId, newValue) => {
     const updatedMovies = movies.map((movie) => {
       if (movie.id === movieId) {
@@ -92,7 +90,7 @@ export default function Movies() {
     });
     setMovies(updatedMovies);
   };
-  //update object property v původní array po změně ratingu
+
   const ratingVUpdate = (movieId, newValue) => {
     const updatedMovies = movies.map((movie) => {
       if (movie.id === movieId) {
@@ -108,7 +106,6 @@ export default function Movies() {
   };
 
   return movies.length > 0 ? (
-    //Pokud je přidán nějaký film, vyrenderujou se filmy + MoviesSort. Pokud není přidán žádný film, vyrenderuje se component viz. níž.
     <div>
       <MoviesSort onChangeSort={onChangeSortHandler} selected={sortCondition} />
 

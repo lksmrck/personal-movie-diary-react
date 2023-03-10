@@ -14,7 +14,6 @@ export default function MovieDetail(props) {
     detailState,
   } = useContext(MoviesContext);
 
-  //State sledující detail, který se vyplňuje
   const [filledDetail, setFilledDetail] = useState("");
 
   const detailClick = () => {
@@ -26,12 +25,10 @@ export default function MovieDetail(props) {
     setDisplayedDetail(event.target.value);
   };
 
-  //Přepnutí state, když se klikne na Add Movie Detail (aby se vyrenderovalo textové pole)
   const addMovieDetailHandler = () => {
     setDetailState("DISPLAY-TEXT_AREA");
   };
 
-  //Vyplňování detailu a update movie v array z MoviesContextu
   const detailSubmitHandler = (event) => {
     event.preventDefault();
     setDetailState("DISPLAY-DETAIL");
@@ -49,12 +46,12 @@ export default function MovieDetail(props) {
     props.detailClick();
   };
 
-  //1. možné zobrazení- Když daný film má přidaný detail, tak se vyrenderuje detail.
+  //1. Possible render - When movie has added detail by the user, the detail is rendered.
   if (detailState === "DISPLAY-DETAIL") {
     return <DisplayDetail detailClick={detailClick} />;
   }
 
-  //2. možné zobrazení- textové pole se zadanim detailu
+  //2. Possible render - Text area with possibility for the user to write detail (after the 3. Possible render below, when user clicks on "Add detail")
   else if (detailState === "DISPLAY-TEXT_AREA") {
     return (
       <AddMovieDetail
@@ -66,7 +63,7 @@ export default function MovieDetail(props) {
     );
   }
 
-  //3. možné zobrazení - když rozkliknutý film nemá detail
+  //3. Possible render - When movie has no detail added by user.
   else if (detailState === "DISPLAY-NO_DETAIL") {
     return (
       <NoMovieDetail

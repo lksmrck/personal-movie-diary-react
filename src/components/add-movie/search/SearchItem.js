@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import image from "../../../assets/no-poster-available.webp";
-
 import SearchContext from "../../../store/SearchContext";
 
 export default function SearchItem({
@@ -16,7 +15,7 @@ export default function SearchItem({
   const releaseDate = new Date(movieYear);
   const releaseYear = releaseDate.getFullYear();
 
-  //Pokud není dotáhnut obrázek z API, tak použije No Poster Found image
+  //Default image - used in case that found movie has no image
   let foundImgURL = "";
   if (imageURL == null) {
     foundImgURL = image;
@@ -25,7 +24,6 @@ export default function SearchItem({
   }
 
   const onClickMovieHandler = () => {
-    //Po přidání filmu se přestanou renderovat vyhledané filmy.
     searchDisplayToggle();
     const movieItem = {
       id: Math.random().toString(),
@@ -43,13 +41,7 @@ export default function SearchItem({
 
   return (
     <li onClick={onClickMovieHandler}>
-      <img
-        src={foundImgURL}
-        width="64.9px"
-        height="91px"
-        alt="movie poster"
-        //Když kliknu na obrázek, pošlu do funkce props.id itemu, na který jsem klikl.
-      />
+      <img src={foundImgURL} width="64.9px" height="91px" alt="movie poster" />
       <div className="search-movie-data">
         <p className="search-title">{title}</p>
         <p>{isNaN(releaseYear) ? "---" : releaseYear}</p>

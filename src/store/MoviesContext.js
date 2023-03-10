@@ -3,20 +3,18 @@ import { createContext, useEffect, useState } from "react";
 const MoviesContext = createContext();
 
 export function MoviesContextProvider({ children }) {
-  //Array s filmy, do kt. se budou přidávat
+  //Array of watched movies
   const [movies, setMovies] = useState([]);
   const [displayedDetail, setDisplayedDetail] = useState("");
-  //Sleduje ID filmu, na který se kliknulo - aby pak šel identifikovat až se bude měnit detail
   const [clickedMovieId, setClickedMovieId] = useState("");
 
-  //State, kterému se přidělují 3 hodnoty a podle nich se podmíněně renderujou věci v modálním okně (comp. MovieDetail).
-  //Tyto hodnoty může state mít:
+  //State for the controlling of the render of components in the modal window (MovieDetail component)
+  //Possible values:
   // "DISPLAY-DETAIL"
   // "DISPLAY-TEXT_AREA"
   // "DISPLAY-NO_DETAIL"
   const [detailState, setDetailState] = useState("");
 
-  //Initial načtení a zobrazení z localStorage
   useEffect(() => {
     const localData = localStorage.getItem("movies");
     if (localData) {
@@ -24,12 +22,10 @@ export function MoviesContextProvider({ children }) {
     }
   }, []);
 
-  //Ukládání movies do localStorage
   useEffect(() => {
     localStorage.setItem("movies", JSON.stringify(movies));
   }, [movies]);
 
-  //Přidání filmu do array
   const addToMovies = (addedMovie) => {
     const movieToBeAdded = {
       id: addedMovie.id,
@@ -48,7 +44,6 @@ export function MoviesContextProvider({ children }) {
     });
   };
 
-  //Odstranění filmu po kliknutí na ikonu.
   const deleteMovie = (movieId) => {
     setMovies((prevMovies) => {
       const updatedMovies = prevMovies.filter((movie) => movie.id !== movieId);

@@ -26,7 +26,6 @@ export default function AddDateModal({
 
   const onSubmitDateWatched = () => {
     const updatedMovie = { ...movieToBeAdded, dateWatched };
-    //Zde se pošle finální movie object do funkce, která ho přidá do array s filmy.
     addToMovies(updatedMovie);
     backToSearch();
     setSearchTerm("");

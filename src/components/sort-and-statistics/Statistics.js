@@ -15,7 +15,7 @@ export default function Statistics() {
     setIsShown(!isShown);
   };
 
-  //Při každém přidání/úpravě/hodnocení filmu přepočte jeho průměrný rating, který se pak ukazuje ve Statistics
+  //Average rating is recalculated after every adding/editing of the rating.
   useEffect(() => {
     let avgRatingL = 0;
     let avgRatingV = 0;

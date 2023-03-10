@@ -30,7 +30,7 @@ export default function Search() {
   const [isDisplayedSearch, setIsDisplayedSearch] = useState(false);
   const [isDisplayedDateModal, setIsDisplayedDateModal] = useState(false);
 
-  //API call, kde se hledá searchTerm po 0.5 vteřine, kdy user přestane psát + cleanup function
+  //API call - calling 0.5sec after user stop writing
   useEffect(() => {
     const API_CALL = setTimeout(() => {
       if (searchTerm) {
@@ -73,7 +73,7 @@ export default function Search() {
                   value: searchTerm,
                 }}
               />
-              {/* LIST S VYHLEDANÝMI FILMY -  vyrenderuje se pokud: 1. Se vyslal fetch request, 2. fetch request se i dokončil 3. našel se alespoň jeden film, 4. a zároveň nenastal error */}
+              {/* Found movies list - rendered if: 1. Fetch request was sent, 2. Fetch request was finished, 3. At least one movie found, 4. No error was found */}
               {isDisplayedSearch &&
               isLoading === false &&
               foundMovies.length > 0 &&
@@ -107,8 +107,8 @@ export default function Search() {
               ) : (
                 ""
               )}
-              {/* ERROR HLÁŠKA - vyrenderuje se pokud: 1. Se vyslal fetch request, 2.nastal při tom error. */}
-              {isDisplayedSearch && error !== null ? (
+              {/* ERROR component - rendered if: 1. Fetch request was sent, 2. Error found during the fetch request */}
+              {isDisplayedSearch && error !== null && (
                 <div className="search-list-container">
                   <StyledListShort>
                     <Error />
@@ -124,33 +124,28 @@ export default function Search() {
                     </Button>
                   </div>
                 </div>
-              ) : (
-                ""
               )}
-
-              {/* NENALEZEN ŽÁDNÝ MOVIE - vyrenderuje se, když 1. Se vyslal fetch request, 2. fetch request se i dokončil 3. počet nalezených filmů je 0, 4. a zároveň nenastal error */}
+              {/* No movie found component - rendered if: 1. Fetch request was sent, 2. Fetch request was also finished 3. Number of found movies === 0, 4. Also no error was found. */}
               {isDisplayedSearch &&
-              isLoading === false &&
-              foundMovies.length === 0 &&
-              error == null ? (
-                <div className="search-list-container">
-                  <StyledListShort>
-                    <FoundNoMovie />
-                  </StyledListShort>
-                  <div className="search-button-container">
-                    <Button
-                      variant="contained"
-                      color="error"
-                      onClick={onCancelSearch}
-                      startIcon={<TiArrowBackOutline />}
-                    >
-                      Back
-                    </Button>
+                isLoading === false &&
+                foundMovies.length === 0 &&
+                error == null && (
+                  <div className="search-list-container">
+                    <StyledListShort>
+                      <FoundNoMovie />
+                    </StyledListShort>
+                    <div className="search-button-container">
+                      <Button
+                        variant="contained"
+                        color="error"
+                        onClick={onCancelSearch}
+                        startIcon={<TiArrowBackOutline />}
+                      >
+                        Back
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              ) : (
-                ""
-              )}
+                )}
               {!isDisplayedSearch && !isLoading && (
                 <Button
                   variant="outlined"
@@ -163,15 +158,13 @@ export default function Search() {
               )}
               {isLoading && <LoadingSpinner />}
             </form>
-            {isDisplayedDateModal === true ? (
+            {isDisplayedDateModal === true && (
               <Backdrop>
                 <AddDateModal
                   displayDateModalToggle={setIsDisplayedDateModal}
                   movieToBeAdded={movieToBeAdded}
                 />
               </Backdrop>
-            ) : (
-              ""
             )}
           </div>
         </StyledForm>

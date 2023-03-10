@@ -2,6 +2,7 @@ import { React, useContext, useEffect } from "react";
 import { StyledMovieCard } from "./styled";
 import { Rating } from "@mui/material";
 import { useState } from "react";
+import { adjustFormatOfDateWatched } from "../../utils/dateFormat";
 
 import MoviesContext from "../../store/MoviesContext";
 
@@ -15,25 +16,17 @@ export default function MovieCard({
   title,
   detailClick,
 }) {
-  // *STATES*
   const [valueL, setValueL] = useState(null);
   const [valueV, setValueV] = useState(null);
 
   const { deleteMovie } = useContext(MoviesContext);
 
-  //Upravení formátu datumu
-  const date = new Date(dateWatched);
-  const month = date.toLocaleString("en-US", { month: "2-digit" });
-  const day = date.toLocaleString("en-US", { day: "2-digit" });
-  const year = date.getFullYear();
+  const adjustedDateWatched = adjustFormatOfDateWatched(dateWatched);
 
-  const myDate = day + "-" + month + "-" + year;
-
-  //Upravení formátu movieDate - aby se správně zobrazovalo v případě, že date z API je NaN
+  //Some movies from the API return NaN as a movie year property - below are two helper consts for proper handling of this situation during the rendering.
   const dateFilmed = movieYear;
   const dateFilmedType = typeof dateFilmed;
 
-  //Načítání a zobrazování ratingu z localStorage při vyrenderování komponentu.
   useEffect(() => {
     const localData = localStorage.getItem("movies");
     if (localData) {
@@ -49,7 +42,6 @@ export default function MovieCard({
     }
   }, []);
 
-  //Uložení uděleného ratingu do array
   const onChangeRatingL = (event, newValue) => {
     setValueL(newValue);
     ratingLUpdate(id, newValue);
@@ -88,7 +80,7 @@ export default function MovieCard({
           ? dateFilmed
           : "---"}
       </h3>
-      <h4>{myDate}</h4>
+      <h4>{adjustedDateWatched}</h4>
       <div className="rating">
         L:
         <Rating
